@@ -1,0 +1,259 @@
+// stylelint-disable value-keyword-case, scss/dollar-variable-default
+
+
+
+// #########################
+// Update root variables
+// #########################
+
+
+// Remove "wrong" theme-colors
+$theme-colors: map-remove($theme-colors, "light", "dark", "secondary");
+
+
+
+// ###################
+// Boostrap Components
+// ###################
+
+
+// Accordions
+
+$accordion-border-color:             cake-color("gray");
+$accordion-border-radius:            $border-radius;
+$accordion-border-width:             $border-width;
+$accordion-padding-x:                2 * $spacer - calculateRem($accordion-border-width);
+$accordion-padding-y:                $spacer;
+$accordion-max-height:               8000px; // must be greater than users screen height
+$accordion-collapse-transition:      all .35s ease, max-height .35s cubic-bezier(0, 1, 0, 1);
+$accordion-focus-border-color:       cake-color("primary");
+$accordion-hover-border-color:       cake-color("primary");
+$accordion-active-border-color:      cake-color("primary");
+$accordion-icon-color:               cake-color("gray", "darker");
+$accordion-icon-dimension:           $input-icon-size;
+$accordion-icon-transition:          all .35s linear;
+$accordion-label-height:             $input-btn-height;
+$accordion-label-height-at-lg:       $input-btn-height-at-lg;
+$accordion-label-color:              cake-color("gray", "darker");
+$accordion-label-focus-color:        cake-color("primary");
+$accordion-label-focus-box-shadow:   $input-btn-focus-box-shadow;
+$accordion-label-active-color:       cake-color("primary");
+$accordion-disabled-color:           cake-color("gray", "base");
+$accordion-disabled-border-color:    cake-color("gray", "light");
+$accordion-disabled-bg-color:        cake-color("gray", "background");
+
+
+// Alert
+
+$alert-icon-margin-right:             $spacer * 2;
+$alert-margin-top-content-with-icon:  calculateRem(4px);
+$alert-close-focus-box-shadow:        $input-btn-focus-box-shadow;
+
+
+// Badge
+
+$badge-colors: (
+  "primary": $primary,
+  "info": $info,
+);
+
+$badge-line-height:                   1.2;
+$badge-border:                        $badge-border-width solid $white;
+
+$badge-addon-padding-x:              calculateRem(4px) - calculateRem($badge-border-width);
+$badge-addon-padding-y:              calculateRem(2px);
+$badge-addon-padding-x-lg:           calculateRem(6px) - calculateRem($badge-border-width);
+$badge-addon-padding-y-lg:           calculateRem(3px);
+$badge-addon-border-radius:          $badge-pill-border-radius;
+$badge-addon-size:                   calculateRem(16px);
+$badge-addon-size-lg:                calculateRem(20px);
+$badge-addon-font-size:              calculateRem(10px);
+
+
+// Breadcrumb
+
+$breadcrumb-item-margin-x:            $spacer;
+$breadcrumb-item-space-new-line:      .25rem;
+
+$breadcrumb-link-color:               $body-color;
+$breadcrumb-link-text-decoration:     none;
+
+$breadcrumb-icon-margin-top:          -$breadcrumb-item-space-new-line;
+
+
+// Button
+
+$btn-font-size-at-lg:         $btn-font-size + $font-grow;
+$btn-height:                  $input-btn-height;
+$btn-height-at-lg:            $input-btn-height-at-lg;
+$btn-font-size:               $font-size-base + $font-grow;
+$btn-disabled-opacity:        1;
+
+
+// Card
+
+$card-title-line-height:            $headings-line-height;
+$card-subtitle-line-height:         $headings-line-height;
+$card-link-color:                   $body-color;
+$card-hover-color:                  $card-color;
+
+
+// Close
+
+$close-size:                        1rem;
+
+
+// Pagination
+
+$pagination-line-height-lg:         calculateRem(48px);
+$pagination-line-height-md:         calculateRem(40px);
+$pagination-min-width-lg:           $pagination-line-height-lg;
+$pagination-min-width-md:           $pagination-line-height-md;
+$pagination-box-shadow:             $box-shadow;
+
+
+// Slider Button
+
+$btn-slider-color:            $body-color;
+$btn-slider-bg:               $white;
+$btn-slider-box-shadow:       $box-shadow;
+$btn-slider-padding:          0 .5rem;
+
+$btn-slider-hover-color:      $white;
+$btn-slider-hover-bg:         $primary;
+
+
+// Tables
+
+$table-border-color:          cake-color("gray", "lighter");
+
+
+// Typography
+
+$link-negative-color:                              $white;
+$link-negative-hover-color:                        cake-color("gray", "light");
+$link-negative-active-color:                       cake-color("gray", "light");
+$link-negative-focus-box-shadow:                   0 0 0 $input-btn-focus-width rgba($white, .5);
+
+
+
+
+// ################
+// Theme Components
+// ################
+
+
+// Banner
+
+$banner-max-width:                            calculateRem(1920px);
+$banner-height:                               calculateRem(184px);
+$banner-height-desktop:                       calculateRem(200px);
+$banner-width-cols:                           3;
+
+$banner-arrow-arc-alpha:                      128deg;
+$banner-arrow-arc-beta:                       26deg;
+$banner-arrow-width:                          cake-get-height-of-isosceles-triangle($banner-height, $banner-arrow-arc-alpha, $banner-arrow-arc-beta);
+$banner-arrow-width-lg:                       cake-get-height-of-isosceles-triangle($banner-height-desktop, $banner-arrow-arc-alpha, $banner-arrow-arc-beta);
+
+$banner-bar-bg:                               cake-color("primary");
+$banner-bar-bg-opacity:                       .9;
+$banner-bar-color:                            $white;
+$banner-bar-cols:                             6;
+$banner-bar-cols-md:                          4;
+$banner-bar-cols-lg:                          3;
+$banner-bar-padding:                          $spacer * 2;
+$banner-bar-padding:                          0 $banner-arrow-width 0 1rem;
+$banner-bar-padding-lg:                       0 $banner-arrow-width-lg 0 1rem;
+
+$banner-clip-path:                  polygon(0 0, calc(100% - #{$banner-arrow-width}) 0, 100% 50%, calc(100% - #{$banner-arrow-width}) 100%, 0 100%);
+$banner-clip-path-lg:               polygon(0 0, calc(100% - #{$banner-arrow-width-lg}) 0, 100% 50%, calc(100% - #{$banner-arrow-width-lg}) 100%, 0 100%);
+$banner-container-max-width:        nth(map-values($container-max-widths), length(map-values($container-max-widths)));
+$banner-left-bg-width:              $card-img-overlay-padding;
+
+$banner-title-font-size:                      calculateRem(20px);
+$banner-title-font-weight:                    $font-weight-bold;
+
+$banner-subhead-font-size:                    calculateRem(12px);
+$banner-subhead-font-weight:                  $font-weight-normal;
+$banner-subhead-margin-bottom:                calculateRem(2px);
+
+
+// Cookie Alert
+
+$cookie-alert-overlay-background:                   rgba($black, .72);
+$cookie-alert-modal-background:                     $white;
+$cookie-alert-modal-padding:                        calculateRem(16px);
+$cookie-alert-modal-max-width:                      calculateRem(624px);
+$cookie-alert-modal-color:                          $body-color;
+$cookie-alert-modal-font-size:                      calculateRem(12px);
+$cookie-alert-modal-seperator:                      1px solid cake-color("gray", "lighter");
+$cookie-alert-modal-checkbox-discrepancy:           calculateRem(3px);
+$cookie-alert-modal-detail-link-icon-size:          calculateRem(16px);
+
+
+// Footer
+
+$footer-bg:                               cake-color("gray");
+$footer-color:                            $white;
+$footer-padding-y:                        $spacer * 4;
+$footer-list-item-link-hover-bg:          cake-color("gray", "light");
+$footer-seperator-border-width:           $border-width;
+$footer-seperator-border-color:           cake-color("gray", "lightest");
+$footer-list-item-link-padding:           $spacer;
+
+
+// Popover
+
+$popover-font-size:                           $font-size-sm;
+$popover-padding:                             $spacer * 2;
+$popover-box-shadow:                          $box-shadow;
+$popover-font-weight:                         $font-weight-normal;
+$popover-bg-color:                            $white;
+$popover-color:                               color-yiq($popover-bg-color, $body-color, $white);
+$popover-border-color:                        cake-color("gray", "lighter");
+$popover-border-radius:                       $border-radius;
+$popover-arrow-color:                         $popover-bg-color;
+$popover-svg-arrow-color:                     $popover-arrow-color;
+$popover-backdrop-bg-color:                   $popover-bg-color;
+
+
+// Product tile
+
+$product-tile-shadow:                     $box-shadow;
+
+
+// Tab
+
+$tab-background-color:                cake-color("gray", "lightest");
+$tab-background-hover-color:          $primary;
+$tab-background-active-color:         $white;
+$tab-border-color:                    cake-color("gray", "light");
+$tab-border-hover-color:              $primary;
+$tab-border-active-color:             cake-color("gray", "light");
+$tab-color:                           cake-color("gray", "darker");
+$tab-color-hover:                     color-yiq($tab-background-hover-color);
+$tab-btn-padding:                     $spacer * 2;
+$tab-mobile-btn-padding-x:            $spacer;
+$tab-slider-btn-width:                2rem;
+$tab-icon-size:                       1rem;
+$tab-icon-path-previous:              $navigation-icon-path + "arrow-left.svg";
+$tab-icon-path-next:                  $navigation-icon-path + "arrow-right.svg";
+
+
+// Teaser
+
+$teaser-bar-bg:                               cake-color("gray", "darker");
+$teaser-bar-bg-opacity:                       .9;
+$teaser-bar-color:                            $white;
+$teaser-bar-padding:                          $spacer * 2;
+$teaser-bar-line-height:                      $line-height-base;
+$teaser-bar-margin-bottom:                    $teaser-bar-padding;
+
+$teaser-img-hover-opacity:                    .5;
+
+$teaser-title-font-weight:                    $font-weight-bold;
+$teaser-title-font-size:                      calculateRem(20px);
+
+$teaser-subhead-font-weight:                  $font-weight-normal;
+$teaser-subhead-font-size:                    calculateRem(12px);
+$teaser-subhead-margin-bottom:                calculateRem(2px);

@@ -1,0 +1,27 @@
+// Contextual colors
+
+.text-mark { color: $mark !important; }
+
+.text-disabled {
+  color: $text-disabled !important;
+  @include deprecate("`.text-disabled `", "v4.10.0", "v5");
+}
+
+// Misc
+
+.hyphens {
+  hyphens: auto;
+  word-wrap: break-word; // bugfix - oldBrowser
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+// Sizes
+
+.text-lg {
+  @include cake-font-size($font-size-lg);
+}
+
+.text-sm {
+  @include cake-font-size($font-size-sm);
+}

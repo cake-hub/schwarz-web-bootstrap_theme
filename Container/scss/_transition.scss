@@ -1,0 +1,14 @@
+.fade {
+  @include transition($transition-fade);
+
+  &:not(.show) {
+    opacity: 0;
+  }
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
+}

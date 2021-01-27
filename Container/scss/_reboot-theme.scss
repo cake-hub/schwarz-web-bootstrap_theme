@@ -1,0 +1,10 @@
+//
+// Links
+//
+
+a {
+  &:focus {
+    outline: none;
+    box-shadow: $input-btn-focus-box-shadow;
+  }
+}

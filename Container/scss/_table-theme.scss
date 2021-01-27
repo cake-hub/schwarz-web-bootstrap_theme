@@ -1,0 +1,21 @@
+//
+// Basic Bootstrap table
+//
+
+.table {
+  tr:first-child {
+    th,
+    td {
+      border-top: 0;
+    }
+  }
+}
+
+.table-striped-v {
+  tr {
+    td:nth-child(#{$table-striped-order}),
+    th:nth-child(#{$table-striped-order}) {
+      background-color: $table-accent-bg;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Base styles
+//
+
+.btn {
+  display: inline-block;
+  @include cake-button-size-fixed-height($btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius, $btn-height, $btn-border-width);
+  @include media-breakpoint-up(lg) {
+    @include cake-button-size-fixed-height($btn-padding-x, $btn-font-size-at-lg, $btn-line-height, $btn-border-radius, $btn-height-at-lg, $btn-border-width);
+  }
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  color: $body-color;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  border: $btn-border-width solid transparent;
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover {
+    color: $body-color;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    @include box-shadow(none);
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+  }
+
+  &:not(.btn-link) {
+    text-decoration: none;
+  }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+
+//
+// Alternate buttons
+//
+
+// Primary
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include cake-button-variant($value, $value, cake-color($color, "darker"), cake-color($color, "darker"), cake-color($color, "darker"), cake-color($color, "darker"), cake-color("gray", "lighter"), cake-color("gray", "lightest"));
+  }
+}
+
+// Primary negative / inverted
+.btn-primary-negative {
+  @include cake-button-variant($white, $white, cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "light"), cake-color("gray"));
+}
+
+// Secondary
+.btn-secondary {
+  @include cake-button-outline-variant(cake-color("primary"), $white, cake-color("primary", "darker"), cake-color("primary", "darker"), rgba(cake-color("gray", "lighter"), $btn-disabled-opacity), rgba(cake-color("gray", "lighter"), $btn-disabled-opacity));
+}
+
+// Secondary negative / inverted
+.btn-secondary-negative {
+  @include cake-button-outline-variant($white, cake-color("primary"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), rgba(cake-color("gray", "light"), $btn-disabled-opacity), rgba(cake-color("gray", "light"), $btn-disabled-opacity));
+}
+
+// slider buttons
+.btn-slider {
+  padding: $btn-slider-padding;
+  color: $btn-slider-color;
+  background-color: $btn-slider-bg;
+  border: none;
+  box-shadow: $btn-slider-box-shadow;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $btn-slider-hover-color;
+    background-color: $btn-slider-hover-bg;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: $btn-slider-box-shadow;
+  }
+}
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+
+  // No need for an active state here
+}
+
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+  @include cake-button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+}
+
+.btn-sm {
+  @include cake-button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+}
+
+
+//
+// Block button
+//
+
+.btn-block {
+  display: block;
+  width: 100%;
+
+  // Vertically space out multiple block buttons
+  + .btn-block {
+    margin-top: $btn-block-spacing-y;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

@@ -1,0 +1,446 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// stylelint-disable value-keyword-case, scss/dollar-variable-default
+
+// Color system
+
+$white:       #fff;
+$gray:        #505050;
+$black:       #000;
+
+$primary:     #6e1e6e;
+$success:     #05a54b;
+$info:        #465a78;
+$danger:      #e3000f;
+$mark:        #fff000;
+$attention:   #ffd25a;
+
+// Customize the light and dark text colors for use in our cake-colors contrast function.
+$cake-color-mix-dark:   $black;
+$cake-color-mix-light:  $white;
+
+// Color gradations
+
+$gradations: ();
+$gradations: map-merge(
+  (
+    "background": 10,
+    "lightest": 20,
+    "lighter": 40,
+    "light": 60,
+    "base": 100,
+    "dark": -20,
+    "darker": -40,
+    "darkest": -60
+  ),
+  $gradations
+);
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "success":    $success,
+    "info":       $info,
+    "danger":     $danger,
+    "attention":  $attention,
+    "gray":       $gray
+  ),
+  $theme-colors
+);
+
+$yiq-text-dark:             $primary;
+
+$gray-100: cake-color("gray", "background");
+$gray-200: cake-color("gray", "lightest");
+$gray-300: cake-color("gray", "lighter");
+$gray-400: cake-color("gray", "light");
+$gray-500: cake-color("gray", "base");
+$gray-600: cake-color("gray", "dark");
+$gray-700: cake-color("gray", "darker");
+$gray-800: cake-color("gray", "darkest");
+$gray-900: cake-color("gray", "darkest");
+
+
+// Adjust the icon-paths (the webpack.config.js is the root folder)
+// needed for base64 encoded icons in css
+$expression-icon-path:          "./assets/icons/expression/";
+$interaction-icon-path:         "./assets/icons/interaction/";
+$navigation-icon-path:          "./assets/icons/navigation/";
+$smiley-icon-path:              "./assets/icons/smiley/";
+$scss-icon-path:                "./assets/icons/_scssOnly/";
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-gradients:              false;
+$enable-rounded:                false;
+$enable-validation-icons:       false;
+$enable-deprecation-messages:   false;
+$border-radius:                 0;
+
+
+$spacer: .5rem;
+$spacers: ();
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * 1),
+    2: ($spacer * 2),
+    3: ($spacer * 3),
+    4: ($spacer * 4),
+    5: ($spacer * 5),
+    6: ($spacer * 6),
+    7: ($spacer * 7),
+    8: ($spacer * 8),
+    9: ($spacer * 9),
+    10: ($spacer * 10),
+    11: ($spacer * 11),
+    12: ($spacer * 12),
+    13: ($spacer * 13),
+    14: ($spacer * 14),
+    15: ($spacer * 15),
+    16: ($spacer * 16)
+  ),
+  $spacers
+);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:                   cake-color("gray", "background");
+$body-color:                $black;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-decoration:                         underline;
+$link-hover-color:                        cake-color("primary", "darker");
+$link-active-color:                       cake-color("primary", "darker");
+$link-active-decoration:                  none;
+
+
+// Paragraphs
+//
+// Style p element.
+
+$paragraph-margin-bottom:   $spacer * 4;
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px
+);
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+);
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-gutter-width:           16px;
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-width:                1px;
+$border-radius:               0;
+$box-shadow:                  0 .125rem .25rem rgba($black, .15);
+
+$component-active-bg:         theme-color("primary");
+$component-active-color:      $white;
+
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-path:                   "../fonts/";
+
+// stylelint-disable indentation
+$fonts-to-load:                 HelveticaNeueLT HelveticaNeueLT-Cond,
+                                HelveticaNeueLT HelveticaNeueLT-BoldCond 600,
+                                HelveticaNeueLT HelveticaNeueLT-BoldCond 700, // to match with `bold`
+                                HelveticaNeueLT HelveticaNeueLT-Bold 800; // to match with `extra bold`
+// stylelint-enable indentation
+$font-weight-bold:              600;
+
+$font-family-sans-serif:        HelveticaNeueLT, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+$font-size-base:              1rem;
+$font-size-lg:                1.25rem;
+$font-size-sm:                .75rem;
+$font-grow:                   calculateRem(2px);
+
+$font-weight-normal:          400;
+$font-weight-base:            $font-weight-normal;
+
+$line-height-base:            1.4;
+
+$h1-font-size:                calculateRem(32px);
+$h2-font-size:                calculateRem(28px);
+$h3-font-size:                calculateRem(24px);
+$h4-font-size:                calculateRem(20px);
+$h5-font-size:                $font-size-base;
+
+$heading-h1-margin-bottom:    ($spacer * 4);
+$heading-h2-margin-bottom:    ($spacer * 2);
+$headings-margin-bottom:      $spacer;
+
+$headings-font-weight:        700;
+$text-disabled:               cake-color("gray", "light"); // deprecated. No longer used.
+
+$hr-margin-y:                 $paragraph-margin-bottom;
+
+
+// ##########
+// Components
+// ##########
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding:          .5rem 1rem;
+$table-accent-bg:             cake-color("gray", "lightest");
+
+
+// Buttons + Forms
+
+$input-btn-font-family:             null;
+$input-btn-font-size:         $font-size-base;
+
+$input-btn-border-width:            $border-width;
+$input-btn-padding-y:               .75rem;
+$input-btn-padding-x:               1rem - calculateRem($input-btn-border-width);
+$input-btn-line-height:             1.2;
+$input-btn-height:                  calculateRem(40px);
+$input-btn-height-at-lg:            calculateRem(48px);
+
+$input-btn-focus-width:             calculateRem(3px);
+$input-btn-focus-color:             rgba($component-active-bg, .5);
+
+
+// Buttons
+
+$btn-font-size:               calculateRem(16px);
+$btn-font-weight:             $font-weight-bold;
+$btn-disabled-opacity:        .16;
+$btn-padding-tb-diff:         0;
+
+
+// Forms
+
+$input-font-family:                     $input-btn-font-family;
+$input-font-size:                       $input-btn-font-size;
+$input-font-size-at-lg:                 $input-btn-font-size + $font-grow;
+
+$input-font-weight:                     $font-weight-base;
+$input-line-height:                     $input-btn-line-height;
+
+$input-disabled-bg:                     $body-bg;
+$input-disabled-color:                  $gray;
+$input-disabled-border-color:           cake-color("gray", "light");
+
+$input-color:                           $primary;
+$input-border-color:                    $gray;
+$input-border-width:                    $input-btn-border-width;
+
+$input-icon-size:                       calculateRem(24px);
+
+$input-focus-border-color:              $primary;
+$input-focus-color:                     cake-color("gray", "darker");
+$input-placeholder-color:               $gray;
+
+$input-height-border:                   $input-border-width * 2;
+
+$input-height-inner:                    calculateRem(48px - $input-height-border);
+$input-height-inner-half:               calculateRem(24px);
+$input-height-inner-quarter:            calculateRem(16px);
+
+$input-height:                          $input-btn-height;
+$input-height-at-lg:                    $input-btn-height-at-lg;
+
+$form-grid-gutter-width:                1rem;
+
+$custom-control-indicator-size:         calculateRem(24px);
+$custom-control-indicator-bg-size:      1rem 1rem;
+$custom-control-indicator-border-color: cake-color("gray");
+
+$custom-control-indicator-border-color-hover:     $primary;
+
+$custom-control-indicator-disabled-border-color:  cake-color("gray", "light");
+$custom-control-label-disabled-color:             cake-color("gray", "base");
+
+$custom-control-indicator-checked-color:          $primary;
+$custom-control-indicator-checked-disabled-color: cake-color("gray", "light");
+$custom-control-indicator-checked-disabled-bg:    $body-bg;
+$custom-control-indicator-checked-border-color:   $custom-control-indicator-border-color;
+$custom-control-indicator-checked-box-shadow:     0 0 0 $input-btn-focus-width $input-btn-focus-color;
+
+$custom-control-indicator-active-bg:          mix($white, $primary, 50%);
+$custom-control-indicator-checked-danger-color: theme-color("danger");
+
+$custom-checkbox-indicator-border-radius:         $border-radius;
+$custom-checkbox-indicator-icon-checked:          svg-load($scss-icon-path + "hook-bold.svg", fill=$custom-control-indicator-checked-color);
+$custom-checkbox-indicator-icon-checked-disabled: svg-load($scss-icon-path + "hook-bold.svg", fill=$custom-control-indicator-checked-disabled-color);
+$custom-checkbox-indicator-icon-checked-danger:   svg-load($scss-icon-path + "hook-bold.svg", fill=$custom-control-indicator-checked-danger-color);
+
+$custom-radio-indicator-icon-checked:           svg-load($scss-icon-path + "bullet-standard.svg", fill=$custom-control-indicator-checked-color);
+$custom-radio-indicator-icon-checked-disabled:  svg-load($scss-icon-path + "bullet-standard.svg", fill=$custom-control-indicator-checked-disabled-color);
+$custom-radio-indicator-icon-checked-danger:    svg-load($scss-icon-path + "bullet-standard.svg", fill=$custom-control-indicator-checked-danger-color);
+
+$custom-select-padding-y:                 $spacer;
+$custom-select-padding-x:                 ($spacer * 2) - calculateRem($input-btn-border-width);
+$custom-select-indicator-padding:         calculateRem(24px);
+$custom-select-font-size-at-lg:           $input-font-size-at-lg;
+$custom-select-height-at-lg:              $input-height-at-lg;
+$custom-select-disabled-color:            $input-disabled-color;
+$custom-select-disabled-border-color:     $input-disabled-border-color;
+$custom-select-disabled-bg:               $input-disabled-bg;
+$custom-select-disabled-indicator-color:  $input-disabled-color;
+$custom-select-disabled-indicator:        svg-load($navigation-icon-path + "arrow-down.svg", fill=$custom-select-disabled-indicator-color);
+$custom-select-focus-border-color:        $input-focus-border-color;
+$custom-select-bg-size:                   $input-icon-size $input-icon-size;
+$custom-select-indicator-color:           $body-color;
+$custom-select-indicator:                 svg-load($navigation-icon-path + "arrow-down.svg", fill=$custom-select-indicator-color);
+
+$custom-select-hover-border-color:        $custom-select-focus-border-color;
+
+
+// Form validation
+
+$form-feedback-valid-color:         $success;
+$form-feedback-invalid-color:       theme-color("danger");
+
+$form-feedback-icon-valid-color:    $form-feedback-valid-color;
+$form-feedback-icon-valid:          svg-load($interaction-icon-path + "hook.svg", fill=$form-feedback-icon-valid-color);
+$form-feedback-icon-invalid-color:  $form-feedback-invalid-color;
+$form-feedback-icon-invalid:        svg-load($navigation-icon-path + "cross.svg", fill=$form-feedback-icon-invalid-color);
+
+$form-validation-states: ();
+$form-validation-states: map-merge(
+  $form-validation-states,
+  (
+    "valid": (
+      "color": $form-feedback-valid-color,
+      "icon": $form-feedback-icon-valid
+    ),
+    "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon": $form-feedback-icon-invalid
+    ),
+  )
+);
+
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex-cookie-alert:               99999;
+
+
+// Pagination
+
+$pagination-padding-y:              0;
+$pagination-padding-x:              $spacer;
+$pagination-padding-y-sm:           $pagination-padding-y;
+$pagination-padding-x-sm:           $pagination-padding-x;
+$pagination-padding-y-lg:           $pagination-padding-y;
+$pagination-padding-x-lg:           $pagination-padding-x;
+
+$pagination-color:                  $body-color;
+$pagination-border-width:           0;
+$pagination-border-color:           transparent;
+
+$pagination-hover-color:            $component-active-color;
+$pagination-hover-bg:               $component-active-bg;
+$pagination-hover-border-color:     $pagination-hover-bg;
+
+$pagination-disabled-color:         cake-color("gray", "light");
+$pagination-disabled-border-color:  transparent;
+
+
+// Cards
+
+$card-spacer-y:                     $spacer;
+$card-spacer-x:                     $spacer * 2;
+$card-border-width:                 0;
+$card-border-radius:                $border-radius;
+$card-inner-border-radius:          calc(#{$card-border-radius} - #{($card-border-width * 1px)});
+$card-cap-bg:                       rgba($black, .06);
+
+$card-img-overlay-padding:          $card-spacer-x;
+$card-columns-margin:               $card-spacer-y * 2;
+
+
+// Badges
+
+$badge-border-width:                $border-width;
+$badge-pill-padding-x:              ($spacer * 2) - calculateRem($badge-border-width);
+$badge-pill-border-radius:          10rem;
+$badge-padding-y:                   .25rem - calculateRem($badge-border-width);
+$badge-padding-x:                   $badge-pill-padding-x;
+$badge-border-radius:               $badge-pill-border-radius;
+
+
+// Alerts
+
+$alert-border-width:                $border-width;
+$alert-padding-y:                   ($spacer * 2) - calculateRem($alert-border-width);
+$alert-padding-x:                   ($spacer * 2) - calculateRem($alert-border-width);
+$alert-link-font-weight:            $font-weight-normal;
+
+
+// List group
+
+$list-group-border-color:           cake-color("gray", "lighter");
+$list-group-item-padding-y:         $spacer;
+$list-group-item-padding-x:         $spacer * 2;
+
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              0;
+$breadcrumb-padding-x:              0;
+
+$breadcrumb-bg:                     transparent;
+
+$breadcrumb-divider-color:          cake-color("gray", "darker");
+$breadcrumb-active-color:           cake-color("gray", "darker");
+$breadcrumb-divider:                svg-load($navigation-icon-path + "arrow-right.svg", fill=$breadcrumb-divider-color);
+
+
+// Carousel
+
+$carousel-control-color:            $white;
+$carousel-control-prev-icon-bg:     svg-load($navigation-icon-path + "arrow-left.svg", fill=$carousel-control-color);
+$carousel-control-next-icon-bg:     svg-load($navigation-icon-path + "arrow-right.svg", fill=$carousel-control-color);

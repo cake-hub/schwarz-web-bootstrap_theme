@@ -1,0 +1,41 @@
+// stylelint-disable selector-no-qualifying-type
+a.card {
+  color: $card-link-color;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    color: $card-hover-color;
+    text-decoration: none;
+    outline: 0;
+
+    .card-img-top {
+      opacity: .5;
+    }
+
+    .card-subtitle {
+      text-decoration: underline;
+    }
+  }
+}
+// stylelint-enable
+
+.card-title {
+  line-height: $card-title-line-height;
+}
+
+.card-subtitle {
+  line-height: $card-subtitle-line-height;
+}
+
+
+.card-link {
+  @include hover {
+    text-decoration: initial;
+  }
+}
+
+// Card image caps
+.card-img-top {
+  min-height: 1px; // bugfix - oldBrowser - IE 11 images were stretched vertically
+}

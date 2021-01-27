@@ -1,0 +1,5 @@
+version: '3'
+services:
+  schwarz-web-bootstrap_theme:
+    command: |
+      /bin/sh -c "cd /var/www/html/ && npm install && npm run dev"

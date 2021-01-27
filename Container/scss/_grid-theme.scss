@@ -1,0 +1,11 @@
+// Responsive container
+//
+// Utilizes the mixin meant for fixed width containers, but with 100% and largest $container-max-widths as max-width for
+// responsive layouts.
+
+@if $enable-grid-classes {
+  .container-responsive {
+    @include make-container();
+    max-width: nth(map-values($container-max-widths), length(map-values($container-max-widths))); //get the last value of the `$container-max-widths`
+  }
+}

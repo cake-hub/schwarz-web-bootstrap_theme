@@ -1,0 +1,28 @@
+.icon {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+// Align icon inside button
+.btn-icon {
+  margin-top: calculateRem(-5px); //Fix wrong vertical alignment (CAKE-2274)
+  margin-bottom: calculateRem(-1px); //Fix wrong vertical alignment (CAKE-2396)
+  vertical-align: middle;
+}
+
+// Global icon sizes
+@include cake-icon-sizes(1);
+@include cake-icon-sizes(2);
+@include cake-icon-sizes(3);
+@include cake-icon-sizes(4);
+
+.icon-close {
+  width: $close-size;
+  height: $close-size;
+}
+
+.icon-vertical-middle {
+  vertical-align: middle;
+  transform: translateY(calculateRem(-2px));
+}

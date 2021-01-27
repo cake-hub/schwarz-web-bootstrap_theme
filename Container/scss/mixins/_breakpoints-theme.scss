@@ -1,0 +1,104 @@
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin cake-media-breakpoint-up($name, $breakpoints: $grid-breakpoints, $orientation: false) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @if $orientation {
+      @media (min-width: $min) and (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) {
+        @content;
+      }
+    }
+  } @else {
+    @if $orientation {
+      @media (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin cake-media-breakpoint-down($name, $breakpoints: $grid-breakpoints, $orientation: false) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @if $orientation {
+      @media (max-width: $max) and (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $max) {
+        @content;
+      }
+    }
+  } @else {
+    @if $orientation {
+      @media (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin cake-media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints, $orientation: false) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @if $orientation {
+      @media (min-width: $min) and (max-width: $max) and (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints, $orientation) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints, $orientation) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin cake-media-breakpoint-only($name, $breakpoints: $grid-breakpoints, $orientation: false) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @if $orientation {
+      @media (min-width: $min) and (max-width: $max) and (orientation: $orientation) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints, $orientation) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints, $orientation) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@mixin cake-icon-sizes($size) {
+
+  .icon-#{$size} {
+    width: map-get($spacers, $size);
+    height: map-get($spacers, $size);
+  }
+}

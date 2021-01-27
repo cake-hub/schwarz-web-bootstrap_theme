@@ -1,0 +1,16 @@
+version: 1.0.0-alpha.1
+company: Schwarz
+product: Web
+productIcon: earth
+section: Bootstrap Theme
+sectionIcon: code
+build: cd ../ && npm install && npm run build
+develop: cd ../ && npm run dev
+variables:
+  npmPackageName: "@cake-hub/schwarz-web-bootstrap_theme"
+  repositoryUrl: https://github.com/cake-hub/schwarz-web-bootstrap_theme
+  bundleDownloadUrl: https://github.com/cake-hub/schwarz-web-bootstrap_theme/archive/master.zip
+  sourceDownloadUrl: https://github.com/cake-hub/schwarz-web-bootstrap_theme/archive/master.zip
+  npmPackageUrl: https://www.npmjs.com/package/@cake-hub/schwarz-web-bootstrap_theme
+  npmRegistryUrl: https://registry.npmjs.org/
+

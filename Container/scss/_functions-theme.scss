@@ -1,0 +1,83 @@
+@use "sass:math";
+
+// Function for converting px to rem.
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+// Function to generate color gradation by name
+@function cake-color($theme-color: "primary", $gradation: "base") {
+  //Set gradation value
+  $gradation-value: map-get($gradations, $gradation);
+
+  //Define foreground-color
+  $foreground-color: $cake-color-mix-dark;
+  @if $gradation-value >= 0 {
+    $foreground-color: $cake-color-mix-light;
+  }
+
+  //invert gradation on negative values
+  @if ($gradation-value < 0) {
+    $gradation-value: 100 + $gradation-value;
+  }
+
+  $base-color: $theme-color;
+  @if type_of($theme-color) == "string" {
+    $base-color: map-get($theme-colors, $theme-color);
+  }
+
+  @return mix($base-color, $foreground-color, $gradation-value);
+}
+
+//Function to convert variable to string
+@function to-string($value) {
+  @return inspect($value);
+}
+
+//Function to escape string or variable to url-encoded string
+@function url-encode($string) {
+  $string: to-string($string);
+  $map: (
+    "%": "%25",
+    "<": "%3C",
+    ">": "%3E",
+    " ": "%20",
+    "!": "%21",
+    "*": "%2A",
+    "'": "%27",
+    '"': "%22",
+    "(": "%28",
+    ")": "%29",
+    ";": "%3B",
+    ":": "%3A",
+    "@": "%40",
+    "&": "%26",
+    "=": "%3D",
+    "+": "%2B",
+    "$": "%24",
+    ",": "%2C",
+    "/": "%2F",
+    "?": "%3F",
+    "#": "%23",
+    "[": "%5B",
+    "]": "%5D"
+  );
+  $new: $string;
+  @each $search, $replace in $map {
+    $new: str-replace($new, $search, $replace);
+  }
+  @return $new;
+}
+
+// get height from the hypotenuse of an isosceles triangle
+@function cake-get-height-of-isosceles-triangle($hypotenuse, $alpha, $beta) {
+  $b: ($hypotenuse * math.sin($beta)) / math.sin($alpha);
+  $hypotenuse-height: $b * math.sin($beta);
+
+  @if (math.unit($hypotenuse) == "rem") {
+    @return math.floor($hypotenuse-height * 16) / 16;
+  } @else {
+    @return math.floor($hypotenuse-height);
+  }
+}

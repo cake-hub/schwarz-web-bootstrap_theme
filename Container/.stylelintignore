@@ -1,0 +1,6 @@
+**/*.min.css
+**/*.svg
+**/dist/
+**/node_modules/
+**/.npm/
+/docs/

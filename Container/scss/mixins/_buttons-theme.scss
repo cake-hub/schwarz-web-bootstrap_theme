@@ -1,0 +1,125 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin cake-button-variant($background, $border, $hover-background: mix($background, $black, 68%), $hover-border: mix($background, $black, 68%), $active-background: mix($background, $black, 68%), $active-border: mix($background, $black, 68%), $disabled-color: rgba($background, $btn-disabled-opacity), $disabled-background: rgba($background, $btn-disabled-opacity)) {
+  color: color-yiq($background);
+  @include gradient-bg($background);
+  border-color: $border;
+  @include box-shadow($btn-box-shadow);
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: color-yiq($hover-background);
+    @include gradient-bg($hover-background);
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $btn-box-shadow, $input-btn-focus-box-shadow;
+    } @else {
+      box-shadow: $input-btn-focus-box-shadow;
+    }
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    color: $disabled-color;
+    background-color: $disabled-background;
+    border-color: transparent;
+    // Remove CSS gradients if they're enabled
+    @if $enable-gradients {
+      background-image: none;
+    }
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    @if $enable-gradients {
+      background-image: none; // Remove the gradient for the pressed/active state
+    }
+    border-color: $active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      @if $enable-shadows and $btn-active-box-shadow != none {
+        box-shadow: $btn-active-box-shadow, $input-btn-focus-box-shadow;
+      } @else {
+        box-shadow: $input-btn-focus-box-shadow;
+      }
+    }
+  }
+}
+
+@mixin cake-button-outline-variant($color, $color-hover: color-yiq($color), $active-background: mix($color, $black, 68%), $active-border: mix($color, $black, 68%), $disabled-color: rgba($color, $btn-disabled-opacity), $disabled-border: rgba($color, $btn-disabled-opacity)) {
+  color: $color;
+  border-color: $color;
+
+  @include hover-focus {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $disabled-color;
+    background-color: transparent;
+    border-color: $disabled-border;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: color-yiq($active-background);
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      @if $enable-shadows and $btn-active-box-shadow != none {
+        box-shadow: $btn-active-box-shadow, $input-btn-focus-box-shadow;
+      } @else {
+        box-shadow: $input-btn-focus-box-shadow;
+      }
+    }
+  }
+}
+
+// Button sizes
+@mixin cake-button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: ($padding-y + calculateRem(1px)) $padding-x ($padding-y - calculateRem(1px)) $padding-x;
+  @include cake-font-size($font-size);
+  line-height: $line-height;
+
+  // bugfix - oldBrowser - Edge centers the text vertically wrong (sits to low)
+  @supports (-ms-ime-align:auto) {
+    padding-top: $padding-y;
+    padding-bottom: $padding-y;
+  }
+
+  // Manually declare to provide an override to the browser default
+  @include border-radius($border-radius, 0);
+}
+
+// Button size with fixed height and calculated padding-y
+@mixin cake-button-size-fixed-height($padding-x, $font-size, $line-height, $border-radius, $height, $border-width) {
+  @include cake-dynamic-padding-y-for-fixed-height($padding-x, $font-size, $line-height, $height, $border-width);
+
+  // Manually declare to provide an override to the browser default
+  @include border-radius($border-radius, 0);
+}

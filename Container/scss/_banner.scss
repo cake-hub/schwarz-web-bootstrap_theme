@@ -1,0 +1,136 @@
+.banner-card {
+  display: block;
+  max-width: $banner-max-width;
+  height: $banner-height;
+  margin: 0 auto;
+  background: transparent;
+
+  @include media-breakpoint-up(md) {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $banner-left-bg-width;
+      height: 100%;
+      content: "";
+      background-color: $banner-bar-bg;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    $banner-left-bg-width-lg: calc((100% - #{$banner-container-max-width}) / 2 + #{$banner-left-bg-width} + 1px); // +1px to prevent gaps of roundings from browser
+
+    height: $banner-height-desktop;
+    &::before {
+      width: $banner-left-bg-width-lg;
+    }
+  }
+}
+
+.banner-container {
+  height: 100%;
+  transform: translateY(-100%);
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+}
+
+.banner-card-img {
+  $banner-image-margin-left: calc(#{$banner-bar-cols / $grid-columns * 100%} - #{$banner-arrow-width});
+
+  @include border-radius(0);
+  display: block;
+  width: calc(100% - #{$banner-image-margin-left});
+  height: 100%;
+  object-fit: cover;
+  margin-left: $banner-image-margin-left;
+
+  @include media-breakpoint-up(md) {
+    $banner-image-margin-left-md: calc(#{$banner-bar-cols-md / $grid-columns * 100%} - #{$banner-arrow-width});
+
+    width: calc(100% - #{$banner-image-margin-left-md});
+    margin-left: $banner-image-margin-left-md;
+  }
+
+  @include media-breakpoint-up(lg) {
+    $banner-image-margin-left-lg: calc(((100% - #{$banner-container-max-width}) / 2 + 1px) + #{$banner-container-max-width * ($banner-bar-cols-lg / $grid-columns)} - #{$banner-arrow-width-lg}); // +1px to prevent gaps of roundings from browser
+
+    width: calc(100% - #{$banner-image-margin-left-lg});
+    margin-left: $banner-image-margin-left-lg;
+  }
+}
+
+.banner-card-img-overlay {
+  $banner-grid-arrow-width: $banner-bar-cols / $grid-columns * 100%;
+
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  width: $banner-grid-arrow-width;
+  height: 100%;
+  padding: $banner-bar-padding;
+  color: $banner-bar-color;
+  background-color: $banner-bar-bg;
+  clip-path: $banner-clip-path;
+
+  @include media-breakpoint-up(md) {
+    $banner-grid-arrow-width-md: $banner-bar-cols-md / $grid-columns * 100%;
+
+    width: $banner-grid-arrow-width-md;
+  }
+
+  @include media-breakpoint-up(lg) {
+    $banner-grid-arrow-width-lg: $banner-bar-cols-lg / $grid-columns * 100%;
+
+    width: $banner-grid-arrow-width-lg;
+    padding: $banner-bar-padding-lg;
+    clip-path: $banner-clip-path-lg;
+  }
+}
+
+.banner-card-title {
+  @include cake-font-size($banner-title-font-size);
+  margin-bottom: 0;
+  font-weight: $banner-title-font-weight;
+}
+
+.banner-card-subhead {
+  @include cake-font-size($banner-subhead-font-size);
+  margin-bottom: $banner-subhead-margin-bottom;
+  font-weight: $banner-subhead-font-weight;
+}
+
+// bugfix - oldBrowser - IE 11 does not support object-fit: cover
+// stylelint-disable-next-line selector-no-vendor-prefix, selector-type-no-unknown
+_:-ms-fullscreen,
+:root {
+  .banner-card {
+    position: relative;
+    overflow: hidden;
+
+    .banner-card-img {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      height: auto;
+      min-height: 100%;
+      transform: translateY(-50%);
+    }
+
+    .banner-container {
+      position: relative;
+      top: 100%;
+      z-index: 2;
+      transform: none;
+      transform: translateY(-100%);
+    }
+
+    .banner-card-img-overlay {
+      height: 100%;
+    }
+  }
+}

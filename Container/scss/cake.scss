@@ -1,0 +1,72 @@
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ *
+ * Modified by Lidl Digital International GmbH & Co. KG
+ * Handbaked with love by the CAKE-Team (https://cake.schwarz/)
+ * Source-code from https://github.com/cake-hub/web-css_framework
+ */
+
+// Importing only some styles of the CAKE-Framework (simply outcomment the parts you need)
+
+@import "~bootstrap/scss/functions";
+@import "./functions-theme";
+@import "./variables-root";
+@import "~bootstrap/scss/variables";
+@import "./variables-theme";
+@import "~bootstrap/scss/mixins";
+@import "./mixins-theme";
+@import "~bootstrap/scss/root";
+@import "./reboot";
+@import "./reboot-theme.scss";
+@import "./typography-font-face";
+@import "./typography";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "./grid-theme";
+@import "~bootstrap/scss/tables";
+@import "./table-theme";
+@import "./form";
+@import "./button";
+@import "./transition";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "./input-group-theme";
+@import "./custom-form";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "./card-theme";
+@import "./breadcrumb";
+@import "./pagination";
+@import "./badge";
+@import "~bootstrap/scss/jumbotron";
+@import "./alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "./utilities";
+
+// 3rd party for CAKE components
+@import "~tippy.js/dist/tippy";
+@import "~tippy.js/dist/border";
+
+@import "./icon";
+@import "./accordion";
+@import "./banner";
+@import "./cookie-alert";
+@import "./footer";
+@import "./popover"; // required: tippy.js
+@import "./tab";
+@import "./teaser";
+@import "~bootstrap/scss/print";

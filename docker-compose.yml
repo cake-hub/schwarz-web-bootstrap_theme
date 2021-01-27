@@ -1,0 +1,16 @@
+version: '3'
+services:
+  schwarz-web-bootstrap_theme:
+    container_name: schwarz-web-bootstrap_theme
+    env_file:
+      - .env
+    image: node:10
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports: ['2023:2023']
+    expose: ['2023']
+    volumes:
+        - ./Container:/var/www/html
+        - ./Container/.npm/_logs/:/root/.npm/_logs/
+    tty: true
