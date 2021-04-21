@@ -132,31 +132,13 @@ As already mentioned above, you can add a popover to any valid html element. The
 
 ![PopoverCustomElement](examples/PopoverCustomElement.html)
 
-## Colors
+## Colors / Themes
 
 The popover will show up in white "cake" theme as a default. The white color fits perfectly for the purpose of popovers.
 
 > ### Avoid usage of themes
 >
 > Since these should enable the display of further information inconspicuously, the cake theme is ideally suited by the neutral representation and you should aviod using other themes wherever it is possible.
-
-Nevertheless you can use any `$theme-color` as theme for the popover. To get the stylings below, simply add the `data-tippy-theme` attribute with the color name as value.
-
-<ContentRack
-    fields='
-        "preview": {
-            "src": "examples/PopoverColors.html",
-            "type": "link"
-        },
-        "<html>":{
-            "src": "examples/PopoverColors.html",
-            "type": "content",
-            "selector": "#showBox"
-        }
-    '
- />
-
-![PopoverColors](examples/PopoverColors.html)
 
 ### JavaScript
 

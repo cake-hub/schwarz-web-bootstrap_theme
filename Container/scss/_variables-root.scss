@@ -7,41 +7,28 @@
 // Color system
 
 $white:       #fff;
-$gray:        #505050;
+$gray:        #878787;
 $black:       #000;
 
 $primary:     #6e1e6e;
+$secondary:   #41053c;
 $success:     #05a54b;
-$info:        #465a78;
 $danger:      #e3000f;
+$info:        #5f7daa;
+$attention:   #ffd746;
 $mark:        #fff000;
-$attention:   #ffd25a;
 
 // Customize the light and dark text colors for use in our cake-colors contrast function.
 $cake-color-mix-dark:   $black;
 $cake-color-mix-light:  $white;
 
-// Color gradations
-
-$gradations: ();
-$gradations: map-merge(
-  (
-    "background": 10,
-    "lightest": 20,
-    "lighter": 40,
-    "light": 60,
-    "base": 100,
-    "dark": -20,
-    "darker": -40,
-    "darkest": -60
-  ),
-  $gradations
-);
+// Theme colors for variant iterations
 
 $theme-colors: ();
-$theme-colors: map-merge(
+$theme-colors: cake-map-merge(
   (
     "primary":    $primary,
+    "secondary":  $secondary,
     "success":    $success,
     "info":       $info,
     "danger":     $danger,
@@ -53,15 +40,57 @@ $theme-colors: map-merge(
 
 $yiq-text-dark:             $primary;
 
+// Color gradations
+
+$color-gradations: ();
+$color-gradations: cake-map-merge(
+  (
+    "success": (
+      "dark": #04843c,
+      "darker": #03632d,
+      "darkest": #02421e
+    ),
+    "info": (
+      "dark": #4b6487,
+      "darker": #3c506e,
+      "darkest": #2d3c50
+    ),
+    "danger": (
+      "dark": #b5000c,
+      "darker": #880009,
+      "darkest": #5a0006
+    ),
+    "attention": (
+      "dark": #e6b43c,
+      "darker": #c8912d,
+      "darkest": #af6e00
+    ),
+    "gray": (
+      "background": #fafafa,
+      "lightest": #ebebeb,
+      "lighter": #c6c6c6,
+      "light": #9d9d9d,
+      "dark": #505050
+    ),
+    "black": (
+      "base": $black
+    ),
+    "white": (
+      "base": $white
+    ),
+    "mark": (
+      "base": $mark
+    ),
+  ),
+  $color-gradations
+);
+
 $gray-100: cake-color("gray", "background");
 $gray-200: cake-color("gray", "lightest");
 $gray-300: cake-color("gray", "lighter");
 $gray-400: cake-color("gray", "light");
 $gray-500: cake-color("gray", "base");
 $gray-600: cake-color("gray", "dark");
-$gray-700: cake-color("gray", "darker");
-$gray-800: cake-color("gray", "darkest");
-$gray-900: cake-color("gray", "darkest");
 
 
 // Adjust the icon-paths (the webpack.config.js is the root folder)
@@ -123,8 +152,8 @@ $body-color:                $black;
 // Style anchor elements.
 
 $link-decoration:                         underline;
-$link-hover-color:                        cake-color("primary", "darker");
-$link-active-color:                       cake-color("primary", "darker");
+$link-hover-color:                        cake-color("secondary");
+$link-active-color:                       cake-color("secondary");
 $link-active-decoration:                  none;
 
 
@@ -170,12 +199,17 @@ $grid-gutter-width:           16px;
 //
 // Define common padding and border radius sizes and more.
 
-$border-width:                1px;
-$border-radius:               0;
-$box-shadow:                  0 .125rem .25rem rgba($black, .15);
+$border-width:                      1px;
+$border-radius:                     0;
+$box-shadow:                        0 .125rem .25rem rgba($black, .15);
 
-$component-active-bg:         theme-color("primary");
-$component-active-color:      $white;
+$component-active-bg:               theme-color("primary");
+$component-active-color:            $white;
+
+$browser-focus-border-inner-color:  cake-color("primary");
+$browser-focus-border-outer-color:  $white;
+$browser-focus-border-inner-width:  calculateRem(2px);
+$browser-focus-border-outer-width:  calculateRem(1px);
 
 
 // Typography
@@ -184,24 +218,27 @@ $component-active-color:      $white;
 $font-path:                   "../fonts/";
 
 // stylelint-disable indentation
-$fonts-to-load:                 HelveticaNeueLT HelveticaNeueLT-Cond,
-                                HelveticaNeueLT HelveticaNeueLT-BoldCond 600,
-                                HelveticaNeueLT HelveticaNeueLT-BoldCond 700, // to match with `bold`
-                                HelveticaNeueLT HelveticaNeueLT-Bold 800; // to match with `extra bold`
+$fonts-to-load:                 HelveticaNeueLTPro "1488974/HelveticaNeueLTPro-LtCond" 300,
+                                HelveticaNeueLTPro "1488974/HelveticaNeueLTPro-LtCond",
+                                HelveticaNeueLTPro "1488998/HelveticaNeueLTPro-MdCond" 500,
+                                HelveticaNeueLTPro "1488998/HelveticaNeueLTPro-MdCond" 700; // to match with `bold`
 // stylelint-enable indentation
-$font-weight-bold:              600;
+$font-weight-normal:            300;
+$font-weight-bold:              500;
 
-$font-family-sans-serif:        HelveticaNeueLT, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-system:          "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif:      HelveticaNeueLTPro, $font-family-system;
 
 $font-size-base:              1rem;
 $font-size-lg:                1.25rem;
 $font-size-sm:                .75rem;
 $font-grow:                   calculateRem(2px);
 
-$font-weight-normal:          400;
 $font-weight-base:            $font-weight-normal;
 
 $line-height-base:            1.4;
+
+$letter-spacing:              calculateRem(.2px);
 
 $h1-font-size:                calculateRem(32px);
 $h2-font-size:                calculateRem(28px);
@@ -213,6 +250,24 @@ $heading-h1-margin-bottom:    ($spacer * 4);
 $heading-h2-margin-bottom:    ($spacer * 2);
 $headings-margin-bottom:      $spacer;
 
+$display1-size:               calculateRem(32px);
+$display1-size-lg:            calculateRem(56px);
+$display2-size:               calculateRem(28px);
+$display2-size-lg:            calculateRem(52px);
+$display3-size:               calculateRem(24px);
+$display3-size-lg:            calculateRem(48px);
+$display4-size:               calculateRem(20px);
+$display4-size-lg:            calculateRem(44px);
+$display5-size:               calculateRem(16px);
+$display5-size-lg:            calculateRem(40px);
+
+$display1-weight:             $font-weight-bold;
+$display2-weight:             $font-weight-bold;
+$display3-weight:             $font-weight-bold;
+$display4-weight:             $font-weight-bold;
+$display5-weight:             $font-weight-bold;
+$display-line-height:         1.2;
+
 $headings-font-weight:        700;
 $text-disabled:               cake-color("gray", "light"); // deprecated. No longer used.
 
@@ -223,18 +278,11 @@ $hr-margin-y:                 $paragraph-margin-bottom;
 // Components
 // ##########
 
-// Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
-
-$table-cell-padding:          .5rem 1rem;
-$table-accent-bg:             cake-color("gray", "lightest");
-
 
 // Buttons + Forms
 
 $input-btn-font-family:             null;
-$input-btn-font-size:         $font-size-base;
+$input-btn-font-size:               $font-size-base;
 
 $input-btn-border-width:            $border-width;
 $input-btn-padding-y:               .75rem;
@@ -242,6 +290,7 @@ $input-btn-padding-x:               1rem - calculateRem($input-btn-border-width)
 $input-btn-line-height:             1.2;
 $input-btn-height:                  calculateRem(40px);
 $input-btn-height-at-lg:            calculateRem(48px);
+$input-btn-focus-box-shadow:        cake-browser-focus();
 
 $input-btn-focus-width:             calculateRem(3px);
 $input-btn-focus-color:             rgba($component-active-bg, .5);
@@ -250,33 +299,33 @@ $input-btn-focus-color:             rgba($component-active-bg, .5);
 // Buttons
 
 $btn-font-size:               calculateRem(16px);
-$btn-font-weight:             $font-weight-bold;
+$btn-font-weight:             $font-weight-normal;
 $btn-disabled-opacity:        .16;
 $btn-padding-tb-diff:         0;
 
 
 // Forms
 
-$input-font-family:                     $input-btn-font-family;
+$input-font-family:                     $font-family-system;
 $input-font-size:                       $input-btn-font-size;
 $input-font-size-at-lg:                 $input-btn-font-size + $font-grow;
 
 $input-font-weight:                     $font-weight-base;
 $input-line-height:                     $input-btn-line-height;
 
-$input-disabled-bg:                     $body-bg;
-$input-disabled-color:                  $gray;
-$input-disabled-border-color:           cake-color("gray", "light");
+$input-disabled-bg:                     cake-color("gray", "lightest"); //$body-bg;
+$input-disabled-color:                  cake-color("gray", "dark");
+$input-disabled-border-color:           cake-color("gray");
 
 $input-color:                           $primary;
-$input-border-color:                    $gray;
+$input-border-color:                    cake-color("gray", "dark");
 $input-border-width:                    $input-btn-border-width;
 
 $input-icon-size:                       calculateRem(24px);
 
 $input-focus-border-color:              $primary;
-$input-focus-color:                     cake-color("gray", "darker");
-$input-placeholder-color:               $gray;
+$input-focus-color:                     cake-color("black");
+$input-placeholder-color:               cake-color("gray", "dark");
 
 $input-height-border:                   $input-border-width * 2;
 
@@ -291,21 +340,21 @@ $form-grid-gutter-width:                1rem;
 
 $custom-control-indicator-size:         calculateRem(24px);
 $custom-control-indicator-bg-size:      1rem 1rem;
-$custom-control-indicator-border-color: cake-color("gray");
+$custom-control-indicator-border-color: $input-border-color;
 
 $custom-control-indicator-border-color-hover:     $primary;
 
-$custom-control-indicator-disabled-border-color:  cake-color("gray", "light");
-$custom-control-label-disabled-color:             cake-color("gray", "base");
+$custom-control-indicator-disabled-border-color:  cake-color("gray");
+$custom-control-label-disabled-color:             cake-color("gray", "dark");
 
 $custom-control-indicator-checked-color:          $primary;
-$custom-control-indicator-checked-disabled-color: cake-color("gray", "light");
-$custom-control-indicator-checked-disabled-bg:    $body-bg;
+$custom-control-indicator-checked-disabled-color: cake-color("gray");
+$custom-control-indicator-checked-disabled-bg:    cake-color("gray", "lightest");
 $custom-control-indicator-checked-border-color:   $custom-control-indicator-border-color;
 $custom-control-indicator-checked-box-shadow:     0 0 0 $input-btn-focus-width $input-btn-focus-color;
 
-$custom-control-indicator-active-bg:          mix($white, $primary, 50%);
-$custom-control-indicator-checked-danger-color: theme-color("danger");
+$custom-control-indicator-active-bg:            mix($white, $primary, 50%);
+$custom-control-indicator-checked-danger-color: cake-color("danger");
 
 $custom-checkbox-indicator-border-radius:         $border-radius;
 $custom-checkbox-indicator-icon-checked:          svg-load($scss-icon-path + "hook-bold.svg", fill=$custom-control-indicator-checked-color);
@@ -327,6 +376,7 @@ $custom-select-disabled-bg:               $input-disabled-bg;
 $custom-select-disabled-indicator-color:  $input-disabled-color;
 $custom-select-disabled-indicator:        svg-load($navigation-icon-path + "arrow-down.svg", fill=$custom-select-disabled-indicator-color);
 $custom-select-focus-border-color:        $input-focus-border-color;
+$custom-select-focus-box-shadow:          $input-btn-focus-box-shadow;
 $custom-select-bg-size:                   $input-icon-size $input-icon-size;
 $custom-select-indicator-color:           $body-color;
 $custom-select-indicator:                 svg-load($navigation-icon-path + "arrow-down.svg", fill=$custom-select-indicator-color);
@@ -337,7 +387,7 @@ $custom-select-hover-border-color:        $custom-select-focus-border-color;
 // Form validation
 
 $form-feedback-valid-color:         $success;
-$form-feedback-invalid-color:       theme-color("danger");
+$form-feedback-invalid-color:       cake-color("danger");
 
 $form-feedback-icon-valid-color:    $form-feedback-valid-color;
 $form-feedback-icon-valid:          svg-load($interaction-icon-path + "hook.svg", fill=$form-feedback-icon-valid-color);
@@ -345,7 +395,7 @@ $form-feedback-icon-invalid-color:  $form-feedback-invalid-color;
 $form-feedback-icon-invalid:        svg-load($navigation-icon-path + "cross.svg", fill=$form-feedback-icon-invalid-color);
 
 $form-validation-states: ();
-$form-validation-states: map-merge(
+$form-validation-states: cake-map-merge(
   $form-validation-states,
   (
     "valid": (
@@ -385,7 +435,7 @@ $pagination-hover-color:            $component-active-color;
 $pagination-hover-bg:               $component-active-bg;
 $pagination-hover-border-color:     $pagination-hover-bg;
 
-$pagination-disabled-color:         cake-color("gray", "light");
+$pagination-disabled-color:         cake-color("gray");
 $pagination-disabled-border-color:  transparent;
 
 
@@ -407,7 +457,7 @@ $card-columns-margin:               $card-spacer-y * 2;
 $badge-border-width:                $border-width;
 $badge-pill-padding-x:              ($spacer * 2) - calculateRem($badge-border-width);
 $badge-pill-border-radius:          10rem;
-$badge-padding-y:                   .25rem - calculateRem($badge-border-width);
+$badge-padding-y:                   calculateRem(5px) - calculateRem($badge-border-width);
 $badge-padding-x:                   $badge-pill-padding-x;
 $badge-border-radius:               $badge-pill-border-radius;
 
@@ -434,8 +484,8 @@ $breadcrumb-padding-x:              0;
 
 $breadcrumb-bg:                     transparent;
 
-$breadcrumb-divider-color:          cake-color("gray", "darker");
-$breadcrumb-active-color:           cake-color("gray", "darker");
+$breadcrumb-divider-color:          $black;
+$breadcrumb-active-color:           $black;
 $breadcrumb-divider:                svg-load($navigation-icon-path + "arrow-right.svg", fill=$breadcrumb-divider-color);
 
 

@@ -32,24 +32,49 @@ h5, .h5 { @include cake-font-size($h5-font-size); }
 
 // Type display classes
 .display-1 {
-  @include font-size($display1-size);
+  font-size: $display1-size;
   font-weight: $display1-weight;
   line-height: $display-line-height;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $display1-size-lg;
+  }
 }
 .display-2 {
-  @include font-size($display2-size);
+  font-size: $display2-size;
   font-weight: $display2-weight;
   line-height: $display-line-height;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $display2-size-lg;
+  }
 }
 .display-3 {
-  @include font-size($display3-size);
+  font-size: $display3-size;
   font-weight: $display3-weight;
   line-height: $display-line-height;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $display3-size-lg;
+  }
 }
 .display-4 {
-  @include font-size($display4-size);
+  font-size: $display4-size;
   font-weight: $display4-weight;
   line-height: $display-line-height;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $display4-size-lg;
+  }
+}
+.display-5 {
+  font-size: $display5-size;
+  font-weight: $display5-weight;
+  line-height: $display-line-height;
+
+  @include media-breakpoint-up(lg) {
+    font-size: $display5-size-lg;
+  }
 }
 
 
@@ -143,8 +168,5 @@ mark,
   }
   &:active {
     color: $link-negative-active-color;
-  }
-  &:focus {
-    box-shadow: $link-negative-focus-box-shadow;
   }
 }

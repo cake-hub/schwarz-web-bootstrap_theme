@@ -27,6 +27,10 @@ CAKE's `package.json` contains some additional metadata under the following keys
 - `sass` - path to CAKE's main [Sass](https://sass-lang.com/) source file
 - `style` - path to CAKE's non-minified CSS that's been precompiled using the default settings (no customization)
 
+### optional npm font package
+
+We included a `optionalDependency` in the SCHWARZ theme within the SCHWARZ CI web font. Read more about getting the font and credentials to implement or download the font in our [typography page](../Content/Typography/Typography.md).
+
 #### registry settings and proxies
 
 To be able to access our registry, if you are behind a proxy just configure the proxy settings of your project. To do so, you can configure your npm with a `.npmrc` file with the following content.

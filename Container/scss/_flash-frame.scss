@@ -1,0 +1,106 @@
+.flash-frame {
+  @include cake-font-size($flash-frame-font-size);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: $flash-frame-max-width;
+  height: $flash-frame-height;
+  clip-path: $flash-frame-clip-path;
+  padding: $flash-frame-padding;
+  font-weight: $font-weight-bold;
+  line-height: $flash-frame-line-height;
+  color: $flash-frame-color;
+  background-color: $flash-frame-background-color;
+
+  &-negative {
+    color: $flash-frame-negative-color;
+    background-color: $flash-frame-negative-background-color;
+  }
+
+  &.left {
+    right: auto;
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+    left: auto;
+    clip-path: $flash-frame-right-clip-path;
+    padding: $flash-frame-right-padding;
+  }
+
+  @include media-breakpoint-up(sm) {
+    &.left-sm {
+      right: auto;
+      left: 0;
+      clip-path: $flash-frame-clip-path;
+      padding: $flash-frame-padding;
+    }
+    &.right-sm {
+      right: 0;
+      left: auto;
+      clip-path: $flash-frame-right-clip-path;
+      padding: $flash-frame-right-padding;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &.left-md {
+      right: auto;
+      left: 0;
+      clip-path: $flash-frame-clip-path;
+      padding: $flash-frame-padding;
+    }
+    &.right-md {
+      right: 0;
+      left: auto;
+      clip-path: $flash-frame-right-clip-path;
+      padding: $flash-frame-right-padding;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: $flash-frame-height-lg;
+    clip-path: $flash-frame-clip-path-lg;
+    padding: $flash-frame-padding-lg;
+
+    &.right,
+    &.right-sm {
+      right: 0;
+      left: auto;
+      clip-path: $flash-frame-right-clip-path-lg;
+      padding: $flash-frame-right-padding-lg;
+    }
+    &.left-sm,
+    &.left-md {
+      right: auto;
+      left: 0;
+      clip-path: $flash-frame-clip-path-lg;
+      padding: $flash-frame-padding-lg;
+    }
+    &.right-md,
+    &.right-lg {
+      right: 0;
+      left: auto;
+      clip-path: $flash-frame-right-clip-path-lg;
+      padding: $flash-frame-right-padding-lg;
+    }
+    &.left-lg {
+      right: auto;
+      left: 0;
+      clip-path: $flash-frame-clip-path-lg;
+      padding: $flash-frame-padding-lg;
+    }
+  }
+}
+
+.flash-frame-content {
+  max-height: $flash-frame-content-max-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include media-breakpoint-up(lg) {
+    max-height: $flash-frame-content-max-height-lg;
+  }
+}

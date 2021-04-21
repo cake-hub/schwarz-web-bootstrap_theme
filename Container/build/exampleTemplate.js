@@ -25,6 +25,7 @@ export const htmlTemplateExample = ( reactDom, helmetData, filePath ) => {
             <div id="app">${ reactDom }</div>
             <script src="${themeAssetPath}js/cake.js"></script>
             <script src="${assetPath}example.js"></script>
+            ${ helmetData.script.toString () }
         </body>
         </html>
     `;

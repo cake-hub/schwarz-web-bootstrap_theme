@@ -17,7 +17,7 @@
 }
 
 .tab-btn {
-  @include button-variant($tab-background-color, $tab-border-color, $tab-background-hover-color, $tab-border-hover-color, $tab-background-active-color, $tab-border-active-color);
+  @include cake-button-variant($tab-background-color, $tab-border-color, $tab-background-hover-color, $tab-border-hover-color, $tab-background-active-color, $tab-border-active-color);
   padding: $tab-btn-padding;
   font-weight: 400;
 
@@ -41,6 +41,12 @@
         & + .tab-btn {
           border-color: $tab-background-active-color;
         }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      &:focus {
+        z-index: 2;
       }
     }
   }

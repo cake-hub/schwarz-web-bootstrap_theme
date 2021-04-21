@@ -85,7 +85,10 @@
 
 @each $color, $value in $badge-colors {
   .badge-#{$color} {
-    @include cake-badge-variant($value);
+    @include cake-badge-variant(
+      map-get($value, "bg"),
+      map-get($value, "bg-hover")
+    );
   }
 }
 

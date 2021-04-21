@@ -93,14 +93,14 @@ const PopoverPlacementExtended = () => (
         }) }>
             <Icon title="Default popover" name="questionmark-circle" className="icon-3 text-primary" />
         </abbr><br />
-        > > > > > > > Popover &lt;top&gt;
+        &gt; &gt; &gt; &gt; &gt; &gt; &gt; Popover &lt;top&gt;
         <abbr className="mb-2" { ...Popover ({
             placement: "top",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
         }) }>
             <Icon title="Default popover" name="questionmark-circle" className="icon-3 text-primary" />
         </abbr><br />
-        > > > > > > > > > > > > > > > > > > > > Popover &lt;top-end&gt;
+        &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; &gt; Popover &lt;top-end&gt;
         <abbr { ...Popover ({
             placement: "top-end",
             content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
@@ -173,60 +173,10 @@ const PopoverCustomElement = () => (
     </div>
 );
 
-const PopoverColors = () => (
-    <div className="cake-example-popover" id="showBox">
-        Popover with theme &lt;primary&gt;
-        <abbr className="mb-2" { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            placement: "bottom",
-            theme: "primary",
-        }) }>
-            <Icon title="Popover with theme &lt;primary&gt;" name="questionmark-circle" className="icon-3 text-primary" />
-        </abbr><br />
-        Popover with theme &lt;info&gt;
-        <abbr className="mb-2" { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            placement: "bottom",
-            theme: "info",
-        }) }>
-            <Icon title="Popover with theme &lt;info&gt;" name="questionmark-circle" className="icon-3 text-info" />
-        </abbr><br />
-        Popover with theme &lt;danger&gt;
-        <abbr className="mb-2" { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            theme: "danger",
-        }) }>
-            <Icon title="Popover with theme &lt;danger&gt;" name="questionmark-circle" className="icon-3 text-danger" />
-        </abbr><br />
-        Popover with theme &lt;success&gt;
-        <abbr className="mb-2" { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            theme: "success",
-        }) }>
-            <Icon title="Popover with theme &lt;success&gt;" name="questionmark-circle" className="icon-3 text-success" />
-        </abbr><br />
-        Popover with theme &lt;warning&gt;
-        <abbr className="mb-2" { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            theme: "warning",
-        }) }>
-            <Icon title="Popover with theme &lt;warning&gt;" name="questionmark-circle" className="icon-3 text-warning" />
-        </abbr><br />
-        Popover with theme &lt;gray&gt;
-        <abbr { ...Popover ({
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-            theme: "gray",
-        }) }>
-            <Icon title="Popover with theme &lt;gray&gt;" name="questionmark-circle" className="icon-3 text-gray" />
-        </abbr>
-    </div>
-);
-
 export default {
     PopoverDefault,
     PopoverPlacement,
     PopoverPlacementExtended,
     PopoverCustomContent,
     PopoverCustomElement,
-    PopoverColors,
 };

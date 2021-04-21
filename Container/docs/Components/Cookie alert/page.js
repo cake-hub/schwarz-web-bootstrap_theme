@@ -4,6 +4,7 @@ import path from "path";
 import purify from "purify-css";
 import filterCss from "filter-css";
 import stripCssComments from "strip-css-comments";
+import Helmet from "react-helmet";
 import UglifyJS from "uglify-js";
 import { minify } from "html-minifier";
 
@@ -12,7 +13,12 @@ import { rawMarkup } from "@root/helper";
 import CookieAlert from "@Develop/Components/Cookie alert/cookieAlert.html";
 
 const CookieAlertExample = () => (
-    <CookieAlert/>
+    <React.Fragment>
+        <CookieAlert/>
+        <Helmet>
+            <script src={config.assetPath + "initialize-cookie-alert.js"}></script>
+        </Helmet>
+    </React.Fragment>
 );
 
 const PreviewCookieBotSource = (sourceCode) => (

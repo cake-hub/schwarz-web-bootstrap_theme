@@ -2,42 +2,18 @@ import React from "react";
 import {Teaser, TeaserNotLinked} from "@Develop/Components/Teaser/teaser.html";
 
 const TeaserDefault = () => (
-    <div className="cake-example-container" id="showBox">
-        <TeaserNotLinked />
-    </div>
-);
-
-const TeaserLinked = () => (
-    <div className="cake-example-container" id="showBox">
-        <Teaser />
-    </div>
+    <TeaserNotLinked />
 );
 
 const TeaserTitle = () => (
-    <div className="cake-example-container" id="showBox">
-        <Teaser
-            c_title="Title"
-        ></Teaser>
-    </div>
+    <TeaserNotLinked
+        c_title="Title"
+        c_subhead=""
+    ></TeaserNotLinked>
 );
 
-const TeaserTitleSubheadline = () => (
-    <div className="cake-example-container" id="showBox">
-        <Teaser
-            c_title="Title"
-            c_subhead="Subhead"
-        ></Teaser>
-    </div>
-);
-
-const TeaserLight = () => (
-    <div className="cake-example-container" id="showBox">
-        <Teaser
-            className="teaser-card-light"
-            c_title="Title"
-            c_subhead="Subhead"
-        ></Teaser>
-    </div>
+const TeaserLinked = () => (
+    <Teaser />
 );
 
 const TeaserGrid3 = () => (
@@ -95,10 +71,8 @@ const TeaserGrid4 = () => (
 
 export default {
     TeaserDefault,
-    TeaserLinked,
     TeaserTitle,
-    TeaserTitleSubheadline,
-    TeaserLight,
+    TeaserLinked,
     TeaserGrid3,
     TeaserGrid4,
 };

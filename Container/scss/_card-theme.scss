@@ -1,3 +1,32 @@
+.card {
+  height: 100%;
+  box-shadow: $card-box-shadow;
+
+  .card-image-ratio {
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+    }
+
+    &.ratio-4-3 {
+      &::after {
+        padding-bottom: (3 / 4) * 100%;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 // stylelint-disable selector-no-qualifying-type
 a.card {
   color: $card-link-color;
@@ -8,11 +37,13 @@ a.card {
     color: $card-hover-color;
     text-decoration: none;
     outline: 0;
+    box-shadow: $card-box-shadow; // disable browser-focus
 
     .card-img-top {
       opacity: .5;
     }
 
+    .card-title,
     .card-subtitle {
       text-decoration: underline;
     }
@@ -20,7 +51,21 @@ a.card {
 }
 // stylelint-enable
 
+.card-body {
+  padding: $card-body-padding;
+  @include media-breakpoint-up(sm) {
+    padding: $card-body-padding-sm-up;
+  }
+}
+
 .card-title {
+  @include cake-font-size();
+  font-weight: $card-font-weight;
+  line-height: $card-line-height;
+
+  @include media-breakpoint-down(xs) {
+    margin-bottom: $card-title-margin-bottom-xs-only;
+  }
   line-height: $card-title-line-height;
 }
 
@@ -28,6 +73,10 @@ a.card {
   line-height: $card-subtitle-line-height;
 }
 
+.card-text {
+  @extend .text-sm;
+  line-height: $card-line-height;
+}
 
 .card-link {
   @include hover {

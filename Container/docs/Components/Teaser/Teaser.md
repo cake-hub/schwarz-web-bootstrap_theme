@@ -10,10 +10,9 @@ To create an teaser you have to apply the classes `.card` and `.teaser-card` to 
 
 The teaser component **depends on the [Card](../Card/Card.md) component** and uses `.card`, `.card-img` and `.card-img-overlay`. So you have to include the Card component Sass to use the teaser component.
 
+## Teaser components
 
-## Default Teaser
-
-Only the image is obligatory which means all the other parts of a teaser can optionally be added or removed. The image can be any image with preferably a 4:3 ratio. To apply the correct styling to the image use the `.card-img` class.
+Only the image is obligatory which means all the other parts of a teaser can optionally be added or removed. The image can be any image with preferably a 4:3 ratio. To apply the correct styling to the image use the `.card-img ` class. In order to keep the ratio 4:3 on any image size surround the image and teaser-body with any wrapper element and the classes `.teaser-image-ratio`and `.ratio-4-3` attatched to it.
 
 <ContentRack
     fields='
@@ -24,38 +23,19 @@ Only the image is obligatory which means all the other parts of a teaser can opt
         "<html>":{
             "src": "examples/TeaserDefault.html",
             "type": "content",
-            "selector": "#showBox"
+            "selector": "#app"
         }
     '
  />
 
 ![TeaserDefault](examples/TeaserDefault.html)
 
-
-## Linked Teaser
-
-To link the teaser, you have to add a `<a>` tag with the class `.teaser-card-link` as a child to the teaser-element.
-
-<ContentRack
-    fields='
-        "preview": {
-            "src": "examples/TeaserLinked.html",
-            "type": "link"
-        },
-        "<html>":{
-            "src": "examples/TeaserLinked.html",
-            "type": "content",
-            "selector": "#showBox"
-        }
-    '
- />
-
-![TeaserLinked](examples/TeaserLinked.html)
-
-
-## Teaser with bar
+## Teaser bar
 
 The content of the subheadline and title should be kept as short as possible.
+
+To put content onto this teaser, you have to use an element with the class `.card-body` inside the wrapper element.
+In addition you have to add another `header` element with the class `.teaser-header`. Inside this element you can place your `.teaser-card-title` and `.teaser-card-subhead`.
 
 The bar of the teaser can be created with any element like the `<header>` element with `.card-img-overlay` and `.teaser-card-img-overlay`. Inside this wrapper element you can put the title `.teaser-card-title` and / or subheadline `.teaser-card-subhead` of the teaser.
 
@@ -68,28 +48,32 @@ The bar of the teaser can be created with any element like the `<header>` elemen
         "<html>":{
             "src": "examples/TeaserTitle.html",
             "type": "content",
-            "selector": "#showBox"
+            "selector": "#app"
         }
     '
  />
 
 ![TeaserTitle](examples/TeaserTitle.html)
 
+## Linked teaser
+
+If you'd like a **linked teaser**, you can simply use an `a`-tag as wrapper element for your teaser content like in the example above. Additionally you have to also apply the class `.teaser-card-link` to this `a`-tag.
+
 <ContentRack
     fields='
         "preview": {
-            "src": "examples/TeaserTitleSubheadline.html",
+            "src": "examples/TeaserLinked.html",
             "type": "link"
         },
         "<html>":{
-            "src": "examples/TeaserTitleSubheadline.html",
+            "src": "examples/TeaserLinked.html",
             "type": "content",
-            "selector": "#showBox"
+            "selector": "#app"
         }
     '
  />
 
-![TeaserTitleSubheadline](examples/TeaserTitleSubheadline.html)
+![TeaserLinked](examples/TeaserLinked.html)
 
 
 ## Teaser inside a grid

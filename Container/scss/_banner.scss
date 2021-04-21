@@ -1,136 +1,242 @@
-.banner-card {
-  display: block;
-  max-width: $banner-max-width;
-  height: $banner-height;
-  margin: 0 auto;
-  background: transparent;
-
-  @include media-breakpoint-up(md) {
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: $banner-left-bg-width;
-      height: 100%;
-      content: "";
-      background-color: $banner-bar-bg;
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    $banner-left-bg-width-lg: calc((100% - #{$banner-container-max-width}) / 2 + #{$banner-left-bg-width} + 1px); // +1px to prevent gaps of roundings from browser
-
-    height: $banner-height-desktop;
-    &::before {
-      width: $banner-left-bg-width-lg;
-    }
-  }
-}
-
-.banner-container {
-  height: 100%;
-  transform: translateY(-100%);
-
-  @include media-breakpoint-down(sm) {
-    padding: 0;
-  }
-}
-
-.banner-card-img {
-  $banner-image-margin-left: calc(#{$banner-bar-cols / $grid-columns * 100%} - #{$banner-arrow-width});
-
-  @include border-radius(0);
-  display: block;
-  width: calc(100% - #{$banner-image-margin-left});
-  height: 100%;
-  object-fit: cover;
-  margin-left: $banner-image-margin-left;
-
-  @include media-breakpoint-up(md) {
-    $banner-image-margin-left-md: calc(#{$banner-bar-cols-md / $grid-columns * 100%} - #{$banner-arrow-width});
-
-    width: calc(100% - #{$banner-image-margin-left-md});
-    margin-left: $banner-image-margin-left-md;
-  }
-
-  @include media-breakpoint-up(lg) {
-    $banner-image-margin-left-lg: calc(((100% - #{$banner-container-max-width}) / 2 + 1px) + #{$banner-container-max-width * ($banner-bar-cols-lg / $grid-columns)} - #{$banner-arrow-width-lg}); // +1px to prevent gaps of roundings from browser
-
-    width: calc(100% - #{$banner-image-margin-left-lg});
-    margin-left: $banner-image-margin-left-lg;
-  }
-}
-
-.banner-card-img-overlay {
-  $banner-grid-arrow-width: $banner-bar-cols / $grid-columns * 100%;
-
+.banner {
   position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  width: $banner-grid-arrow-width;
-  height: 100%;
-  padding: $banner-bar-padding;
-  color: $banner-bar-color;
-  background-color: $banner-bar-bg;
-  clip-path: $banner-clip-path;
+  color: $banner-color;
+  background-color: $banner-bg;
+
+  &.negative {
+    color: $banner-color-negative;
+    background-color: $banner-bg-negative;
+
+    .banner-subhead {
+      color: $banner-subhead-color-negative;
+    }
+  }
 
   @include media-breakpoint-up(md) {
-    $banner-grid-arrow-width-md: $banner-bar-cols-md / $grid-columns * 100%;
-
-    width: $banner-grid-arrow-width-md;
-  }
-
-  @include media-breakpoint-up(lg) {
-    $banner-grid-arrow-width-lg: $banner-bar-cols-lg / $grid-columns * 100%;
-
-    width: $banner-grid-arrow-width-lg;
-    padding: $banner-bar-padding-lg;
-    clip-path: $banner-clip-path-lg;
-  }
-}
-
-.banner-card-title {
-  @include cake-font-size($banner-title-font-size);
-  margin-bottom: 0;
-  font-weight: $banner-title-font-weight;
-}
-
-.banner-card-subhead {
-  @include cake-font-size($banner-subhead-font-size);
-  margin-bottom: $banner-subhead-margin-bottom;
-  font-weight: $banner-subhead-font-weight;
-}
-
-// bugfix - oldBrowser - IE 11 does not support object-fit: cover
-// stylelint-disable-next-line selector-no-vendor-prefix, selector-type-no-unknown
-_:-ms-fullscreen,
-:root {
-  .banner-card {
-    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: $banner-max-width;
+    margin: 0 auto;
     overflow: hidden;
 
-    .banner-card-img {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      left: 0;
-      z-index: 1;
-      height: auto;
-      min-height: 100%;
-      transform: translateY(-50%);
-    }
+    &.inverted {
+      flex-direction: row;
 
-    .banner-container {
-      position: relative;
-      top: 100%;
-      z-index: 2;
-      transform: none;
-      transform: translateY(-100%);
-    }
+      .banner-image {
+        clip-path: $banner-clip-path-inverted;
+      }
 
-    .banner-card-img-overlay {
-      height: 100%;
+      .banner-content-container {
+        padding-left: (100% * $banner-content-col-1);
+      }
+
+      .banner-title,
+      .banner-subhead {
+        padding: $banner-content-padding-inverted-md;
+      }
     }
+  }
+
+  // stylelint-disable selector-max-class
+  @include media-breakpoint-up(lg) {
+    &.inverted {
+      .banner-content {
+        align-items: flex-end;
+      }
+
+      .banner-title,
+      .banner-subhead {
+        width: 100%;
+        padding: $banner-content-padding-inverted-lg;
+      }
+
+      .banner-content-container {
+        .banner-title,
+        .banner-subhead {
+          max-width: (100% * $banner-content-col-5);
+        }
+
+        &.col-md-3,
+        &.col-lg-3 {
+          .banner-title,
+          .banner-subhead {
+            max-width: (100% * $banner-content-col-2);
+          }
+        }
+        &.col-md-4,
+        &.col-lg-4 {
+          .banner-title,
+          .banner-subhead {
+            max-width: (100% * $banner-content-col-3);
+          }
+        }
+        &.col-md-5,
+        &.col-lg-5 {
+          .banner-title,
+          .banner-subhead {
+            max-width: (100% * $banner-content-col-4);
+          }
+        }
+        &.col-lg-6 {
+          .banner-title,
+          .banner-subhead {
+            max-width: (100% * $banner-content-col-5);
+          }
+        }
+      }
+    }
+  }
+  // stylelint-enable
+}
+
+.banner-image-container {
+  position: relative;
+
+  &::after {
+    display: block;
+    padding-bottom: $banner-image-ratio;
+    content: "";
+  }
+
+  @include media-breakpoint-up(md) {
+    flex: 1 1 auto;
+    align-self: auto;
+  }
+}
+
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  @include media-breakpoint-up(md) {
+    clip-path: $banner-clip-path;
+  }
+}
+
+.banner-title {
+  padding: $banner-content-padding;
+  margin-bottom: 0;
+  line-height: $banner-title-line-height;
+
+  @include media-breakpoint-up(md) {
+    padding: $banner-content-padding-md;
+    padding-bottom: 0;
+    margin-bottom: calculateRem(8px);
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: 50%;
+    padding: $banner-content-padding-lg;
+    padding-bottom: 0;
+  }
+}
+
+.banner-subhead {
+  @include cake-font-size($banner-subhead-font-size);
+  padding: $banner-content-padding-md;
+  padding-top: 0;
+  margin-bottom: 0;
+  font-weight: $banner-subhead-font-weight;
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: 50%;
+    padding: $banner-content-padding-lg;
+    padding-top: 0;
+  }
+}
+
+.banner-content-container {
+  @include media-breakpoint-up(md) {
+    flex: 0 0 50%;
+    align-self: auto;
+  }
+
+  @include media-breakpoint-up(lg) {
+    position: static;
+    &.col-md-3,
+    &.col-lg-3 {
+      flex: 0 0 $banner-content-width-col-3;
+      max-width: $banner-content-width-col-3;
+
+      .banner-title,
+      .banner-subhead {
+        max-width: (100% * $banner-content-col-3);
+      }
+    }
+    &.col-md-4,
+    &.col-lg-4 {
+      flex: 0 0 $banner-content-width-col-4;
+      max-width: $banner-content-width-col-4;
+
+      .banner-title,
+      .banner-subhead {
+        max-width: (100% * $banner-content-col-4);
+      }
+    }
+    &.col-md-5,
+    &.col-lg-5 {
+      flex: 0 0 $banner-content-width-col-5;
+      max-width: $banner-content-width-col-5;
+
+      .banner-title,
+      .banner-subhead {
+        max-width: (100% * $banner-content-col-5);
+      }
+    }
+    &.col-lg-6 {
+      flex: 0 0 (100% * $banner-content-col-6);
+      max-width: (100% * $banner-content-col-6);
+
+      .banner-title,
+      .banner-subhead {
+        max-width: (100% * $banner-content-col-6);
+      }
+    }
+    &.col-md-3,
+    &.col-lg-3,
+    &.col-md-4,
+    &.col-lg-4,
+    &.col-md-5,
+    &.col-lg-5,
+    &.col-md-6,
+    &.col-lg-6 {
+      padding: 0;
+    }
+  }
+}
+
+.banner-content-wrapper {
+  @include media-breakpoint-up(md) {
+    height: 100%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.banner-content {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    max-width: 1280px;
+    margin: 0 auto;
   }
 }

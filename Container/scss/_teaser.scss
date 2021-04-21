@@ -1,11 +1,56 @@
 .teaser-card {
+  position: relative;
   box-shadow: $box-shadow;
+
+  .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    color: $teaser-bar-color;
+
+    &::before {
+      display: block;
+      flex: 0 1 $teaser-bg-blur-height;
+      order: -2;
+      content: "";
+      background: $teaser-background-gradient-top;
+    }
+
+    &::after {
+      display: block;
+      flex: 1 1 auto;
+      order: -1;
+      width: 100%;
+      content: "";
+      background: $teaser-background-gradient-middle;
+    }
+  }
 }
 
-.teaser-card-light {
-  .teaser-card-img-overlay {
-    color: $teaser-bar-bg;
-    background-color: rgba($teaser-bar-color, $teaser-bar-bg-opacity);
+.teaser-image-ratio {
+  &::after {
+    display: block;
+    content: "";
+  }
+
+  &.ratio-4-3 {
+    &::after {
+      padding-bottom: (3 / 4) * 100%;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -18,31 +63,30 @@
     .teaser-card-title {
       text-decoration: underline;
     }
-    .card-img {
-      opacity: $teaser-img-hover-opacity;
-    }
   }
 }
 
-.teaser-card-img-overlay {
-  top: auto; // Revert top:0 from `.card-img-overlay`
-  bottom: $teaser-bar-margin-bottom;
+.teaser-header {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  max-height: $teaser-header-max-height;
   padding: $teaser-bar-padding;
+  overflow: hidden;
   line-height: $teaser-bar-line-height;
-  color: $teaser-bar-color;
-  background-color: rgba($teaser-bar-bg, $teaser-bar-bg-opacity);
+  background: $teaser-background-gradient-bottom;
 }
 
 .teaser-card-title {
   @include cake-font-size($teaser-title-font-size);
-  margin-bottom: 0;
+  flex: 0 0 auto;
+  margin-bottom: $teaser-title-margin-bottom;
   font-weight: $teaser-title-font-weight;
 }
 
 .teaser-card-subhead {
   @include cake-font-size($teaser-subhead-font-size);
-  margin-bottom: $teaser-subhead-margin-bottom;
+  flex: 1 0;
+  margin-bottom: 0;
+  overflow: hidden;
   font-weight: $teaser-subhead-font-weight;
 }

@@ -8,26 +8,28 @@
 
 // Function to generate color gradation by name
 @function cake-color($theme-color: "primary", $gradation: "base") {
-  //Set gradation value
-  $gradation-value: map-get($gradations, $gradation);
 
-  //Define foreground-color
-  $foreground-color: $cake-color-mix-dark;
-  @if $gradation-value >= 0 {
-    $foreground-color: $cake-color-mix-light;
+  // simply use: $color-gradations
+  // Get the map of colors in specific $theme-color
+  $gradation-theme: map-get($color-gradations, $theme-color);
+  @if ($gradation-theme == null) {
+    $color: map-get($theme-colors, $theme-color);
+    @if ($color == null or $gradation != "base") {
+      @error "The color \"cake-color(#{$theme-color}, …)\" does not exist!";
+    }
+    @return $color;
   }
 
-  //invert gradation on negative values
-  @if ($gradation-value < 0) {
-    $gradation-value: 100 + $gradation-value;
-  }
+  // Get the specific color with correct $gradation
+  $color: map-get($gradation-theme, $gradation);
 
-  $base-color: $theme-color;
-  @if type_of($theme-color) == "string" {
-    $base-color: map-get($theme-colors, $theme-color);
+  @if ($color == null) {
+    @if ($gradation != "base") {
+      @error "The color \"cake-color(#{$theme-color}, #{$gradation})\" does not exist!";
+    }
+    $color: map-get($theme-colors, $theme-color);
   }
-
-  @return mix($base-color, $foreground-color, $gradation-value);
+  @return $color;
 }
 
 //Function to convert variable to string
@@ -80,4 +82,32 @@
   } @else {
     @return math.floor($hypotenuse-height);
   }
+}
+
+// Function to deep-merge maps
+@function cake-map-merge($map1, $map2) {
+  @if (type-of($map1) == map or (type-of($map1) == list and length($map1) == 0)) and (type-of($map2) == map or (type-of($map2) == list and length($map2) == 0)) {
+    $result: $map1;
+    @each $key, $value in $map2 {
+      @if (type-of(map-get($result, $key)) == map and type-of($value) == map) {
+        $result: map-merge($result, ($key: cake-map-merge(map-get($result, $key), $value)));
+      }
+      @else if (map-get((), "merge-lists") and type-of(map-get($result, $key)) == list and type-of($value) == list) {
+        $result: map-merge($result, ($key: join(map-get($result, $key), $value)));
+      }
+      @else {
+        $result: map-merge($result, ($key: $value));
+      }
+    }
+    @return $result;
+  }
+  @else {
+    @warn "cake-map-merge() expects it\'s parameters to be map types!";
+    @return null;
+  }
+}
+
+// Function to get browser-focus styling
+@function cake-browser-focus($focus-color: $browser-focus-border-inner-color, $focus-outer-color: $browser-focus-border-outer-color) {
+  @return 0 0 0 $browser-focus-border-inner-width $focus-color, 0 0 0 ($browser-focus-border-inner-width + $browser-focus-border-outer-width) $focus-outer-color;
 }

@@ -148,6 +148,10 @@ export default {
                         source: './assets/images/examples',
                         destination: path.resolve (__dirname, './docs/_assets/images/examples')
                     },
+                    {
+                        source: './node_modules/@cake-hub/schwarz-webfontkit/Fonts',
+                        destination: path.resolve (__dirname, './docs/_assets/fonts')
+                    },
                 ],
             }
         }),

@@ -14,7 +14,6 @@
   font-weight: $btn-font-weight;
   color: $body-color;
   text-align: center;
-  text-transform: uppercase;
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
@@ -30,22 +29,19 @@
   &:focus,
   &.focus {
     outline: 0;
-    box-shadow: $btn-focus-box-shadow;
+    box-shadow: $input-btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
     @include box-shadow(none);
+    cursor: not-allowed;
   }
 
   &:not(:disabled):not(.disabled):active,
   &:not(:disabled):not(.disabled).active {
     @include box-shadow($btn-active-box-shadow);
-
-    &:focus {
-      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
-    }
   }
 
   &:not(.btn-link) {
@@ -65,25 +61,23 @@ fieldset:disabled a.btn {
 //
 
 // Primary
-@each $color, $value in $theme-colors {
-  .btn-#{$color} {
-    @include cake-button-variant($value, $value, cake-color($color, "darker"), cake-color($color, "darker"), cake-color($color, "darker"), cake-color($color, "darker"), cake-color("gray", "lighter"), cake-color("gray", "lightest"));
-  }
+.btn-primary {
+  @include cake-button-variant(cake-color("primary"), cake-color("primary"), cake-color("secondary"), cake-color("secondary"), cake-color("secondary"), cake-color("secondary"), cake-color("gray", "base"), cake-color("gray", "lighter"));
 }
 
 // Primary negative / inverted
 .btn-primary-negative {
-  @include cake-button-variant($white, $white, cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "light"), cake-color("gray"));
+  @include cake-button-variant(cake-color("white"), cake-color("white"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray", "light"), cake-color("gray", "dark"));
 }
 
 // Secondary
 .btn-secondary {
-  @include cake-button-outline-variant(cake-color("primary"), $white, cake-color("primary", "darker"), cake-color("primary", "darker"), rgba(cake-color("gray", "lighter"), $btn-disabled-opacity), rgba(cake-color("gray", "lighter"), $btn-disabled-opacity));
+  @include cake-button-outline-variant(cake-color("primary"), cake-color("white"), cake-color("secondary"), cake-color("secondary"), cake-color("gray", "light"), cake-color("gray", "light"));
 }
 
 // Secondary negative / inverted
 .btn-secondary-negative {
-  @include cake-button-outline-variant($white, cake-color("primary"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), rgba(cake-color("gray", "light"), $btn-disabled-opacity), rgba(cake-color("gray", "light"), $btn-disabled-opacity));
+  @include cake-button-outline-variant(cake-color("white"), cake-color("primary"), cake-color("gray", "lighter"), cake-color("gray", "lighter"), cake-color("gray"), cake-color("gray"));
 }
 
 // slider buttons

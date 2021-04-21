@@ -7,11 +7,14 @@
 }
 
 .footer hr {
+  margin-top: $footer-seperator-margin-y;
+  margin-bottom: $footer-seperator-margin-y;
   border-top: $footer-seperator-border-width solid $footer-seperator-border-color;
 }
 
 .footer-headline {
   @extend h5; //apply h5-stylings but let user use any tag for semantic
+  margin: $footer-headline-margin;
 }
 
 .footer-list {
@@ -34,6 +37,7 @@
 
   &:hover,
   &:focus {
+    color: $footer-list-item-link-hover-color;
     text-decoration: underline;
     cursor: pointer;
     background-color: $footer-list-item-link-hover-bg;

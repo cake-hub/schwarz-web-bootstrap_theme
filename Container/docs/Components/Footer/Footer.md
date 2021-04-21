@@ -1,5 +1,5 @@
 <AlertInfo alertHeadline="Modifiable">
-Please ensure to comply with the corporate identity.
+    Please ensure to comply with the corporate identity.
 </AlertInfo>
 
 # Footer

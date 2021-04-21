@@ -13,15 +13,3 @@ document.addEventListener ("DOMContentLoaded", () => {
         }
     });
 });
-
-
-/* Initialize extended cookie alert */
-
-document.addEventListener ("DOMContentLoaded", () => {
-    if (!window.cake) {
-        window.cake = {};
-    }
-    if (window.cake.cookie && window.cake.cookie.showCookieAlert) {
-        window.cake.cookie.showCookieAlert ();
-    }
-});

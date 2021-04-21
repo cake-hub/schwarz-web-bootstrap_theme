@@ -71,8 +71,16 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-@each $color, $value in $theme-colors {
+@each $color, $value in map-remove($theme-colors, "primary", "secondary", "gray") {
   .alert-#{$color} {
-    @include cake-alert-variant(cake-color($color), $white, $white);
+    @include cake-alert-variant(cake-color($color), cake-color($color, "darker"));
   }
+}
+
+.alert-primary {
+  @include cake-alert-variant(cake-color("primary"), cake-color("primary"));
+}
+
+.alert-gray {
+  @include cake-alert-variant(cake-color("gray", "dark"), $black);
 }

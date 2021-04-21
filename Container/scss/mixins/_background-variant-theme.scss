@@ -4,6 +4,6 @@
 
 @mixin cake-bg-gradient-variant($parent, $color) {
   #{$parent} {
-    @include gradient-y-three-colors(cake-color($color), cake-color($color), 60%, cake-color($color, "darker"));
+    @include gradient-y-three-colors(cake-color($color), cake-color($color), 60%, cake-color($color));
   }
 }

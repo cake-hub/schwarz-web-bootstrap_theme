@@ -1,0 +1,43 @@
+// stylelint-disable property-blacklist, value-no-vendor-prefix, property-no-vendor-prefix
+
+.flash-bubble {
+  @include cake-font-size($flash-bubble-font-size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: $flash-bubble-size;
+  height: $flash-bubble-size;
+  padding: 0 $flash-bubble-padding-x;
+  font-weight: $flash-bubble-font-weight;
+  line-height: $flash-bubble-line-height;
+  color: $flash-bubble-color;
+  text-align: center;
+  background-color: $flash-bubble-background-color;
+  border-radius: 50%;
+  transform: rotate($flash-bubble-rotation-angle);
+
+  @include media-breakpoint-up(lg) {
+    width: $flash-bubble-size-lg;
+    height: $flash-bubble-size-lg;
+    padding: 0 $flash-bubble-padding-x-lg;
+  }
+
+  .flash-bubble-content {
+    display: -webkit-box;
+    max-height: $flash-bubble-max-height;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $flash-bubble-max-lines;
+    -webkit-box-orient: vertical;
+
+    @include media-breakpoint-up(lg) {
+      max-height: $flash-bubble-max-height-lg;
+      -webkit-line-clamp: $flash-bubble-max-lines-lg;
+    }
+  }
+}
+
+.flash-bubble-negative {
+  color: $flash-bubble-negative-color;
+  background-color: $flash-bubble-negative-background-color;
+}

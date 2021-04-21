@@ -5,6 +5,10 @@
   box-shadow: $pagination-box-shadow;
 }
 
+.pagination-btn {
+  margin-top: $pagination-btn-deviation;
+}
+
 .page-link {
   position: relative;
   display: block;

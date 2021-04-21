@@ -8,7 +8,7 @@
 
 
 // Remove "wrong" theme-colors
-$theme-colors: map-remove($theme-colors, "light", "dark", "secondary");
+$theme-colors: map-remove($theme-colors, "warning", "light", "dark");
 
 
 
@@ -19,28 +19,30 @@ $theme-colors: map-remove($theme-colors, "light", "dark", "secondary");
 
 // Accordions
 
-$accordion-border-color:             cake-color("gray");
+$accordion-border-color:             cake-color("gray", "dark");
 $accordion-border-radius:            $border-radius;
 $accordion-border-width:             $border-width;
 $accordion-padding-x:                2 * $spacer - calculateRem($accordion-border-width);
 $accordion-padding-y:                $spacer;
+$accordion-margin-top:               $spacer;
 $accordion-max-height:               8000px; // must be greater than users screen height
 $accordion-collapse-transition:      all .35s ease, max-height .35s cubic-bezier(0, 1, 0, 1);
-$accordion-focus-border-color:       cake-color("primary");
-$accordion-hover-border-color:       cake-color("primary");
-$accordion-active-border-color:      cake-color("primary");
-$accordion-icon-color:               cake-color("gray", "darker");
+$accordion-focus-border-color:       $input-focus-border-color;
+$accordion-hover-border-color:       $input-focus-border-color;
+$accordion-active-border-color:      $input-focus-border-color;
+$accordion-icon-color:               $body-color;
 $accordion-icon-dimension:           $input-icon-size;
 $accordion-icon-transition:          all .35s linear;
+$accordion-icon-margin:              2 * $spacer;
 $accordion-label-height:             $input-btn-height;
 $accordion-label-height-at-lg:       $input-btn-height-at-lg;
-$accordion-label-color:              cake-color("gray", "darker");
+$accordion-label-color:              $body-color;
 $accordion-label-focus-color:        cake-color("primary");
 $accordion-label-focus-box-shadow:   $input-btn-focus-box-shadow;
 $accordion-label-active-color:       cake-color("primary");
-$accordion-disabled-color:           cake-color("gray", "base");
-$accordion-disabled-border-color:    cake-color("gray", "light");
-$accordion-disabled-bg-color:        cake-color("gray", "background");
+$accordion-disabled-color:           cake-color("gray", "dark");
+$accordion-disabled-border-color:    cake-color("gray", "base");
+$accordion-disabled-bg-color:        cake-color("gray", "lightest");
 
 
 // Alert
@@ -53,8 +55,14 @@ $alert-close-focus-box-shadow:        $input-btn-focus-box-shadow;
 // Badge
 
 $badge-colors: (
-  "primary": $primary,
-  "info": $info,
+  "primary": (
+    "bg": $primary,
+    "bg-hover": $secondary
+  ),
+  "info": (
+    "bg": $info,
+    "bg-hover": cake-color("info", "darker"),
+  )
 );
 
 $badge-line-height:                   1.2;
@@ -78,7 +86,7 @@ $breadcrumb-item-space-new-line:      .25rem;
 $breadcrumb-link-color:               $body-color;
 $breadcrumb-link-text-decoration:     none;
 
-$breadcrumb-icon-margin-top:          -$breadcrumb-item-space-new-line;
+$breadcrumb-icon-margin-top:          -($breadcrumb-item-space-new-line / 2);
 
 
 // Button
@@ -86,16 +94,21 @@ $breadcrumb-icon-margin-top:          -$breadcrumb-item-space-new-line;
 $btn-font-size-at-lg:         $btn-font-size + $font-grow;
 $btn-height:                  $input-btn-height;
 $btn-height-at-lg:            $input-btn-height-at-lg;
-$btn-font-size:               $font-size-base + $font-grow;
 $btn-disabled-opacity:        1;
 
 
 // Card
 
-$card-title-line-height:            $headings-line-height;
-$card-subtitle-line-height:         $headings-line-height;
+$card-box-shadow:                   $box-shadow;
+$card-title-line-height:            1.2;
+$card-subtitle-line-height:         $card-title-line-height;
 $card-link-color:                   $body-color;
 $card-hover-color:                  $card-color;
+$card-line-height:                  1.2;
+$card-font-weight:                  $font-weight-normal;
+$card-body-padding:                 .5rem;
+$card-body-padding-sm-up:           1rem;
+$card-title-margin-bottom-xs-only:  .25rem;
 
 
 // Close
@@ -110,6 +123,7 @@ $pagination-line-height-md:         calculateRem(40px);
 $pagination-min-width-lg:           $pagination-line-height-lg;
 $pagination-min-width-md:           $pagination-line-height-md;
 $pagination-box-shadow:             $box-shadow;
+$pagination-btn-deviation:          calculateRem(-2px);
 
 
 // Slider Button
@@ -126,6 +140,10 @@ $btn-slider-hover-bg:         $primary;
 // Tables
 
 $table-border-color:          cake-color("gray", "lighter");
+$table-accent-bg:             cake-color("gray", "lightest");
+$table-head-color-default:    cake-color("primary");
+$table-head-border-color:     cake-color("primary");
+$table-cell-padding:          .5rem 1rem;
 
 
 // Typography
@@ -133,8 +151,6 @@ $table-border-color:          cake-color("gray", "lighter");
 $link-negative-color:                              $white;
 $link-negative-hover-color:                        cake-color("gray", "light");
 $link-negative-active-color:                       cake-color("gray", "light");
-$link-negative-focus-box-shadow:                   0 0 0 $input-btn-focus-width rgba($white, .5);
-
 
 
 
@@ -145,37 +161,44 @@ $link-negative-focus-box-shadow:                   0 0 0 $input-btn-focus-width 
 
 // Banner
 
-$banner-max-width:                            calculateRem(1920px);
-$banner-height:                               calculateRem(184px);
-$banner-height-desktop:                       calculateRem(200px);
-$banner-width-cols:                           3;
+$banner-max-width:              calculateRem(1920px);
 
-$banner-arrow-arc-alpha:                      128deg;
-$banner-arrow-arc-beta:                       26deg;
-$banner-arrow-width:                          cake-get-height-of-isosceles-triangle($banner-height, $banner-arrow-arc-alpha, $banner-arrow-arc-beta);
-$banner-arrow-width-lg:                       cake-get-height-of-isosceles-triangle($banner-height-desktop, $banner-arrow-arc-alpha, $banner-arrow-arc-beta);
+$banner-bg:                     cake-color("primary");
+$banner-bg-negative:            cake-color("gray", "lightest");
+$banner-color:                  $white;
+$banner-color-negative:         cake-color("primary");
 
-$banner-bar-bg:                               cake-color("primary");
-$banner-bar-bg-opacity:                       .9;
-$banner-bar-color:                            $white;
-$banner-bar-cols:                             6;
-$banner-bar-cols-md:                          4;
-$banner-bar-cols-lg:                          3;
-$banner-bar-padding:                          $spacer * 2;
-$banner-bar-padding:                          0 $banner-arrow-width 0 1rem;
-$banner-bar-padding-lg:                       0 $banner-arrow-width-lg 0 1rem;
+$banner-content-padding:              calculateRem(16px);
+$banner-content-padding-md:           0 calculateRem(8px) 0 calculateRem(40px);
+$banner-content-padding-inverted-md:  0 calculateRem(40px) 0 calculateRem(8px);
+$banner-content-padding-lg:           0 calculateRem(8px) 0 calculateRem(24px);
+$banner-content-padding-inverted-lg:  0 calculateRem(24px) 0 calculateRem(8px);
 
-$banner-clip-path:                  polygon(0 0, calc(100% - #{$banner-arrow-width}) 0, 100% 50%, calc(100% - #{$banner-arrow-width}) 100%, 0 100%);
-$banner-clip-path-lg:               polygon(0 0, calc(100% - #{$banner-arrow-width-lg}) 0, 100% 50%, calc(100% - #{$banner-arrow-width-lg}) 100%, 0 100%);
-$banner-container-max-width:        nth(map-values($container-max-widths), length(map-values($container-max-widths)));
-$banner-left-bg-width:              $card-img-overlay-padding;
+$banner-content-col-1:          1 / $grid-columns;     // .083333333333
+$banner-content-col-2:          1 / $grid-columns * 2; // .166666666667
+$banner-content-col-3:          1 / $grid-columns * 3; // .25
+$banner-content-col-4:          1 / $grid-columns * 4; // .333333333333
+$banner-content-col-5:          1 / $grid-columns * 5; // .416666666667
+$banner-content-col-6:          1 / $grid-columns * 6; // .5
+$banner-content-max-width:      nth(map-values($container-max-widths), length(map-values($container-max-widths)));
+// space between 1280 and 1920 + 25% (col-3) of 1280px ==> ((1920 - 1280) / 2) + (1280 * (1 - 0.25))
+$banner-content-width-col-3:    calc(100% - (((100% - #{$banner-content-max-width}) / 2) + #{$banner-content-max-width * (1 - $banner-content-col-3)}));
+$banner-content-width-col-4:    calc(100% - (((100% - #{$banner-content-max-width}) / 2) + #{$banner-content-max-width * (1 - $banner-content-col-4)}));
+$banner-content-width-col-5:    calc(100% - (((100% - #{$banner-content-max-width}) / 2) + #{$banner-content-max-width * (1 - $banner-content-col-5)}));
 
-$banner-title-font-size:                      calculateRem(20px);
-$banner-title-font-weight:                    $font-weight-bold;
+$banner-image-ratio:                  9 / 16 * 100%;
+$banner-clip-path-arrow-height-16-9:  13.7175%;
+$banner-clip-path:                    polygon(0 0, 100% 0, 100% 100%, 0 100%, $banner-clip-path-arrow-height-16-9 50%);
+$banner-clip-path-inverted:           polygon((100% - $banner-clip-path-arrow-height-16-9) 0, 100% 50%, (100% - $banner-clip-path-arrow-height-16-9) 100%, 0 100%, 0 0);
 
-$banner-subhead-font-size:                    calculateRem(12px);
-$banner-subhead-font-weight:                  $font-weight-normal;
-$banner-subhead-margin-bottom:                calculateRem(2px);
+$banner-title-font-size:        $display1-size;
+$banner-title-font-size-lg:     $display1-size-lg;
+$banner-title-font-weight:      $font-weight-bold;
+$banner-title-line-height:      1.1;
+
+$banner-subhead-font-size:      calculateRem(20px);
+$banner-subhead-font-weight:    $font-weight-normal;
+$banner-subhead-color-negative: $black;
 
 
 // Cookie Alert
@@ -186,20 +209,105 @@ $cookie-alert-modal-padding:                        calculateRem(16px);
 $cookie-alert-modal-max-width:                      calculateRem(624px);
 $cookie-alert-modal-color:                          $body-color;
 $cookie-alert-modal-font-size:                      calculateRem(12px);
-$cookie-alert-modal-seperator:                      1px solid cake-color("gray", "lighter");
+$cookie-alert-modal-seperator:                      1px solid cake-color("gray", "light");
 $cookie-alert-modal-checkbox-discrepancy:           calculateRem(3px);
 $cookie-alert-modal-detail-link-icon-size:          calculateRem(16px);
 
 
+// Flash - Corner
+
+$flash-corner-font-size:        $font-size-base;
+$flash-corner-font-weight:      $font-weight-bold;
+$flash-corner-height:           calculateRem(32px);
+$flash-corner-height-lg:        calculateRem(36px);
+$flash-corner-padding-x:        $spacer;
+$flash-corner-max-width:        calculateRem(244px);
+$flash-corner-max-width-lg:     calculateRem(272px);
+
+$flash-corner-color:                      cake-color("white");
+$flash-corner-negative-color:             cake-color("black");
+$flash-corner-background-color:           cake-color("primary");
+$flash-corner-negative-background-color:  cake-color("attention");
+
+
+// Flash - Frame
+
+$flash-frame-line-height:                 1.2;
+$flash-frame-height:                      calculateRem(56px);
+$flash-frame-height-lg:                   calculateRem(64px);
+$flash-frame-triangle-height-percentage:  .487734375; // triangle side a = height of the frame; side b is ~ 48.78% the size of a
+$flash-frame-triangle-height:             $flash-frame-height * $flash-frame-triangle-height-percentage;
+$flash-frame-triangle-height-lg:          $flash-frame-height-lg * $flash-frame-triangle-height-percentage;
+$flash-frame-clip-path:                   polygon(0 0, 100% 0%, calc(100% - #{$flash-frame-triangle-height}) 100%, 0% 100%);
+$flash-frame-right-clip-path:             polygon($flash-frame-triangle-height 0%, 100% 0%, 100% 100%, 0% 100%);
+$flash-frame-clip-path-lg:                polygon(0 0, 100% 0%, calc(100% - #{$flash-frame-triangle-height-lg}) 100%, 0% 100%);
+$flash-frame-right-clip-path-lg:          polygon($flash-frame-triangle-height-lg 0%, 100% 0%, 100% 100%, 0% 100%);
+$flash-frame-max-width:                   50%;
+$flash-frame-padding:                     0 ($spacer + $flash-frame-triangle-height) 0 ($spacer * 2);
+$flash-frame-right-padding:               0 ($spacer * 2) 0 ($spacer + $flash-frame-triangle-height);
+$flash-frame-padding-lg:                  0 ($spacer + $flash-frame-triangle-height) 0 ($spacer * 2);
+$flash-frame-right-padding-lg:            0 ($spacer * 2) 0 ($spacer + $flash-frame-triangle-height);
+$flash-frame-font-size:                   16px;
+$flash-frame-color:                       $white;
+$flash-frame-negative-color:              $black;
+$flash-frame-background-color:            cake-color("primary");
+$flash-frame-negative-background-color:   cake-color("attention");
+$flash-frame-content-max-height:          calc((#{calculateRem($flash-frame-font-size)} * #{$flash-frame-line-height}) * 2);
+$flash-frame-content-max-height-lg:       calc((#{(calculateRem($flash-frame-font-size) + $font-grow)} * #{$flash-frame-line-height}) * 2);
+
+
+// Flash - Bubble
+
+$flash-bubble-line-height:                 1.2;
+$flash-bubble-font-weight:                 $font-weight-bold;
+$flash-bubble-padding-x:                   $spacer;
+$flash-bubble-padding-x-lg:                $spacer * 2;
+$flash-bubble-size:                        calculateRem(112px);
+$flash-bubble-size-lg:                     calculateRem(144px);
+$flash-bubble-font-size:                   16px;
+$flash-bubble-color:                       $white;
+$flash-bubble-negative-color:              $black;
+$flash-bubble-background-color:            cake-color("primary");
+$flash-bubble-negative-background-color:   cake-color("attention");
+$flash-bubble-max-lines:                   2;
+$flash-bubble-max-lines-lg:                3;
+$flash-bubble-max-height:                  ($flash-bubble-max-lines * $flash-bubble-line-height * calculateRem($flash-bubble-font-size));
+$flash-bubble-max-height-lg:               ($flash-bubble-max-lines-lg * $flash-bubble-line-height * (calculateRem($flash-bubble-font-size) + $font-grow));
+$flash-bubble-rotation-angle:              -10deg;
+
+
+// Flash - Marker
+
+$flash-marker-line-height:                 1.2;
+$flash-marker-font-weight:                 $font-weight-bold;
+$flash-marker-padding-x:                   $spacer;
+$flash-marker-padding-top:                 $spacer * 2;
+$flash-marker-padding-bottom:              $spacer;
+$flash-marker-width:                       calculateRem(120px);
+$flash-marker-width-lg:                    calculateRem(136px);
+$flash-marker-font-size:                   16px;
+$flash-marker-color:                       $white;
+$flash-marker-negative-color:              $black;
+$flash-marker-background-color:            cake-color("primary");
+$flash-marker-negative-background-color:   cake-color("attention");
+$flash-marker-max-lines:                   4;
+$flash-marker-triangle-height-percentage:  .2438676471; // triangle side a = height of the frame; side b is ~ 24.39% the size of a
+$flash-marker-max-height:                  ($flash-marker-max-lines * $flash-marker-line-height * calculateRem($flash-marker-font-size));
+$flash-marker-max-height-lg:               ($flash-marker-max-lines * $flash-marker-line-height * (calculateRem($flash-marker-font-size) + $font-grow));
+
+
 // Footer
 
-$footer-bg:                               cake-color("gray");
-$footer-color:                            $white;
+$footer-bg:                               cake-color("gray", "dark");
+$footer-color:                            cake-color("gray", "lighter");
 $footer-padding-y:                        $spacer * 4;
-$footer-list-item-link-hover-bg:          cake-color("gray", "light");
+$footer-list-item-link-hover-color:       cake-color("white");
+$footer-list-item-link-hover-bg:          cake-color("gray", "dark");
 $footer-seperator-border-width:           $border-width;
-$footer-seperator-border-color:           cake-color("gray", "lightest");
+$footer-seperator-border-color:           cake-color("gray");
+$footer-seperator-margin-y:               $spacer * 2;
 $footer-list-item-link-padding:           $spacer;
+$footer-headline-margin:                  $footer-list-item-link-padding;
 
 
 // Popover
@@ -210,28 +318,23 @@ $popover-box-shadow:                          $box-shadow;
 $popover-font-weight:                         $font-weight-normal;
 $popover-bg-color:                            $white;
 $popover-color:                               color-yiq($popover-bg-color, $body-color, $white);
-$popover-border-color:                        cake-color("gray", "lighter");
+$popover-border-color:                        cake-color("gray", "light");
 $popover-border-radius:                       $border-radius;
 $popover-arrow-color:                         $popover-bg-color;
 $popover-svg-arrow-color:                     $popover-arrow-color;
 $popover-backdrop-bg-color:                   $popover-bg-color;
 
 
-// Product tile
-
-$product-tile-shadow:                     $box-shadow;
-
-
 // Tab
 
-$tab-background-color:                cake-color("gray", "lightest");
-$tab-background-hover-color:          $primary;
-$tab-background-active-color:         $white;
-$tab-border-color:                    cake-color("gray", "light");
-$tab-border-hover-color:              $primary;
-$tab-border-active-color:             cake-color("gray", "light");
-$tab-color:                           cake-color("gray", "darker");
-$tab-color-hover:                     color-yiq($tab-background-hover-color);
+$tab-background-color:                cake-color("gray", "lighter");
+$tab-background-hover-color:          cake-color("primary");
+$tab-background-active-color:         cake-color("white");
+$tab-border-color:                    cake-color("gray", "dark");
+$tab-border-hover-color:              cake-color("primary");
+$tab-border-active-color:             cake-color("gray", "dark");
+$tab-color:                           cake-color("gray", "dark");
+$tab-color-hover:                     color-yiq($tab-background-hover-color, cake-color("black"), cake-color("white"));
 $tab-btn-padding:                     $spacer * 2;
 $tab-mobile-btn-padding-x:            $spacer;
 $tab-slider-btn-width:                2rem;
@@ -242,18 +345,20 @@ $tab-icon-path-next:                  $navigation-icon-path + "arrow-right.svg";
 
 // Teaser
 
-$teaser-bar-bg:                               cake-color("gray", "darker");
-$teaser-bar-bg-opacity:                       .9;
+$teaser-bar-bg:                               cake-color("black");
 $teaser-bar-color:                            $white;
 $teaser-bar-padding:                          $spacer * 2;
-$teaser-bar-line-height:                      $line-height-base;
-$teaser-bar-margin-bottom:                    $teaser-bar-padding;
-
-$teaser-img-hover-opacity:                    .5;
+$teaser-bar-line-height:                      1.2;
+$teaser-header-max-height:                    65% - 15%; // subtract 15% to have at least these 15% blur on top of title
+$teaser-bg-blur-height:                       35%;
 
 $teaser-title-font-weight:                    $font-weight-bold;
-$teaser-title-font-size:                      calculateRem(20px);
+$teaser-title-font-size:                      $h4-font-size;
+$teaser-title-margin-bottom:                  calculateRem(2px);
 
 $teaser-subhead-font-weight:                  $font-weight-normal;
-$teaser-subhead-font-size:                    calculateRem(12px);
-$teaser-subhead-margin-bottom:                calculateRem(2px);
+$teaser-subhead-font-size:                    $font-size-base;
+
+$teaser-background-gradient-top:              linear-gradient(180deg, rgba($teaser-bar-bg, 0), rgba($teaser-bar-bg, .03));
+$teaser-background-gradient-middle:           linear-gradient(180deg, rgba($teaser-bar-bg, .03), rgba($teaser-bar-bg, .65));
+$teaser-background-gradient-bottom:           linear-gradient(180deg, rgba($teaser-bar-bg, .65), rgba($teaser-bar-bg, .8));

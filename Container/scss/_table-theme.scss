@@ -3,6 +3,13 @@
 //
 
 .table {
+  thead {
+    th {
+      color: $table-head-color-default;
+      border-color: $table-head-border-color;
+    }
+  }
+
   tr:first-child {
     th,
     td {

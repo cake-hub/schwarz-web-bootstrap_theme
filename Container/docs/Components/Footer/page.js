@@ -6,7 +6,7 @@ import FooterListItem from "@Develop/Components/Footer/footerListItem.html";
 const FooterDefault = () => (
     <Footer>
         <ul className="list-unstyled mb-0">
-            <li className="mb-4">
+            <li className="mb-2">
                 <strong className="footer-headline">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -52,7 +52,7 @@ const FooterDefault = () => (
 const FooterWithoutHeadline = () => (
     <Footer>
         <ul className="list-unstyled mb-0">
-            <li className="mb-4">
+            <li className="mb-2">
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -95,7 +95,7 @@ const FooterVertical = () => (
     <Footer>
 
         <ul className="footer-list row justify-content-center text-md-left mb-4">
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -108,7 +108,7 @@ const FooterVertical = () => (
                     <FooterListItem>Main-Nav title</FooterListItem>
                 </FooterList>
             </li>
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -154,7 +154,7 @@ const FooterVerticalMaximum = () => (
     <Footer>
 
         <ul className="footer-list row justify-content-center text-md-left mb-4">
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -167,7 +167,7 @@ const FooterVerticalMaximum = () => (
                     <FooterListItem>Main-Nav title</FooterListItem>
                 </FooterList>
             </li>
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -180,7 +180,7 @@ const FooterVerticalMaximum = () => (
                     <FooterListItem>Main-Nav title</FooterListItem>
                 </FooterList>
             </li>
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -193,7 +193,7 @@ const FooterVerticalMaximum = () => (
                     <FooterListItem>Main-Nav title</FooterListItem>
                 </FooterList>
             </li>
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>
@@ -206,7 +206,7 @@ const FooterVerticalMaximum = () => (
                     <FooterListItem>Main-Nav title</FooterListItem>
                 </FooterList>
             </li>
-            <li className="col-md-2 mb-4 mb-md-0">
+            <li className="col-md-2 mb-2 mb-md-0">
                 <strong className="footer-headline ml-md-1">Headline</strong>
                 <FooterList>
                     <FooterListItem>Main-Nav title</FooterListItem>

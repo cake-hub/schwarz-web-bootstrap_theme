@@ -31,13 +31,13 @@ Separators are automatically added in CSS through [`::before`](https://developer
 Use a **base64 embedded SVG icon**:
 
 ```scss
-$breadcrumb-divider: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA2MCI+PHBhdGggZD0iTTI0LjYgMGwtNS4yIDMgMTUuMiAyNy0xNS4yIDI3IDUuMiAzIDE2LTI4LjV2LTN6Ii8+PC9zdmc+");
+$breadcrumb-divider: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTcuMzgxIDIyLjg1NGwtLjcwNy0uNzA4TDE2LjgyMSAxMiA2LjY3NCAxLjg1NGwuNzA3LS43MDhMMTguMjM1IDEyIDcuMzgxIDIyLjg1NHoiLz48L3N2Zz4=");
 ```
 
 It's also possible to use a **URI embedded SVG icon**:
 
 ```scss
-$breadcrumb-divider: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M24.6 0l-5.2 3 15.2 27-15.2 27 5.2 3 16-28.5v-3z'/%3E%3C/svg%3E");
+$breadcrumb-divider: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M7.381 22.854l-.707-.708L16.821 12 6.674 1.854l.707-.708L18.235 12 7.381 22.854z'/%3E%3C/svg%3E");
 ```
 
 Another option is to use the function **`svg-load`** to load a svg file, which will be placed inline into the css at comilation of the scss:

@@ -1,6 +1,6 @@
-@mixin cake-alert-variant($background, $border, $color) {
+@mixin cake-alert-variant($border, $color) {
   color: $color;
-  @include gradient-bg($background);
+  @include gradient-bg($white);
   border-color: $border;
 
   hr {

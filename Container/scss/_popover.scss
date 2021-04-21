@@ -2,11 +2,9 @@
 
 .tippy-box {
   //stylelint-disable-next-line property-blacklist
-  border-radius: 0;
+  border-radius: $popover-border-radius;
 }
 
 // Primary, Highlight, Dark, Light
-@each $variant, $color in $theme-colors {
-  // theme, color, background-color, border-color, arrow color, svg-arrow color, backdrop background-color
-  @include cake-tippyjs-theme($variant, cake-color($variant, "darker"), cake-color($variant, "background"), cake-color($variant, "lighter"), cake-color($variant, "background"), cake-color($variant, "background"), cake-color($variant, "background"));
-}
+// theme, color, background-color, border-color, arrow color, svg-arrow color, backdrop background-color
+@include cake-tippyjs-theme("cake", $popover-color, $popover-bg-color, $popover-border-color, $popover-arrow-color, $popover-svg-arrow-color, $popover-backdrop-bg-color);

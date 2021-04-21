@@ -31,7 +31,7 @@ Please install Docker to start the project.
 
 This will build the docker container and runs `npm install && npm run dev` (might take some time).
 
-When everything is installed and the server has started, open the browser and navigate to `http://localhost:2021`.
+When everything is installed and the server has started, open the browser and navigate to `http://localhost:2023`.
 
 Alternatively there are further startup possibilities.
 

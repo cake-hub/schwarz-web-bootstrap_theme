@@ -8,7 +8,7 @@
   background-color: $white;
 
   .accordion-item ~ & {
-    margin-top: calculateRem(8px + $accordion-border-width); //Added 2px because of Collapse margin-top: -2px
+    margin-top: $accordion-margin-top;
   }
 }
 
@@ -49,11 +49,14 @@
 
 .accordion-item-header {
   flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .accordion-icon {
   flex: 0 0 $accordion-icon-dimension;
   width: $accordion-icon-dimension; // bugfix - oldBrowser: Edge 16 icon has completely wrong size
+  margin-left: $accordion-icon-margin;
   color: $accordion-icon-color;
   @include transition($accordion-icon-transition);
 }

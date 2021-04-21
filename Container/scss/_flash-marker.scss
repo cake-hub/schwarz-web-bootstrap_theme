@@ -1,0 +1,53 @@
+.flash-marker {
+  position: relative;
+  @include cake-font-size($flash-marker-font-size);
+  width: $flash-marker-width;
+  padding: $flash-marker-padding-top $flash-marker-padding-x $flash-marker-padding-bottom $flash-marker-padding-x;
+  font-weight: $flash-marker-font-weight;
+  line-height: $flash-marker-line-height;
+  color: $flash-marker-color;
+  text-align: center;
+  background-color: $flash-marker-background-color;
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    content: "";
+    border-color: $flash-marker-background-color transparent transparent;
+    border-style: solid;
+    border-width: ($flash-marker-triangle-height-percentage * $flash-marker-width) ($flash-marker-width / 2) 0 ($flash-marker-width / 2);
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: $flash-marker-width-lg;
+
+    &::after {
+      border-width: ($flash-marker-triangle-height-percentage * $flash-marker-width-lg) ($flash-marker-width-lg / 2) 0 ($flash-marker-width-lg / 2);
+    }
+  }
+}
+
+.flash-marker-negative {
+  color: $flash-marker-negative-color;
+  background-color: $flash-marker-negative-background-color;
+
+  &::after {
+    border-top-color: $flash-marker-negative-background-color;
+  }
+}
+
+.flash-marker-content {
+  // stylelint-disable-next-line value-no-vendor-prefix
+  display: -webkit-box;
+  max-height: $flash-marker-max-height;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $flash-marker-max-lines;
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-box-orient: vertical;
+
+  @include media-breakpoint-up(lg) {
+    max-height: $flash-marker-max-height-lg;
+  }
+}

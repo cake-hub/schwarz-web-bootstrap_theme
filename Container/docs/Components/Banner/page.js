@@ -1,34 +1,67 @@
 import React from "react";
 import Banner from "@Develop/Components/Banner/banner.html";
 
-const BannerWithoutHeader = () => (
-    <Banner />
+
+const BannerPreview = () => (
+    <Banner
+        c_title="Title"
+    />
 );
 
 const BannerDefault = () => (
     <Banner
         c_title="Title"
+        c_subhead="Body text"
     />
 );
 
-const BannerLight = () => (
+const BannerInverted = () => (
     <Banner
-        c_title="Title"
-        c_subhead="Subhead"
-        className="banner-card-light"
+        c_title="Inverted"
+        className="inverted"
     />
 );
 
-const BannerWithSubhead = () => (
+const BannerNegative = () => (
     <Banner
-        c_title="Title"
-        c_subhead="Subhead"
+        c_title="Negative"
+        className="negative"
     />
+);
+
+const BannerAll = () => (
+    <React.Fragment>
+        <Banner
+            c_title="Standard"
+            c_subhead="no additional classes"
+        />
+        <Banner
+            c_title="inverted negative"
+            c_subhead="col-md-5"
+            className="inverted negative"
+            c_contentClassName="col-md-5"
+        />
+        <br />
+        <Banner
+            c_title="Negative"
+            c_subhead="col-md-3 col-lg-4"
+            className="negative"
+            c_contentClassName="col-md-3 col-lg-4"
+        />
+        <br />
+        <Banner
+            c_title="Inverted"
+            c_subhead="col-md-5 col-lg-6"
+            className="inverted"
+            c_contentClassName="col-md-5 col-lg-6"
+        />
+    </React.Fragment>
 );
 
 export default {
-    BannerWithoutHeader,
+    BannerPreview,
     BannerDefault,
-    BannerWithSubhead,
-    BannerLight,
+    BannerInverted,
+    BannerNegative,
+    BannerAll
 };

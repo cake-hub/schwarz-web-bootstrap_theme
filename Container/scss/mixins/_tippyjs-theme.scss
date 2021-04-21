@@ -5,6 +5,7 @@
     @include cake-font-size($popover-font-size);
     font-weight: $popover-font-weight;
     color: $color;
+    text-align: left;
     background-color: $bg-color;
     border: 1px solid $border-color;
     box-shadow: $popover-box-shadow;

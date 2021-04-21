@@ -4,19 +4,16 @@ import Icon from "@Develop/Components/Icon/icon.html";
 
 const ButtonPositive = () => (
     <React.Fragment>
-        <Button className="btn-primary">
+        <Button className="btn-primary mt-1">
             Primary
         </Button>
-        &nbsp;
-        <Button className="btn-primary" disabled>
+        <Button className="btn-primary ml-1 mt-1" disabled>
             Primary disabled
         </Button>
-        &nbsp;
-        <Button className="btn-secondary">
+        <Button className="btn-secondary ml-1 mt-1">
             Secondary
         </Button>
-        &nbsp;
-        <Button className="btn-secondary" disabled>
+        <Button className="btn-secondary ml-1 mt-1" disabled>
             Secondary disabled
         </Button>
     </React.Fragment>
@@ -24,19 +21,16 @@ const ButtonPositive = () => (
 
 const ButtonNegative = () => (
     <div className="cake-example-negative" id="showBox">
-        <Button className="btn-primary-negative">
+        <Button className="btn-primary-negative mt-1">
             Primary
         </Button>
-        &nbsp;
-        <Button className="btn-primary-negative" disabled>
+        <Button className="btn-primary-negative ml-1 mt-1" disabled>
             Primary disabled
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative">
+        <Button className="btn-secondary-negative ml-1 mt-1">
             Secondary
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative" disabled>
+        <Button className="btn-secondary-negative ml-1 mt-1" disabled>
             Secondary disabled
         </Button>
     </div>
@@ -44,22 +38,19 @@ const ButtonNegative = () => (
 
 const ButtonWithIcon = () => (
     <React.Fragment>
-        <Button className="btn-primary">
+        <Button className="btn-primary mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Primary
         </Button>
-        &nbsp;
-        <Button className="btn-primary" disabled>
+        <Button className="btn-primary ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Primary disabled
         </Button>
-        &nbsp;
-        <Button className="btn-secondary">
+        <Button className="btn-secondary ml-1 mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Secondary
         </Button>
-        &nbsp;
-        <Button className="btn-secondary" disabled>
+        <Button className="btn-secondary ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Secondary disabled
         </Button>
@@ -68,19 +59,16 @@ const ButtonWithIcon = () => (
 
 const ButtonWithIconPositive = () => (
     <React.Fragment>
-        <Button className="btn-primary">
+        <Button className="btn-primary mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-primary" disabled>
+        <Button className="btn-primary ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-secondary">
+        <Button className="btn-secondary ml-1 mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-secondary" disabled>
+        <Button className="btn-secondary ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
     </React.Fragment>
@@ -88,22 +76,19 @@ const ButtonWithIconPositive = () => (
 
 const ButtonWithIconAndTextNegative = () => (
     <div className="cake-example-negative" id="showBox">
-        <Button className="btn-primary-negative">
+        <Button className="btn-primary-negative mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Primary
         </Button>
-        &nbsp;
-        <Button className="btn-primary-negative" disabled>
+        <Button className="btn-primary-negative ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Primary disabled
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative">
+        <Button className="btn-secondary-negative ml-1 mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Secondary
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative" disabled>
+        <Button className="btn-secondary-negative ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3 mr-1" />
             Secondary disabled
         </Button>
@@ -112,19 +97,16 @@ const ButtonWithIconAndTextNegative = () => (
 
 const ButtonWithIconNegative = () => (
     <div className="cake-example-negative" id="showBox">
-        <Button className="btn-primary-negative">
+        <Button className="btn-primary-negative mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-primary-negative" disabled>
+        <Button className="btn-primary-negative ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative">
+        <Button className="btn-secondary-negative ml-1 mt-1">
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
-        &nbsp;
-        <Button className="btn-secondary-negative" disabled>
+        <Button className="btn-secondary-negative ml-1 mt-1" disabled>
             <Icon name="placeholder" placeholder="Placeholder" className="btn-icon icon-3" />
         </Button>
     </div>
