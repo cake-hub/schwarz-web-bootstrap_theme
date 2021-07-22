@@ -1,11 +1,11 @@
 import React from "react";
 import Icon from "@Develop/Components/Icon/icon.html";
-import shortid from "shortid";
+import { pseudoRandomHashGenerator } from "../../../helper";
 
 const AccordionItem = ({
-    id=shortid.generate(),
-    headingId=shortid.generate(),
-    collapseId=shortid.generate(),
+    id=pseudoRandomHashGenerator (),
+    headingId=pseudoRandomHashGenerator (),
+    collapseId=pseudoRandomHashGenerator (),
     c_accordionId="",
     c_mode="",
     c_labelText="",

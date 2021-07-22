@@ -1,0 +1,69 @@
+&-usernavigation {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-start;
+  justify-content: flex-end;
+  order: 1;
+}
+
+&-usernavigation-icon {
+  @extend .icon-3;
+  position: relative;
+  display: inline-block;
+}
+
+&-usernavigation-link {
+  color: $header-usernavigation-link-color;
+
+  &:hover,
+  &:focus {
+    color: $header-usernavigation-link-color-hover;
+  }
+}
+
+&-usernavigation-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX($header-usernavigation-badge-offset);
+}
+
+@include media-breakpoint-down (sm) {
+  &-usernavigation {
+    position: fixed;
+    top: 0;
+    right: $header-padding-x;
+    left: var(--header-logo-space);
+    //Prevent the user-navigation from expanding because of scrollbar, otherwise it would overlap mobile subnavigation
+    height: var(--header-height);
+    overflow-y: hidden;
+  }
+
+  &-usernavigation-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: var(--header-info-height);
+    padding: $header-usernavigation-link-padding;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  &-usernavigation {
+    flex: 0 1 auto;
+    order: 4;
+    margin-left: calculateRem(16px);
+
+    .header-list-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: var(--header-info-height);
+      padding: $header-usernavigation-link-padding;
+    }
+  }
+
+  &-usernavigation-icon {
+    margin: $header-usernavigation-icon-margin-md;
+  }
+}

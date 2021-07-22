@@ -226,7 +226,7 @@ You can use a bunch of prestyled icons that are available through our icon-sprit
 
 * The Lidl universe contains plenty of other icons that are not available in our design system and frontend framework.
 * The naming of SVG files also differs from the Lidl standard because of the general usage of icons in our product.
-* For more icons and further details log on to [brand.lidl](https://www.brand.lidl/site/login)
+* For more icons and further details log on to [Schwarz brandmangement](mailto:brandmanagement@mail.schwarz)
 
 ## Accessibility
 

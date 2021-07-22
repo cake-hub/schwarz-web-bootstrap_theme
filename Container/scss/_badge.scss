@@ -5,8 +5,8 @@
 
 .badge {
   display: inline-block;
-  padding-right: $badge-padding-x;
-  padding-left: $badge-padding-x;
+  padding-right: calc(#{$badge-padding-x} - #{$badge-border-width});
+  padding-left: calc(#{$badge-padding-x} - #{$badge-border-width});
   font-weight: $badge-font-weight;
   line-height: 1;
   text-align: center;
@@ -42,7 +42,7 @@
 
 .badge-addon {
   min-width: $badge-addon-size;
-  padding: $badge-addon-padding-y $badge-addon-padding-x;
+  padding: $badge-addon-padding-y calc(#{$badge-addon-padding-x} - #{$badge-border-width});
   // stylelint-disable-next-line property-blacklist
   border-radius: $badge-addon-border-radius;
   @include cake-font-size($badge-addon-font-size);
@@ -57,7 +57,7 @@
 
   @include media-breakpoint-up(lg) {
     min-width: $badge-addon-size-lg;
-    padding: $badge-addon-padding-y-lg $badge-addon-padding-x-lg;
+    padding: $badge-addon-padding-y-lg calc(#{$badge-addon-padding-x-lg} - #{$badge-border-width});
     // bugfix - oldBrowser - IE 11 text is not vertically centered completely
     // stylelint-disable-next-line selector-no-vendor-prefix, selector-type-no-unknown
     _:-ms-fullscreen,
@@ -73,8 +73,8 @@
 // Make them extra rounded with a modifier to replace v3's badges.
 
 .badge-pill {
-  padding-right: $badge-pill-padding-x;
-  padding-left: $badge-pill-padding-x;
+  padding-right: calc(#{$badge-pill-padding-x} - #{$badge-border-width});
+  padding-left: calc(#{$badge-pill-padding-x} - #{$badge-border-width});
   // stylelint-disable-next-line property-blacklist
   border-radius: $badge-pill-border-radius;
 }

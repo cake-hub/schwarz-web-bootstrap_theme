@@ -1,0 +1,192 @@
+//* - Header Language Selection - */
+
+&-language {
+  flex: 0 1 auto;
+  order: 5;
+}
+
+&-language-list {
+  padding: $spacer;
+  padding-bottom: $spacer * 2;
+}
+
+&-language-link {
+  height: var(--header-flyout-link-height);
+}
+
+@include media-breakpoint-down(sm) {
+  &-language {
+    border-top: $border-width solid $header-mobile-seperator-color;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  &-language {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+    margin-left: $header-language-margin-left-md;
+  }
+
+  &-language-wrapper {
+    position: relative;
+  }
+
+  &-language-active {
+    position: relative;
+    display: inline-block;
+    padding: var(--header-language-padding-y) $header-language-padding-x calc(var(--header-language-padding-y) + #{$border-width});
+  }
+
+  &-language-wrapper:hover &-language-active,
+  &-language-wrapper:focus-within &-language-active {
+    &::after {
+      position: absolute;
+      right: $header-language-padding-x;
+      bottom: 0;
+      left: $header-language-padding-x;
+      height: 1px;
+      content: "";
+      background-color: $header-link-indicator-color;
+    }
+  }
+}
+
+//* - Header Brand Navigation - */
+
+&-brandnav {
+  order: 4;
+  overflow: visible;
+}
+
+&-brandnav-link {
+  height: var(--header-brandnav-link-height);
+}
+
+@include media-breakpoint-down(sm) {
+  &-brandnav {
+    padding: $spacer;
+    margin-top: $spacer;
+    border-top: $border-width solid $header-mobile-seperator-color;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  &-brandnav {
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    order: 2;
+    text-align: right;
+  }
+
+  &-brandnav > &-brandnav-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--header-brandnav-link-height);
+    text-align: left;
+  }
+
+  &-brandnav-link {
+    height: auto;
+  }
+
+  &-brandnav-flyout &-brandnav-link {
+    padding-bottom: $header-brandnav-padding-y;
+  }
+}
+
+//* - Header Brand Navigation + Language Selection - */
+
+&-language-link,
+&-language-active,
+&-brandnav-link {
+  @include cake-font-size(12px);
+  color: $header-link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-within {
+    color: $header-link-color-hover;
+    text-decoration: none;
+  }
+}
+
+&-language-wrapper:hover > &-language-active,
+&-language-wrapper:focus-within > &-language-active,
+&-brandnav-wrapper:hover > &-brandnav-link,
+&-brandnav-wrapper:focus-within > &-brandnav-link {
+  color: $header-link-color-hover;
+}
+
+&-language-link,
+&-brandnav-link {
+  padding-right: $spacer;
+  padding-left: $spacer;
+}
+
+&-language-link-content,
+&-brandnav-link-content {
+  display: block;
+  padding-top: var(--header-brandnav-padding-y);
+  padding-bottom: var(--header-brandnav-padding-y);
+  border-bottom: $border-width solid transparent;
+}
+
+&-language-link:hover &-language-link-content,
+&-language-link:focus-within &-language-link-content,
+&-brandnav-link:hover > &-brandnav-link-content,
+&-brandnav-link:focus-within > &-brandnav-link-content {
+  border-bottom-color: $header-link-indicator-color;
+}
+
+&-language-wrapper:hover > &-language-active > &-language-link-content,
+&-language-wrapper:focus-within > &-language-active > &-language-link-content,
+&-brandnav-wrapper:hover > &-brandnav-link > &-brandnav-link-content,
+&-brandnav-wrapper:focus-within > &-brandnav-link > &-brandnav-link-content {
+  border-bottom-color: $header-link-indicator-color;
+}
+
+@include media-breakpoint-down(sm) {
+  &-language-active {
+    display: none;
+  }
+  &-language-link,
+  &-brandnav-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  &-language-link-content,
+  &-brandnav-link-content {
+    white-space: nowrap;
+  }
+
+  &-language-list,
+  &-brandnav-flyout {
+    position: absolute;
+    z-index: $header-z-index-origin + 3;
+    padding: $spacer;
+    pointer-events: none;
+    visibility: hidden;
+    background-color: cake-color("white");
+
+    > .header-list-item {
+      width: max-content;
+      text-align: left;
+    }
+  }
+
+  &-language-wrapper:hover &-language-list,
+  &-language-wrapper:focus-within &-language-list,
+  &-brandnav-wrapper:hover &-brandnav-flyout,
+  &-brandnav-wrapper:focus-within &-brandnav-flyout {
+    pointer-events: initial;
+    visibility: visible;
+  }
+}

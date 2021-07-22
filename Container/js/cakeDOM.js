@@ -5,22 +5,25 @@ export default (() => {
     Element.prototype.siblingSelectorAll = function(query){
         return this.parentNode.querySelectorAll(query);
     };
-    Window.prototype.resizeThrottled = function(eventMethod = () => {}, throttleSpeed = 66){
+    Window.prototype.eventThrottled = function(eventName = "resize", eventMethod = () => {}, throttleSpeed = 66){
         (function () {
-            let resizeTimeout;
-            let resizeThrottler = () => {
+            let throttleTimeout;
+            let throttler = () => {
                 // ignore resize events as long as an actualResizeHandler execution is in the queue
-                if (!resizeTimeout) {
-                    resizeTimeout = setTimeout (() => {
-                        resizeTimeout = null;
+                if (!throttleTimeout) {
+                    throttleTimeout = setTimeout (() => {
+                        throttleTimeout = null;
                         // handle the resize event
                         eventMethod ();
                         // The actualResizeHandler will execute at a rate of Xfps (default: 15fps)
                     }, throttleSpeed);
                 }
             }
-            window.addEventListener("resize", resizeThrottler, false);
+            window.addEventListener(eventName, throttler, false);
         }());
+    };
+    Window.prototype.resizeThrottled = function(eventMethod = () => {}, throttleSpeed = 66){
+        return window.eventThrottled ("resize", eventMethod, throttleSpeed);
     };
     //Add CustomEvent to all Browsers, if it does not exists [Polyfill](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill)
     (() => {
@@ -65,6 +68,8 @@ export default (() => {
     };
     window.cake = {
         ...window.cake,
+        _onloadExecuted: false,
+        _onloadMethods: [],
         utils: {
             getElement (element, querySelector, baseElement = document, selectorMethod = "querySelector") {
                 return element ?
@@ -76,6 +81,19 @@ export default (() => {
                     elements :
                     baseElement [selectorMethod] (querySelector);
             },
+            addMethodExecutedEarliestOnLoad (method) {
+                if (window.cake._onloadExecuted === true) {
+                    method ();
+                } else {
+                    window.cake._onloadMethods.push (method);
+                }
+            }
+        }
+    };
+    window.onload = function() {
+        window.cake._onloadExecuted = true;
+        for (const method of window.cake._onloadMethods) {
+            method ();
         }
     };
 })();

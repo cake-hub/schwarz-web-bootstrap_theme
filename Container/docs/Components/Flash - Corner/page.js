@@ -72,6 +72,7 @@ const FalshCornerLongText = () => (
             .ratio-16-9 {
                 position: relative;
                 background-color: lightgray;
+                min-width: 320px;
             }
 
             .ratio-16-9::after {

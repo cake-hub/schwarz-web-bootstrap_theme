@@ -1,7 +1,7 @@
 import React from "react";
-import shortid from "shortid";
+import { pseudoRandomHashGenerator } from "../../../helper";
 
-const Checkbox = ( { id=shortid.generate(),
+const Checkbox = ( { id=pseudoRandomHashGenerator (),
                     children,
                     c_classNameWrapper="",
                     className="",

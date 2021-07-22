@@ -1,7 +1,7 @@
 import React from "react";
-import shortid from "shortid";
+import { pseudoRandomHashGenerator } from "../../../helper";
 
-const Radio = ( {   id=shortid.generate(),
+const Radio = ( {   id=pseudoRandomHashGenerator (),
                     children,
                     c_classNameWrapper="",
                     className="",

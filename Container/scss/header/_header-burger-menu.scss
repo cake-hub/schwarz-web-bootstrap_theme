@@ -1,0 +1,61 @@
+&-hamburger-menu {
+  font-size: $header-burger-menu-font-size;
+  color: $header-burger-menu-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-within {
+    color: $header-burger-menu-color-hover;
+    text-decoration: none;
+
+    .hamburger {
+      .hamburger-inner {
+        &,
+        &::before,
+        &::after {
+          background-image: svg-load($scss-icon-path + $header-burger-menu-icon-name, fill=$header-burger-menu-color-hover);
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+
+    .hamburger-inner {
+      &,
+      &::before,
+      &::after {
+        background-color: initial;
+        background-image: svg-load($scss-icon-path + $header-burger-menu-icon-name, fill=$header-burger-menu-color);
+        background-repeat: no-repeat;
+        background-size: calculateRem($hamburger-layer-width) calculateRem($hamburger-layer-height);
+      }
+    }
+  }
+
+  .hamburger,
+  .hamburger.is-active {
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+&-hamburger-menu &-usernavigation-icon {
+  display: flex;
+}
+
+&-mobile-expanded &-hamburger-menu &-usernavigation-icon .icon:not(.header-hamburger-menu-cross-icon),
+&-hamburger-menu-cross-icon {
+  display: none;
+}
+
+&-mobile-expanded &-hamburger-menu-cross-icon {
+  display: block;
+}

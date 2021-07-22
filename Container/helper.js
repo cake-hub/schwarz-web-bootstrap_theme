@@ -1,7 +1,9 @@
 import fs from "fs";
 import path from "path";
 import glob from "glob";
-import { renderToString } from "react-dom/server";
+import config from "./config";
+import crypto from "crypto";
+import { renderToStaticMarkup } from "react-dom/server";
 import { parse } from 'node-html-parser';
 import { html_beautify } from "js-beautify";
 
@@ -79,7 +81,7 @@ export const getThemes = () => {
             )
         ),
     ];
-}
+};
 
 export const kebabCaseToCapitalizedWords = (kebabCase) => {
     let wordArray = [];
@@ -92,7 +94,7 @@ export const kebabCaseToCapitalizedWords = (kebabCase) => {
 export const rawMarkup = (filePathOrContent, selector = null, extension = null) => {
     let body = "";
     if (typeof filePathOrContent === "object") {
-        body = renderToString (filePathOrContent);
+        body = renderToStaticMarkup (filePathOrContent);
     } else {
         body = fs.readFileSync(filePathOrContent, 'utf8');
     }
@@ -162,7 +164,7 @@ export const getAbsoluteAliases = (relativeAliases) => {
     for (let alias in relativeAliases) {
         absolutedAliases[alias] = path.resolve(__dirname, relativeAliases [alias])
     }
-}
+};
 
 export const uniqueFileNames = (pathArray ,ext) => {
     let usedNames = [];
@@ -175,4 +177,44 @@ export const uniqueFileNames = (pathArray ,ext) => {
         }
     }
     return iconArray;
-  };
+};
+
+export const pseudoRandomHashGenerator = (randomString = null) => {
+    // Retrieve excecution stack
+    // API: https://github.com/sindresorhus/callsites#api
+    const _prepareStackTrace = Error.prepareStackTrace;
+    Error.prepareStackTrace = (_, stack) => stack;
+    const stacks = new Error().stack.slice(1);
+    Error.prepareStackTrace = _prepareStackTrace;
+
+
+    // STACK SHOULD BE:
+    // …/helper.js
+    // …/Accordion/accordionItem.html.js
+    // …/Accordion/page.js
+    // …/build/pageBuildExample.js
+    // …/build/exampleBuild.js
+    // …
+
+    // BUT ACTUALLY IS:
+    // …/helper.js
+    // …/Components/Cookie alert/page.js
+    // …/Components/Cookie alert/cookieAlert.html.js
+    // …/node_modules/react-dom/cjs/react-dom-server.node.development.js
+    // …/node_modules/react-dom/cjs/react-dom-server.node.development.js
+    // …
+
+    // THEREFORE we need to track the current example that get's rendered: therefore we use "_currentExample" in config
+
+    // Generate pseudo-random hash with stack
+    let hash = "";
+    for (const stack of stacks) {
+        hash = `${hash}-${path.relative (process.cwd (), stack.getFileName ())}_${stack.getLineNumber ()}_${stack.getColumnNumber ()}`;
+    }
+    hash = `${hash}_${randomString}_${config._currentExample}`;
+
+    // hash data
+    hash = crypto.createHash ("md5").update (hash).digest ("hex");
+
+    return hash.substr (0, 8);
+};

@@ -32,7 +32,7 @@ const CardTitlesText = () => (
 const CardImages = () => (
     <div className="cake-example-cutted-shadow-fix" id="showbox">
         <div className="card" style={{"width": "18rem"}}>
-            <div class="card-image-ratio ratio-4-3">
+            <div className="card-image-ratio ratio-4-3">
                 <CakeExampleImage callFilePath={__dirname} className="card-img-top" alt="Card image cap" />
             </div>
             <div className="card-body">
@@ -49,7 +49,7 @@ const CardGridDefault = () => (
                 <Card />
             </div>
             <div className="col-6 col-md-3 mb-2 mb-md-0">
-                <Card c_productTitle="A long card headline that has more content that just one line." c_productDescription="This is a example for more then one line copy text. It shows the equal height of the cards in the same row."/>
+                <Card c_cardTitle="A long card headline that has more content that just one line." c_cardDescription="This is a example for more then one line copy text. It shows the equal height of the cards in the same row."/>
             </div>
             <div className="col-6 col-md-3 mb-2 mb-md-0">
                 <Card />

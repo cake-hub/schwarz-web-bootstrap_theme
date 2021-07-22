@@ -1,0 +1,18 @@
+&-logo-wrapper {
+  z-index: $header-z-index-origin + 2;
+  flex: 0 0 auto;
+}
+
+&-logo-link {
+  display: inline-block;
+  padding-top: var(--header-logo-padding-top);
+  margin: 0 var(--header-logo-margin-right) 0 0;
+  background-color: $header-background-color;
+  // stylelint-disable-next-line property-blacklist
+  box-shadow: $box-shadow;
+}
+
+&-logo {
+  width: var(--header-logo-width);
+  height: auto;
+}

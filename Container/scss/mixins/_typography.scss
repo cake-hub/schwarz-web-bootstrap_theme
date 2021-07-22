@@ -1,0 +1,29 @@
+@mixin cake-typeface($font-weight: $font-weight-normal, $line-height: $line-height-base, $font-size: $font-size-base) {
+  font-weight: $font-weight;
+  line-height: $line-height;
+  @include cake-font-size($font-size);
+}
+
+@mixin cake-typeface-small() {
+  @include cake-typeface($font-weight-normal, $line-height-base, $font-size-sm);
+}
+
+@mixin cake-typeface-small-bold() {
+  @include cake-typeface($font-weight-bold, $line-height-base, $font-size-sm);
+}
+
+@mixin cake-typeface-basic() {
+  @include cake-typeface($font-weight-normal, $line-height-base, $font-size-base);
+}
+
+@mixin cake-typeface-basic-bold() {
+  @include cake-typeface($font-weight-bold, $line-height-base, $font-size-base);
+}
+
+@mixin cake-typeface-large() {
+  @include cake-typeface($font-weight-normal, $line-height-base, $font-size-lg);
+}
+
+@mixin cake-typeface-large-bold() {
+  @include cake-typeface($font-weight-bold, $line-height-base, $font-size-lg);
+}

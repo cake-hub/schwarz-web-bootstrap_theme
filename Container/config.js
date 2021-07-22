@@ -35,4 +35,15 @@ module.exports = class Configuration {
         return path.resolve (__dirname, "./docs", Configuration.rootAssetPath + "images/examples");
     }
 
+    // These methods are required for our "pseudoRandomHashGenerator" method, because React-DOM does not reveal the "correct" full-stack
+    static get _currentExample () {
+        global._currentExampleCount += 1;
+        return global._currentExample + "_" + global._currentExampleCount;
+    }
+
+    static set _currentExample (examplePath) {
+        global._currentExample = examplePath;
+        global._currentExampleCount = 0;
+    }
+
 }

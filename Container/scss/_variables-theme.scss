@@ -68,9 +68,9 @@ $badge-colors: (
 $badge-line-height:                   1.2;
 $badge-border:                        $badge-border-width solid $white;
 
-$badge-addon-padding-x:              calculateRem(4px) - calculateRem($badge-border-width);
+$badge-addon-padding-x:              calculateRem(4px);
 $badge-addon-padding-y:              calculateRem(2px);
-$badge-addon-padding-x-lg:           calculateRem(6px) - calculateRem($badge-border-width);
+$badge-addon-padding-x-lg:           calculateRem(6px);
 $badge-addon-padding-y-lg:           calculateRem(3px);
 $badge-addon-border-radius:          $badge-pill-border-radius;
 $badge-addon-size:                   calculateRem(16px);
@@ -310,6 +310,96 @@ $footer-list-item-link-padding:           $spacer;
 $footer-headline-margin:                  $footer-list-item-link-padding;
 
 
+// Header
+
+$header-z-index-origin:           90;
+$header-line-height:              1.2;
+$header-transition-duration:      600ms;
+$header-transition-function:      ease-in-out;
+$header-mobile-seperator-color:   cake-color("gray", "lightest");
+
+$header-background-color:         $white;
+$header-overlay-background:       rgba(cake-color("black"), .72);
+$header-height:                   calculateRem(48px);
+$header-height-md:                calculateRem(96px);
+$header-height-md-collapsed:      calculateRem(56px);
+$header-height-lg:                calculateRem(120px);
+$header-height-lg-collapsed:      calculateRem(72px);
+
+$header-logo-width:                     calculateRem(48px);
+$header-logo-width-md:                  calculateRem(98px);
+$header-logo-width-md-collapsed:        calculateRem(56px);
+$header-logo-width-lg:                  calculateRem(120px);
+$header-logo-width-lg-collapsed:        calculateRem(80px);
+$header-logo-margin-right:              $spacer;
+$header-logo-margin-right-md:           ($spacer * 2);
+$header-logo-padding-top:               calculateRem(5px);
+$header-logo-padding-top-md:            calculateRem(10px);
+$header-logo-padding-top-lg:            calculateRem(12px);
+$header-logo-padding-top-lg-collapsed:  calculateRem(8px);
+
+$header-margin-bottom:                calculateRem(64px) - $header-height + ($header-logo-width / 4);
+$header-margin-bottom-md:             calculateRem(130px) - $header-height-md + ($header-logo-width-md / 4);
+$header-margin-bottom-lg:             calculateRem(159px) - $header-height-lg + ($header-logo-width-lg / 4);
+
+$header-link-color:                   cake-color("gray", "dark");
+$header-link-color-hover:             cake-color("black");
+$header-link-indicator-color:         cake-color("black");
+
+$header-burger-menu-font-size:        calculateRem(12px);
+$header-burger-menu-color:            cake-color("gray", "dark");
+$header-burger-menu-color-hover:      cake-color("black");
+$header-burger-menu-icon-name:        "burger-dash.svg";
+
+$hamburger-padding-x:                 0;
+$hamburger-padding-y:                 0;
+$hamburger-layer-width:               24px;
+$hamburger-layer-height:              2px;
+$hamburger-layer-spacing:             4px;
+
+$header-language-active-link-height:  calculateRem(32px);
+$header-language-padding-y:           calculateRem(2px);
+$header-language-padding-y-md:        calculateRem(4px);
+$header-language-margin-left-md:      calculateRem(24px);
+
+$header-brandnav-padding-y:           $header-language-padding-y;
+$header-brandnav-padding-y-md:        $header-language-padding-y-md;
+
+$header-main-nav-link-height:       calculateRem(40px);
+$header-main-nav-link-height-lg:    calculateRem(48px);
+$header-main-nav-padding-left:      $spacer * 2;
+
+$header-sub-nav-link-height:        calculateRem(32px);
+$header-sub-nav-link-height-md:     calculateRem(24px);
+$header-sub-nav-link-height-lg:     calculateRem(32px);
+
+$header-nav-link-padding-x:         $spacer;
+$header-nav-link-color:             cake-color("gray", "dark");
+$header-nav-link-color-hover:       cake-color("black");
+$header-nav-link-color-active:      cake-color("primary");
+
+$header-flyout-height:              $header-sub-nav-link-height;
+$header-flyout-height-md:           $header-sub-nav-link-height-md;
+$header-flyout-height-lg:           $header-sub-nav-link-height-lg;
+$header-flyout-padding-bottom:      calculateRem(4px);
+
+$header-search-icon-size:           1.5rem;
+$header-search-icon-name:           "cross.svg";
+$header-search-padding:             $spacer * 2;
+$header-search-link-padding:        $spacer;
+$header-search-link-color:          cake-color("gray", "dark");
+$header-search-link-color-hover:    cake-color("black");
+$header-search-input-width:         auto;
+$header-search-input-width-md:      calculateRem(220px);
+$header-search-input-width-lg:      calculateRem(320px);
+
+$header-usernavigation-link-padding:        0 $spacer;
+$header-usernavigation-link-color:          cake-color("gray", "dark");
+$header-usernavigation-link-color-hover:    cake-color("black");
+$header-usernavigation-icon-margin-md:      $spacer;
+$header-usernavigation-badge-offset:        $spacer;
+
+
 // Popover
 
 $popover-font-size:                           $font-size-sm;
@@ -323,6 +413,17 @@ $popover-border-radius:                       $border-radius;
 $popover-arrow-color:                         $popover-bg-color;
 $popover-svg-arrow-color:                     $popover-arrow-color;
 $popover-backdrop-bg-color:                   $popover-bg-color;
+
+
+// Sticky bar
+
+$sticky-bar-z-index:                  80;
+$sticky-bar-height:                   calculateRem(24px);
+$sticky-bar-height-lg:                calculateRem(32px);
+$sticky-bar-background-color:         cake-color("primary");
+$sticky-bar-to-top-color:             cake-color("white");
+$sticky-bar-to-top-color-hover:       cake-color("gray", "lighter");
+$sticky-bar-to-top-icon-margin-right: calculateRem(8px);
 
 
 // Tab

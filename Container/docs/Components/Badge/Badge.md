@@ -6,7 +6,7 @@ Please ensure to comply with the corporate identity.
 
 Documentation and examples for badges, our small count and labeling component.
 
-> The frontend implementation differs slightly from the design. We are using `line-height: 1;` and rounded values for padding top and bottom, for more durability in all browsers. The missing space from the line-height is added to the padding top and bottom within SCSS. Use the variable `$badge-line-height` to set the right line height. See the mixin `badge-padding-y` if you want to reproduce our calculations.
+> The frontend implementation differs slightly from the design. We are using `line-height: 1;` and rounded values for padding top and bottom, for more durability in all browsers. The missing space from the line-height is added to the padding top and bottom within SCSS. Use the variable `$badge-line-height` to set the right line height. See the mixin `badge-padding-y` if you want to reproduce our calculations. The pixel values could also differ by +- 1px, as different browsers round differently here.
 
 ## Sizes
 

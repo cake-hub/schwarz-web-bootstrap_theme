@@ -1,6 +1,6 @@
 {
   "name": "@cake-hub/schwarz-web-bootstrap_theme",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0",
   "description": "Bootstrap-Theme for Schwarz",
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "hamburgers": "^1.1.3",
     "svg4everybody": "^2.1.9",
     "tippy.js": "^6.2.7"
   },
@@ -83,7 +84,6 @@
     "regenerator-runtime": "^0.13.5",
     "sass": "^1.26.8",
     "sass-loader": "^7.2.0",
-    "shortid": "^2.2.14",
     "strip-css-comments": "^4.1.0",
     "stylelint": "^9.10.1",
     "stylelint-config-twbs-bootstrap": "0.3.0",

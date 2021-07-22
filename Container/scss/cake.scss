@@ -58,9 +58,11 @@
 @import "./utilities";
 
 // 3rd party for CAKE components
+@import "~hamburgers/_sass/hamburgers/hamburgers";
 @import "~tippy.js/dist/tippy";
 @import "~tippy.js/dist/border";
 
+@import "./header";
 @import "./icon";
 @import "./accordion";
 @import "./banner";
@@ -71,6 +73,7 @@
 @import "./flash-bubble";
 @import "./flash-marker";
 @import "./popover"; // required: tippy.js
+@import "./sticky-bar";
 @import "./tab";
 @import "./teaser";
 @import "~bootstrap/scss/print";

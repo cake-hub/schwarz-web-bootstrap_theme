@@ -15,7 +15,12 @@ const TextColors = () => (
         {
             themeColors
                 .map (colorName => (
-                    <p className={"text-" + colorName}>.text-{colorName}</p>
+                    <p
+                        key={colorName}
+                        className={"text-" + colorName}
+                    >
+                        .text-{colorName}
+                    </p>
                 ))
         }
     </React.Fragment>
@@ -25,7 +30,12 @@ const ColorBackground = () => (
         {
             themeColors
                 .map (colorName => (
-                    <p className={"bg-" + colorName + (colorName === "attention" ? " text-black" : " text-white")}>.bg-{colorName}</p>
+                    <p
+                        key={colorName}
+                        className={"bg-" + colorName + (colorName === "attention" ? " text-black" : " text-white")}
+                    >
+                        .bg-{colorName}
+                    </p>
                 ))
         }
     </React.Fragment>

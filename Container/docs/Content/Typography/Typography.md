@@ -72,11 +72,11 @@ $fonts-to-load:         HelveticaNeueLTPro "1488974/HelveticaNeueLTPro-LtCond" 3
 $font-weight-normal:    300;
 $font-weight-bold:      500;
 
-$font-family-system:        "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-system:        "Helvetica Neue", "Helvetica", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-sans-serif:    HelveticaNeueLTPro, $font-family-system;
 ```
 
-The font "Arial" is defined as fallback font if the "Helvetica Neue" is not available.
+The font "Arial" is defined as fallback font if the "Helvetica Neue" and "Helvetica" is not available.
 
 You can use the `$font-family-system` variable if you want to use **only system fonts** that are included in your operating system.
 

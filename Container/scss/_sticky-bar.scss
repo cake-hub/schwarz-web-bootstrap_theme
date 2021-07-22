@@ -1,0 +1,48 @@
+:root {
+  --sticky-bar-height: #{$sticky-bar-height};
+  @include media-breakpoint-up(lg) {
+    --sticky-bar-height: #{$sticky-bar-height-lg};
+  }
+}
+
+.sticky-bar {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $sticky-bar-z-index;
+  width: 100%;
+  height: var(--sticky-bar-height);
+  background-color: $sticky-bar-background-color;
+}
+
+.sticky-bar-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  padding-left: 0;
+}
+
+.sticky-bar-badge {
+  flex: 0 0 auto;
+  width: auto;
+  height: 100%;
+}
+
+.sticky-bar-to-top {
+  @include cake-font-size(12px);
+  flex: 0 0 auto;
+  line-height: var(--sticky-bar-height);
+  color: $sticky-bar-to-top-color;
+  text-decoration: inherit;
+
+  &:hover {
+    color: $sticky-bar-to-top-color-hover;
+    text-decoration: none;
+  }
+}
+
+.sticky-bar-to-top-icon {
+  margin-right: $sticky-bar-to-top-icon-margin-right;
+}

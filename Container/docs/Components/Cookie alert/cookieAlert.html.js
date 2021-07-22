@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@Develop/Components/Button/button.html";
-import shortid from "shortid";
+import { pseudoRandomHashGenerator } from "../../../helper";
 
 const CookieAlert = ( { className="",
                     children,
@@ -15,10 +15,10 @@ const CookieAlert = ( { className="",
                     c_preferenceButton="Preferences",
                     c_statisticsButton="Statistics",
                     c_marketingButton="Marketing",
-                    c_titleId=shortid.generate(),
-                    c_textId=shortid.generate(),
-                    c_moreDetailsLinkId=shortid.generate(),
-                    c_moreDetailsDivId=shortid.generate(),
+                    c_titleId=pseudoRandomHashGenerator (),
+                    c_textId=pseudoRandomHashGenerator (),
+                    c_moreDetailsLinkId=pseudoRandomHashGenerator (),
+                    c_moreDetailsDivId=pseudoRandomHashGenerator (),
                     ...props} ) => (
     <dialog role="dialog" className={"cookie-alert" + (className ? " " + className : "")} {...props} lang={ c_language } dir={ c_textDirection } data-controller="cookie-alert" aria-labelledby={ c_titleId } aria-describedby={ c_textId }>
         <div className="cookie-alert-modal" aria-modal="true">

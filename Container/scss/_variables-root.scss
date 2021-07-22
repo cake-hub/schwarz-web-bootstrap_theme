@@ -201,7 +201,7 @@ $grid-gutter-width:           16px;
 
 $border-width:                      1px;
 $border-radius:                     0;
-$box-shadow:                        0 .125rem .25rem rgba($black, .15);
+$box-shadow:                        0 .0625rem .125rem rgba($black, .15);
 
 $component-active-bg:               theme-color("primary");
 $component-active-color:            $white;
@@ -226,7 +226,7 @@ $fonts-to-load:                 HelveticaNeueLTPro "1488974/HelveticaNeueLTPro-L
 $font-weight-normal:            300;
 $font-weight-bold:              500;
 
-$font-family-system:          "Helvetica Neue", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-system:          "Helvetica Neue", "Helvetica", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-sans-serif:      HelveticaNeueLTPro, $font-family-system;
 
 $font-size-base:              1rem;
@@ -455,9 +455,9 @@ $card-columns-margin:               $card-spacer-y * 2;
 // Badges
 
 $badge-border-width:                $border-width;
-$badge-pill-padding-x:              ($spacer * 2) - calculateRem($badge-border-width);
+$badge-pill-padding-x:              ($spacer * 2);
 $badge-pill-border-radius:          10rem;
-$badge-padding-y:                   calculateRem(5px) - calculateRem($badge-border-width);
+$badge-padding-y:                   calculateRem(5px);
 $badge-padding-x:                   $badge-pill-padding-x;
 $badge-border-radius:               $badge-pill-border-radius;
 

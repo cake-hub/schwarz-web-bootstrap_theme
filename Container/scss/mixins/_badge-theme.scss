@@ -26,15 +26,15 @@
 
   $padding-y-adjusted: $padding-y + $line-height-spacing;
 
-  padding-top: $padding-y-adjusted;
-  padding-bottom: $padding-y-adjusted;
+  padding-top: calc(#{$padding-y-adjusted} - #{$badge-border-width});
+  padding-bottom: calc(#{$padding-y-adjusted} - #{$badge-border-width});
 
   // bugfix - oldBrowser - IE 11 text is not vertically centered completely
   // stylelint-disable-next-line selector-no-vendor-prefix, selector-type-no-unknown
   _:-ms-fullscreen,
   :root & {
-    padding-top: $padding-y-adjusted - ($padding-y-adjusted * .06);
-    padding-bottom: $padding-y-adjusted + ($padding-y-adjusted * .06);
+    padding-top: calc(#{$padding-y-adjusted - ($padding-y-adjusted * .06)} - #{$badge-border-width});
+    padding-bottom: calc(#{$padding-y-adjusted + ($padding-y-adjusted * .06)} - #{$badge-border-width});
   }
 
   @include media-breakpoint-up(lg) {
@@ -43,15 +43,15 @@
 
     $padding-y-adjusted: $padding-y + $line-height-spacing;
 
-    padding-top: $padding-y-adjusted;
-    padding-bottom: $padding-y-adjusted;
+    padding-top: calc(#{$padding-y-adjusted} - #{$badge-border-width});
+    padding-bottom: calc(#{$padding-y-adjusted} - #{$badge-border-width});
 
     // bugfix - oldBrowser - IE 11 text is not vertically centered completely
     // stylelint-disable-next-line selector-no-vendor-prefix, selector-type-no-unknown
     _:-ms-fullscreen,
     :root & {
-      padding-top: $padding-y-adjusted - ($padding-y-adjusted * .06);
-      padding-bottom: $padding-y-adjusted + ($padding-y-adjusted * .06);
+      padding-top: calc(#{$padding-y-adjusted - ($padding-y-adjusted * .06)} - #{$badge-border-width});
+      padding-bottom: calc(#{$padding-y-adjusted + ($padding-y-adjusted * .06)} - #{$badge-border-width});
     }
   }
 }

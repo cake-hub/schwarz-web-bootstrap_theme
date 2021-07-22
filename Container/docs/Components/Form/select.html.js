@@ -1,5 +1,5 @@
 import React from "react";
-import shortid from "shortid";
+import { pseudoRandomHashGenerator } from "../../../helper";
 
 const SelectLabelSub = ({label}) => (
     label?
@@ -7,7 +7,7 @@ const SelectLabelSub = ({label}) => (
     : null
 )
 
-const Select = (  { id=shortid.generate(),
+const Select = (  { id=pseudoRandomHashGenerator (),
                     children,
                     c_labelClassName="",
                     c_labelSub=false,

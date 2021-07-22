@@ -1,0 +1,130 @@
+//* - Header States (header-collapsed, header-mobile-expanded, header-search-active) - */
+
+// when user has scrolled a little bit
+@include media-breakpoint-up(md) {
+  &-collapsed {
+    --header-height: #{$header-height-md-collapsed};
+    --header-main-nav-link-height: var(--header-height);
+    --header-logo-width: #{$header-logo-width-md-collapsed};
+    --header-logo-padding-top: #{calculateRem(6px)};
+
+    .header-main-nav-list {
+      top: 0;
+
+      &.has-active-sub-nav .header-main-nav-item:not(.active) {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+    }
+    .header-language,
+    .header-brandnav {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .header-main-nav-item.active {
+      pointer-events: initial;
+      opacity: 1;
+
+      & > .header-main-nav-link {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      & > .header-sub-nav {
+        top: 0;
+      }
+
+      & > .header-sub-nav > .header-sub-nav-item > .header-sub-nav-link {
+        @include cake-typeface-basic();
+        height: var(--header-height);
+        line-height: var(--header-height);
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      --header-height: #{$header-height-lg-collapsed};
+      --header-logo-width: #{$header-logo-width-lg-collapsed};
+      --header-logo-padding-top: #{$header-logo-padding-top-lg-collapsed};
+    }
+  }
+
+  &-not-collapse {
+    .header-language,
+    .header-brandnav {
+      opacity: 1;
+    }
+  }
+}
+
+//* - header-mobile-expanded - */
+
+@include media-breakpoint-down(sm) {
+  &-brandnav,
+  &-search,
+  &-language,
+  &-main-nav,
+  &-nav-wrapper::before {
+    display: none;
+  }
+  &-nav-wrapper {
+    height: 0;
+  }
+
+  &-mobile-expanded &-brandnav,
+  &-mobile-expanded &-search,
+  &-mobile-expanded &-language,
+  &-mobile-expanded &-main-nav,
+  &-mobile-expanded &-nav-wrapper::before  {
+    display: block;
+  }
+  &-mobile-expanded &-nav-wrapper {
+    height: initial;
+    background-color: cake-color("white");
+  }
+
+  &-mobile-expanded &-nav-wrapper::after {
+    $nav-wrapper-height: 2px;
+
+    position: absolute;
+    width: 100%;
+    height: $nav-wrapper-height;
+    margin-top: -$nav-wrapper-height;
+    content: "";
+    box-shadow: $box-shadow;
+  }
+}
+
+//* - header active search - */
+
+@include media-breakpoint-up(md) {
+  &-search-active {
+    .header-brandnav,
+    .header-language,
+    .header-usernavigation {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .header-search {
+      .header-search-link {
+        right: $spacer * 3;
+        z-index: $header-z-index-origin + 2;
+
+        background: no-repeat 50% 50%;
+        background-image: svg-load($navigation-icon-path + $header-search-icon-name, fill=cake-color("gray", "dark"));
+        background-size: $header-search-icon-size;
+
+        &:hover {
+          background-image: svg-load($navigation-icon-path + $header-search-icon-name, fill=cake-color("black"));
+        }
+
+        > .icon {
+          pointer-events: none;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

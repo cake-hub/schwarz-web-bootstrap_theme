@@ -170,3 +170,31 @@ mark,
     color: $link-negative-active-color;
   }
 }
+
+//
+// Typefaces
+//
+
+.typeface-small {
+  @include cake-typeface-small();
+}
+
+.typeface-small-bold {
+  @include cake-typeface-small-bold();
+}
+
+.typeface-basic {
+  @include cake-typeface-basic();
+}
+
+.typeface-basic-bold {
+  @include cake-typeface-basic-bold();
+}
+
+.typeface-large {
+  @include cake-typeface-large();
+}
+
+.typeface-large-bold {
+  @include cake-typeface-large-bold();
+}

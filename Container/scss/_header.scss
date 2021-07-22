@@ -1,0 +1,14 @@
+.header {
+  @import "./header/header-variables";
+  @import "./header/header-states";
+  @import "./header/header-general";
+  @import "./header/header-logo";
+  @import "./header/header-list";
+  @import "./header/header-usernavigation";
+  @import "./header/header-burger-menu";
+  @import "./header/header-main-sub-nav";
+  @import "./header/header-transition";
+  @import "./header/header-flyout";
+  @import "./header/header-search";
+  @import "./header/header-language-brand-nav";
+}
