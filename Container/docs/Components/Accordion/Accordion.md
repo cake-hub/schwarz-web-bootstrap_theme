@@ -14,7 +14,7 @@ A radio or checkbox is used to show and hide content. A label with an additional
 
 Using the following syntax, you can use a collapse behavior to create the accordion.
 
-### multiple
+### Multiple
 
 <ContentRack
     fields='
@@ -35,7 +35,7 @@ Using the following syntax, you can use a collapse behavior to create the accord
 Instead of a `type="checkbox"` you can simply use the `type="radio"` to make only a single accordion-item extensible at once.
 If you wantan accordion-item to be extended on page load, simply set the `input` to `checked`.
 
-### single
+### Single
 
 <ContentRack
     fields='
@@ -87,7 +87,7 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `elements [Array]` - provide the specific input elements of your accordion (optional)
-* `querySelector [String]` - provide a query-selector to select all accordion input elements in your DOM. (optional, default: `*[data-controller="accordion/input"]`)
+* `elements [Array]` - provide the specific input elements of your accordion (optional).
+* `querySelector [String]` - provide a query-selector to select all accordion input elements in your DOM. (optional, default: `*[data-controller="accordion/input"]`).
 
 If you do provide the `options.elements` the `options.querySelector` option gets ignored. If you do not provide any `options.elements` always the `options.querySelector` is used!

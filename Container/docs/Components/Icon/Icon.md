@@ -4,8 +4,7 @@
 
 # Icon
 
-CAKE does include an icon library by default. All icons below are in the SVG  (including a title) because of the improved accessibility and vector support. SVG icons are scalable, the file size is very small and they are also modifiable through xml and css.
-
+CAKE does include an icon library by default. All icons below are in the SVG (including a title) because of the improved accessibility and vector support. SVG icons are scalable, the file size is very small and they are also modifiable through xml and css.
 
 ## Usage in general
 
@@ -27,14 +26,15 @@ You can use the standardised `svg` tag to display CAKE's svg-icons. To get the b
 
 ![IconDefault](examples/IconDefault.html)
 
-
 ## Spritesheet
 
 To use all the advantages of SVGs, we use a [icon-spritesheet](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) with our icons. It's as simple as a svg-file including many different icons in one file. This gives us the advantage of only having to load one resource from the server. Also we are able to color the icons with plain css and we get a better accessbility. The icon-sprite can be found under `dist/images/icon__sprite.svg`. It will be automatically generated using the npm package [svg-spritemap-webpack-plugin](https://github.com/cascornelissen/svg-spritemap-webpack-plugin) and the icon sources from `assets/icons`.
 
 To use one icon out of this icon-sprite, you have to set the path to the `icon__sprite.svg` file inside the `use` tag and set the reference of the icon you want to display. For example you can display the `arrow-down` icon with the following `use` element inside your `svg` tag:
 
+```xml
     <use xlink:href="/assets/images/icon__sprite.svg#arrow-down">
+```
 
 <ContentRack
     fields='
@@ -54,7 +54,7 @@ To use one icon out of this icon-sprite, you have to set the path to the `icon__
 
 ## Browser support
 
-Most of the mordern and wide-spread browsers have a [native support](https://caniuse.com/#search=svg) of rendering svg files. Despite this some older browsers do not support svg-icons natively, especially when referencing to a seperate svg-file instead of inline-svg definitions. Therefore we have to use the polyfill [`svg4everybody`](https://github.com/jonathantneal/svg4everybody) which is already included by default in the `dist/js/cake.js` bundle. If you use your own JavaScript you should consider to use a similar polyfill.
+Most of the mordern and wide-spread browsers have a [native support](https://caniuse.com/#search=svg) of rendering SVG files. Despite this some older browsers do not support SVG icons natively, especially when referencing to a seperate SVG file instead of inline-svg definitions. Therefore we have to use the polyfill [`svg4everybody`](https://github.com/jonathantneal/svg4everybody) which is already included by default in the `dist/js/cake.js` bundle. If you use your own JavaScript you should consider to use a similar polyfill.
 
 ## Icon sizing
 
@@ -136,7 +136,6 @@ By default (when only using the `.icon` class) the icon will scale to it's avail
  />
 
 ![IconSizing4](examples/IconSizing4.html)
-
 
 ## Icon positioning
 
@@ -226,7 +225,7 @@ You can use a bunch of prestyled icons that are available through our icon-sprit
 
 * The Lidl universe contains plenty of other icons that are not available in our design system and frontend framework.
 * The naming of SVG files also differs from the Lidl standard because of the general usage of icons in our product.
-* For more icons and further details log on to [Schwarz brandmangement](mailto:brandmanagement@mail.schwarz)
+* For more icons and further details log on to [Schwarz brandmangement](mailto:brandmanagement@mail.schwarz).
 
 ## Accessibility
 

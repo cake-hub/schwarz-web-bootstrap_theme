@@ -22,10 +22,10 @@ For licensing reasons, we cannot offer the web font as a direct download.
 
 Please read the license file carefully! **Here are some example conditions:**
 
-- You have to add a **tracking snippet** that counts the page views. It is a "pay as you go" license and the tracking is required for billing purposes. You get a example for implementation in pure CSS and Javascript.
-- You have to name **copyright notice**,
-- you are not **allowed to use the font within form elements**
-- and **some more conditions**.
+* You have to add a **tracking snippet** that counts the page views. It is a "pay as you go" license and the tracking is required for billing purposes. You get a example for implementation in pure CSS and Javascript.
+* You have to name **copyright notice**,
+* you are not **allowed to use the font within form elements**
+* and **some more conditions**.
 
 You get all the requirements together with the font.
 </AlertWarning>
@@ -34,9 +34,9 @@ You get all the requirements together with the font.
 
 Here is a example how you can implement credentials in `.npmrc` to access the internal font package for SCHWARZ theme.
 
-- Add scope to the Azure registry
-- replace the password and email values. Contact us to get credentials.
-- Setup proxy if necessary
+* Add scope to the Azure registry.
+* Replace the password and email values. Contact us to get credentials.
+* Setup proxy if necessary.
 
 ```toml
 @cake-hub:registry=https://pkgs.dev.azure.com/schwarzit/_packaging/cake/npm/registry/
@@ -84,10 +84,10 @@ You can use the `$font-family-system` variable if you want to use **only system 
 
 The SCHWARZ theme sets global display, typography, and link styles. When more control is needed, check out the textual utility classes.
 
-- For a more inclusive and accessible type scale, we assume the browser default root `font-size` (typically 16px) so visitors can customize their browser defaults as needed.
-- Use the `$font-family-base`, `$font-size-base`, and `$line-height-base` attributes as our typographic base applied to the `<body>`.
-- Set the global link color via `$link-color` and apply link underlines only on `:hover`.
-- Use `$body-bg` to set a `background-color` on the `<body>` (`#fff` by default).
+* For a more inclusive and accessible type scale, we assume the browser default root `font-size` (typically 16px) so visitors can customize their browser defaults as needed.
+* Use the `$font-family-base`, `$font-size-base`, and `$line-height-base` attributes as our typographic base applied to the `<body>`.
+* Set the global link color via `$link-color` and apply link underlines only on `:hover`.
+* Use `$body-bg` to set a `background-color` on the `<body>` (`#fff` by default).
 
 These styles can be found within `_reboot.scss`, and the global variables are defined in `_variables.scss`. Make sure to set `$font-size-base` in `rem`.
 
@@ -179,7 +179,6 @@ To place links on darker backgrounds simply use the `.negative` variant of our l
 
 ![TypographyListsUnstyled](examples/TypographyListsUnstyled.html)
 
-
 ## Responsive font sizes
 
 CAKE ships with the option to enable responsive font sizes, allowing text to scale more naturally across device and viewport sizes. <abbr title="Responsive font sizes">RFS</abbr> can be enabled by changing the `$enable-responsive-font-sizes` Sass variable to `true` and recompiling CAKE.
@@ -204,3 +203,41 @@ $fonts-to-load:     MyFont MyFontCondPro-italic notmal italic "../myFonts/",
                     Roboto roboto-v19-latin-regular,
                     Roboto roboto-v19-latin-700 700;
 ```
+
+## Typefaces
+
+To implement the typefaces of the [design](/Schwarz/Web/Design/General/Typography/Typography.md) faster, we added a list of classes and mixins with the same name. Each typeface comes with the right `font-weight`, `line-height` and `font-size`, but of course these properties can be overridden afterwards.
+
+<ContentRack
+    fields='
+        "preview": {
+            "src": "examples/TypographyTypefaces.html",
+            "type": "link"
+        },
+        "<html>":{
+            "src": "examples/TypographyTypefaces.html",
+            "type": "content",
+            "selector": "#app"
+        }
+    '
+ />
+
+![TypographyTypefaces](examples/TypographyTypefaces.html)
+
+The classes are useful on the HTML, but also with `@extend` in the SCSS.
+
+* `.typeface-small`
+* `.typeface-small-bold`
+* `.typeface-basic`
+* `.typeface-basic-bold`
+* `.typeface-large`
+* `.typeface-large-bold`
+
+If you are in a breakpoint on SCSS, you have to use the mixin instead.
+
+* `@include cake-typeface-small();`
+* `@include cake-typeface-small-bold();`
+* `@include cake-typeface-basic();`
+* `@include cake-typeface-basic-bold();`
+* `@include cake-typeface-large();`
+* `@include cake-typeface-large-bold();`

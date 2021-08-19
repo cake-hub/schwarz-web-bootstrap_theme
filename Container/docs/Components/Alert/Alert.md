@@ -163,7 +163,7 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `elements [Array]` - provide the specific closing-button element of the alert (optional)
+* `elements [Array]` - provide the specific closing-button element of the alert (optional).
 * `querySelector [String]` - provide a query-selector to select all closing-button elements of the alert. (optional, default: `button[data-controller="alert/close"]`)
 
 If you do provide the `options.elements` the `options.querySelector` option gets ignored. If you do not provide any `options.elements` always the `options.querySelector` is used!

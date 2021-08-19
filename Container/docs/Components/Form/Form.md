@@ -525,10 +525,10 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `passwordInputElements [Array]` - provide the specific `input[type=password]` element with password toggle (optional)
-* `passwordInputQuerySelector [String]` - provide a query-selector to select all `input[type=password]` with password toggle (optional, default: `[data-controller="inputfield/password"]`)
-* `passwordToggleElements [Array]` - provide the specific password toggle button (optional)
-* `passwordToggleQuerySelector [String]` - provide a query-selector to select all password toggle buttons (optional, default: `[data-controller="inputfield/password/toggle"]`)
+* `passwordInputElements [Array]` - provide the specific `input[type=password]` element with password toggle (optional).
+* `passwordInputQuerySelector [String]` - provide a query-selector to select all `input[type=password]` with password toggle (optional, default: `[data-controller="inputfield/password"]`).
+* `passwordToggleElements [Array]` - provide the specific password toggle button (optional).
+* `passwordToggleQuerySelector [String]` - provide a query-selector to select all password toggle buttons (optional, default: `[data-controller="inputfield/password/toggle"]`).
 
 If you do provide the `options.[...]Elements` the `options.[...]QuerySelector` option gets ignored. If you do not provide any `options.[...]Elements` always the `options.[...]QuerySelector` is used!
 

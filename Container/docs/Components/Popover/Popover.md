@@ -132,7 +132,7 @@ As already mentioned above, you can add a popover to any valid html element. The
 
 ![PopoverCustomElement](examples/PopoverCustomElement.html)
 
-## Colors / Themes
+## Colors / themes
 
 The popover will show up in white "cake" theme as a default. The white color fits perfectly for the purpose of popovers.
 
@@ -192,9 +192,9 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `popoverElements [Array]` - provide the popover elements as HTMLElement (optional)
-* `popoverQuerySelector [String]` - provide a query-selector to select all popover elements. (optional, default: `*[data-tippy-content]`)
-* `tippyProps [String]` - provide custom [tippy.js configuration](https://atomiks.github.io/tippyjs/v6/all-props/) properties. (optional)
+* `popoverElements [Array]` - provide the popover elements as HTMLElement (optional).
+* `popoverQuerySelector [String]` - provide a query-selector to select all popover elements. (optional, default: `*[data-tippy-content]`).
+* `tippyProps [String]` - provide custom [tippy.js configuration](https://atomiks.github.io/tippyjs/v6/all-props/) properties. (optional).
 
 If you do provide the `options.popoverElements` the `options.popoverQuerySelector` option gets ignored. If you do not provide any `options.popoverElements` always the `options.popoverQuerySelector` is used!
 

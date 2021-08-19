@@ -28,7 +28,10 @@ We use the Schwarz house typeface HelveticaNeueLT as primary font family. “Nat
 
 ```scss
 $font-family-sans-serif:
-    HelveticaNeueLT,
+    HelveticaNeueLTPro,
+    "Helvetica Neue",
+    "Helvetica",
+    Arial,
     // Safari for macOS and iOS (San Francisco)
     -apple-system,
     // Chrome < 56 for macOS (San Francisco)

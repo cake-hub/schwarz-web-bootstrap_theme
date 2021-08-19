@@ -4,7 +4,7 @@ The header is a component for creating brand awareness and providing important o
 
 ![HeaderPreview](examples/HeaderPreview.html)
 
-## Parts of the Header
+## Parts of the header
 
 The header consists of different parts, to provide various information or interactable content:
 
@@ -33,9 +33,9 @@ The default header works responsive with all our breakpoints. We use flexbox to 
 
 The header can have a few different states which will look differently as you can see in the example below. These states are handled with some special modifier-classes added to the outer `<header>` element. There are three different states:
 
-* collapsed header on scroll (`.header-collapsed`)
-* the expanded header on mobile view [viewports XS + SM] (`.header-mobile-expanded`)
-* active search on header variant [viewports MD + LG] (`.header-search-active`)
+* collapsed header on scroll (`.header-collapsed`).
+* the expanded header on mobile view [viewports XS + SM] (`.header-mobile-expanded`).
+* active search on header variant [viewports MD + LG] (`.header-search-active`).
 
 Each of these states will be automatically added to the header-element when using [our JavaScript](#javascript) as described at the end of this page.
 
@@ -177,15 +177,15 @@ As simple as the other both header states are, that simple is also the collapsed
 Due to the vertical alignment of the main and sub navigation items on mobile, they all have enough space to be shown at once (scrolling). Despite on desktop viewports there could be the case, that not all navigation items can be shown at once. There is not enough space available. To prevent navigation items to be hidden, the header automatically moves all navigation items, that do not have enough space, into another navigation item "more". These navigation items will then be shown in a flyout on hovering the "more" link.
 In order to enable this behavior you have to set the following `data-controller`s to the specified elements.
 
-* `data-controller="header/main/list"` to the `ul.header-main-nav-list` element
-* `data-controller="header/main/more"` to an additional `li.header-main-nav-item` element
-* `data-controller="header/main/more/list"` to an additional `ul.header-sub-nav` inside the "more" list element
+* `data-controller="header/main/list"` to the `ul.header-main-nav-list` element.
+* `data-controller="header/main/more"` to an additional `li.header-main-nav-item` element.
+* `data-controller="header/main/more/list"` to an additional `ul.header-sub-nav` inside the "more" list element.
 
 If you do have an **active** main navigation with a shown sub navigation you also have to set some additional `data-controller`s.
 
-* `data-controller="header/sub"` to the `ul.header-sub-nav` element
-* `data-controller="header/sub/more"` to an additional `li.header-sub-nav-item` element
-* `data-controller="header/sub/more/list"` to an additional `ul.header-sub-nav` inside the "more" list element
+* `data-controller="header/sub"` to the `ul.header-sub-nav` element.
+* `data-controller="header/sub/more"` to an additional `li.header-sub-nav-item` element.
+* `data-controller="header/sub/more/list"` to an additional `ul.header-sub-nav` inside the "more" list element.
 
 ### Flyout alignment
 

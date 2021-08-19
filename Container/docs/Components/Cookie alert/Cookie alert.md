@@ -2,7 +2,7 @@
 Please ensure to comply with the corporate identity.
 </AlertInfo>
 
-# Cookie Alert
+# Cookie alert
 
 In order to be legally on the safe side, the cookie alert must be used in most cases. This modal informs the user about cookies and also gives the user the possibility to set his personal cookie preferences. This cookie alert is designed as an overlay because it is legally required that the user first interacts with this element before he can use the site.
 
@@ -27,14 +27,14 @@ This component uses the [button component](../Button/Button.md) and the checkbox
 The cookie alert uses the `<dialog>` element. In order to get the correct styling applied to it, you have to use the `.cookie-alert` class.
 This dialog element is the transparent black background. Inside this `<dialog>` element you should create a `<div>` with the class `.cookie-alert-modal` applied to it. This is the wrapper element for all the content elements of this component:
 
-* title as a `<h2>` element with the class `.h5`
-* description as a `<p>` tag and the class `.cookie-alert-description`
-* more-details link `.cookie-alert-detail-link`
-* *accept all* cookies button
-* the cookie configuration collapsible `<div>` `.cookie-alert-configuration`
-  * the checkboxes wrapper `<div>` `.cookie-alert-configuration-settings`
-    * the labels of each checkbox `.cookie-alert-checkbox-label`
-  * the *accept configuration* button
+* title as a `<h2>` element with the class `.h5`.
+* description as a `<p>` tag and the class `.cookie-alert-description`.
+* more-details link `.cookie-alert-detail-link`.
+* *accept all* cookies button.
+* the cookie configuration collapsible `<div>` `.cookie-alert-configuration`.
+  * the checkboxes wrapper `<div>` `.cookie-alert-configuration-settings`.
+    * the labels of each checkbox `.cookie-alert-checkbox-label`.
+  * the *accept configuration* button.
 
 The detailed structure of this component can be seen in the above example. Best practice is to place the cookie alert component as the first element in the body of each page. Additionaly it is mandatory to place a link to your cookie-information page into the description text! **Be aware, that on the cookie-information page there shouldn't be any cookie-alert. Because otherwise the visitor is not able to read the information before accepting anything. Thus you should not save or use any cookies on this page because the visitor has not accepted anything.**
 
@@ -52,11 +52,11 @@ With our JavaScript we have focused on the usage in [CookieBot](https://cookiebo
 
 To make your `HTML` work with our JavaScript, you have to apply the coorect `data-controller`s. Every element, that causes some JavaScript code execution needs one of the following attributes:
 
-* the `<dialog>` element should have the attribute `data-controller="cookie-alert"` attatched to it
-* the more details link `.cookie-alert-detail-link` has the attribute `data-controller="cookie-alert/detail-link"`
-* for the *accept all* button `data-controller="cookie-alert/button/accept"`
-* the configuration element `.cookie-alert-configuration` needs the `data-controller="cookie-alert/configuration"` attribtue attatched
-* the *accept configuration* button has the attribute `data-controller="cookie-alert/button/configuration"`
+* the `<dialog>` element should have the attribute `data-controller="cookie-alert"` attatched to it.
+* the more details link `.cookie-alert-detail-link` has the attribute `data-controller="cookie-alert/detail-link"`.
+* for the *accept all* button `data-controller="cookie-alert/button/accept"`.
+* the configuration element `.cookie-alert-configuration` needs the `data-controller="cookie-alert/configuration"` attribtue attatched.
+* the *accept configuration* button has the attribute `data-controller="cookie-alert/button/configuration"`.
 
 Our JavaScript parses the elements with the above mentioned `data-attributes` and adds three click event listener to the two buttons (*accept all* and *accept configuration*) and to the *more details* link. These click event listeners implement some functionality like setting up the appropriate accessibility attributes or disabling the primary CTA button when showing more details.
 The JavaScript of this component exposes three methods that can be used:
@@ -129,9 +129,9 @@ _Brief notes_: If you include the JavaScript or CSS of the Cookiebot yourself an
 
 In addition you have to adjust the `Name of function to show alert` and the `Name of function to hide alert` with the following values like in the screenshot below:
 
-* Name of function to show alert: `window.cake.cookie.showCookieAlert`
-* Name of function to show alert without forcing the browser focus to stay on the exetended cookie alert: `window.cake.cookie.showCookieAlertWithoutForcedFocus`
-* Name of function to hide alert: `window.cake.cookie.hideCookieAlert`
+* Name of function to show alert: `window.cake.cookie.showCookieAlert`.
+* Name of function to show alert without forcing the browser focus to stay on the exetended cookie alert: `window.cake.cookie.showCookieAlertWithoutForcedFocus`.
+* Name of function to hide alert: `window.cake.cookie.hideCookieAlert`.
 
 ![Setting up the cookiebot function values](assets/cookiebot/functions.png)
 

@@ -6,7 +6,7 @@ Include it with your favorite package manager npm or download CAKE Schwarz Web B
 
 Pull in CAKE's **source files** into nearly any project with some of the most popular package managers. No matter the package manager, CAKE will **require a Sass compiler, [Autoprefixer](https://github.com/postcss/autoprefixer) and [Babel](https://babeljs.io/)** for a setup that matches our official compiled versions.
 
-### npm
+### NPM
 
 Install CAKE in your Node.js powered apps with [the npm package]({{ variables.npmPackageUrl }}):
 
@@ -27,11 +27,11 @@ CAKE's `package.json` contains some additional metadata under the following keys
 - `sass` - path to CAKE's main [Sass](https://sass-lang.com/) source file
 - `style` - path to CAKE's non-minified CSS that's been precompiled using the default settings (no customization)
 
-### optional npm font package
+### Optional NPM font package
 
 We included a `optionalDependency` in the SCHWARZ theme within the SCHWARZ CI web font. Read more about getting the font and credentials to implement or download the font in our [typography page](../Content/Typography/Typography.md).
 
-#### registry settings and proxies
+#### Registry settings and proxies
 
 To be able to access our registry, if you are behind a proxy just configure the proxy settings of your project. To do so, you can configure your npm with a `.npmrc` file with the following content.
 
@@ -60,11 +60,11 @@ If you use already any special npm-registry in your project, you can also change
 
 Download ready-to-use compiled code for CAKE Schwarz Web Bootstrap theme to easily drop into your project, which includes:
 
-- Compiled and minified **CSS** bundles (`Container/dist/css`)
-- Compiled and minified **JavaScript plugins** (`Container/dist/js`)
-- Compiled and minified **assets/images** (`Container/dist/images`)
-- **documentation** (`Container/docs`)
-- and all the source files including a docker image
+* Compiled and minified **CSS** bundles (`Container/dist/css`).
+* Compiled and minified **JavaScript plugins** (`Container/dist/js`).
+* Compiled and minified **assets/images** (`Container/dist/images`).
+* **documentation** (`Container/docs`)
+* and all the source files including a docker image.
 
 <a href="{{ variables.bundleDownloadUrl }}#v{{ version }}&format=zip" className="btn btn-primary">Download Schwarz Web Bootstrap theme v{{ version }} as ZIP file</a>
 
@@ -72,9 +72,9 @@ Download ready-to-use compiled code for CAKE Schwarz Web Bootstrap theme to easi
 
 Compile CAKE with your own asset pipeline by downloading our source Sass, JavaScript, and documentation files. This option requires some additional tooling:
 
-- Sass compiler (e.g Libsass or Ruby Sass) for compiling your CSS.
-- [Autoprefixer](https://github.com/postcss/autoprefixer) for CSS vendor prefixing
-- [Babel](https://babeljs.io/) for compiling ES6 JavaScript into browser-compliant JavaScript
-- [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg) to load svg-icons inline to the css
+* Sass compiler (e.g Libsass or Ruby Sass) for compiling your CSS.
+* [Autoprefixer](https://github.com/postcss/autoprefixer) for CSS vendor prefixing.
+* [Babel](https://babeljs.io/) for compiling ES6 JavaScript into browser-compliant JavaScript.
+* [postcss-inline-svg](https://github.com/TrySound/postcss-inline-svg) to load svg-icons inline to the css.
 
 <a href="{{ variables.sourceDownloadUrl }}#v{{ version }}&format=zip" className="btn btn-primary">Download source</a>

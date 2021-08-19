@@ -18,51 +18,51 @@ The classes are named using the format `{property}{sides}-{size}` for `xs` and `
 
 Where *property* is one of:
 
-* `m` \- for classes that set `margin`
-* `p` \- for classes that set `padding`
+* `m` \- for classes that set `margin`.
+* `p` \- for classes that set `padding`.
 
 Where *sides* is one of:
 
-* `t` \- for classes that set `margin-top` or `padding-top`
-* `b` \- for classes that set `margin-bottom` or `padding-bottom`
-* `l` \- for classes that set `margin-left` or `padding-left`
-* `r` \- for classes that set `margin-right` or `padding-right`
-* `x` \- for classes that set both `*-left` and `*-right`
-* `y` \- for classes that set both `*-top` and `*-bottom`
-* blank \- for classes that set a `margin` or `padding` on all 4 sides of the element
+* `t` \- for classes that set `margin-top` or `padding-top`.
+* `b` \- for classes that set `margin-bottom` or `padding-bottom`.
+* `l` \- for classes that set `margin-left` or `padding-left`.
+* `r` \- for classes that set `margin-right` or `padding-right`.
+* `x` \- for classes that set both `*-left` and `*-right`.
+* `y` \- for classes that set both `*-top` and `*-bottom`.
+* blank \- for classes that set a `margin` or `padding` on all 4 sides of the element.
 
 For the *size* you have to look at the horizontal and vertical spaces separately. While the horizontal spaces are available in 17 different *sizes* (`0`, `1`, `2` ... `14`, `15`, `16`), for the vertical spaces there are only 6 different sizes (`0`, `1`, `2`, `4`, `8`, `16`). The `margin` and `padding` on all 4 sides behaves exactly like the vertical spaces.
 
 Where *size* for *sides* `l`, `r`, `x` is one of:
 
-* `0` \- for classes that eliminate the `margin` or `padding` by setting it to `0`
-* `1` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 1`
-* `2` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 2`
-* `3` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 3`
-* `4` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 4`
-* `5` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 5`
-* `6` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 6`
-* `7` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 7`
-* `8` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 8`
-* `9` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 9`
-* `10` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 10`
-* `11` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 11`
-* `12` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 12`
-* `13` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 13`
-* `14` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 14`
-* `15` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 15`
-* `16` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 16`
-* `auto` \- for classes that set the `margin` to auto
+* `0` \- for classes that eliminate the `margin` or `padding` by setting it to `0`.
+* `1` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 1`.
+* `2` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 2`.
+* `3` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 3`.
+* `4` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 4`.
+* `5` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 5`.
+* `6` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 6`.
+* `7` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 7`.
+* `8` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 8`.
+* `9` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 9`.
+* `10` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 10`.
+* `11` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 11`.
+* `12` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 12`.
+* `13` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 13`.
+* `14` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 14`.
+* `15` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 15`.
+* `16` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 16`.
+* `auto` \- for classes that set the `margin` to auto.
 
 Where *size* for *sides* `t`, `b`, `y`, `m` is one of:
 
-* `0` \- for classes that eliminate the `margin` or `padding` by setting it to `0`
-* `1` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 1`
-* `2` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 2`
-* `4` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 4`
-* `8` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 8`
-* `16` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 16`
-* `auto` \- for classes that set the `margin` to auto
+* `0` \- for classes that eliminate the `margin` or `padding` by setting it to `0`.
+* `1` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 1`.
+* `2` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 2`.
+* `4` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 4`.
+* `8` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 8`.
+* `16` \- (by default) for classes that set the `margin` or `padding` to `$spacer * 16`.
+* `auto` \- for classes that set the `margin` to auto.
 
 (You can add more sizes by adding entries to the `$spacers` Sass map variable.)
 

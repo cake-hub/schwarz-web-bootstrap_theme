@@ -533,10 +533,13 @@ window.cake.header = (options = defaultOptions) => {
         // Method to handle flyout position
         const handleFlyoutAlignment = (element) => {
             const flyoutList = element.siblingSelector ("ul");
-            const flyoutListBox = flyoutList.getBoundingClientRect ();
 
-            if (flyoutListBox.right + 20 > (window.innerWidth || document.documentElement.clientWidth)) {
-                flyoutList.classList.add ("right");
+            if (flyoutList) {
+                const flyoutListBox = flyoutList.getBoundingClientRect ();
+
+                if (flyoutListBox.right + 20 > (window.innerWidth || document.documentElement.clientWidth)) {
+                    flyoutList.classList.add ("right");
+                }
             }
         };
 

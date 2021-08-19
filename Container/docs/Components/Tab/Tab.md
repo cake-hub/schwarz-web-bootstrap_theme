@@ -59,10 +59,10 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `tabElements [Array]` - provide the tab elements as HTMLElement (optional)
-* `tabQuerySelector [String]` - provide a query-selector to select all tab elements. (optional, default: `[data-controller="tab"]`)
-* `tabButtonElements [Array]` - provide the tab button elements as HTMLElement. For each tab element you should provide an array with all tab-buttons (optional)
-* `tabButtonQuerySelector [String]` - provide a query-selector to select all tab button elements. (optional, default: `[data-controller="tab/button"]`)
+* `tabElements [Array]` - provide the tab elements as HTMLElement (optional).
+* `tabQuerySelector [String]` - provide a query-selector to select all tab elements. (optional, default: `[data-controller="tab"]`).
+* `tabButtonElements [Array]` - provide the tab button elements as HTMLElement. For each tab element you should provide an array with all tab-buttons (optional).
+* `tabButtonQuerySelector [String]` - provide a query-selector to select all tab button elements. (optional, default: `[data-controller="tab/button"]`).
 
 If you do provide the `options.[...]Elements` the `options.[...]QuerySelector` option gets ignored. If you do not provide any `options.[...]Elements` always the `options.[...]QuerySelector` is used!
 
@@ -115,12 +115,12 @@ document.getElementById ("#tab-selector").addEventListener('tabChanged', (e) => 
 
 The event `tabChanged` will give you information about the tab component the changes have been applied to. You can receive this information in the event-listener argument with `e.detail`. `e.detail` will be an object with the following properties:
 
-* `tabElement`: tab element `[data-controller="tab"]`
-* `elementsCount`: number of tab buttons available `[data-controller="tab/button"]`
-* `oldIndex`: index of the previous active tab
-* `oldElement`: tab button element of the previous active tab
-* `activeIndex`: index of the new active tab
-* `activeElement`: tab button element of the new active tab
+* `tabElement`: tab element `[data-controller="tab"]`.
+* `elementsCount`: number of tab buttons available `[data-controller="tab/button"]`.
+* `oldIndex`: index of the previous active tab.
+* `oldElement`: tab button element of the previous active tab.
+* `activeIndex`: index of the new active tab.
+* `activeElement`: tab button element of the new active tab.
 
 *All indexes starts at __0__ for the first element and are __incremented by 1__ for each following item. Therefore the index of the last item is always `index = elementsCount - 1`*
 

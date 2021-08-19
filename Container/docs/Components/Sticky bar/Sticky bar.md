@@ -82,11 +82,11 @@ document.addEventListener ('DOMContentLoaded', () => {
 });
 ```
 
-* `toTopElement [HTMLElement]` - provide the specific to-top link HTMLElement. (optional)
-* `toTopQuerySelector [String]` - provide a query-selector to select all to-top link elements. (optional, default: `[data-controller="sticky-bar/to-top"]`)
+* `toTopElement [HTMLElement]` - provide the specific to-top link HTMLElement. (optional).
+* `toTopQuerySelector [String]` - provide a query-selector to select all to-top link elements. (optional, default: `[data-controller="sticky-bar/to-top"]`).
 * `offsetPx [Number]` - number of pixels to use as offset like explained below. (optional, default: `600`).
 * `minPageHeightPx [Number]` - number of pixels the page height must be to enable the to-top link. (optional, default: `4000`).
-* `enableSmoothScrolling [Boolean]` - set to `true` to enable the [smooth-scrolling](#scroll-behavior) (optional, default: `true`)
+* `enableSmoothScrolling [Boolean]` - set to `true` to enable the [smooth-scrolling](#scroll-behavior) (optional, default: `true`).
 
 If you do provide the `options.toTopElement` the `options.toTopQuerySelector` option gets ignored. If you do not provide any `options.toTopElement` always the `options.toTopQuerySelector` is used!
 

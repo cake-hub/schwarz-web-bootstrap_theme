@@ -26,10 +26,12 @@
 }
 
 .invisible {
-  position: fixed;
-  top: 100%;
-  left: 100%;
-  pointer-events: none;
+  // stylelint-disable declaration-no-important
+  position: fixed !important;
+  top: 100% !important;
+  left: 100% !important;
+  pointer-events: none !important;
+  // stylelint-enable declaration-no-important
 }
 
 @include media-breakpoint-down(sm) {

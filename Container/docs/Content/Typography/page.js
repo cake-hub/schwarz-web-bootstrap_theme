@@ -60,10 +60,22 @@ const TypographyListsUnstyled = () => (
     </ul>
 );
 
+const TypographyTypefaces = () => (
+    <React.Fragment>
+        <div className="typeface-small">.typeface-small</div>
+        <div className="typeface-small-bold">.typeface-small-bold</div>
+        <div className="typeface-basic">.typeface-basic</div>
+        <div className="typeface-basic-bold">.typeface-basic-bold</div>
+        <div className="typeface-large">.typeface-large</div>
+        <div className="typeface-large-bold">.typeface-large-bold</div>
+    </React.Fragment>
+);
+
 export default {
     TypographyHeadlines,
     TypographyLinks,
     TypographyLinksNegative,
     TypographyLists,
-    TypographyListsUnstyled
+    TypographyListsUnstyled,
+    TypographyTypefaces
 };

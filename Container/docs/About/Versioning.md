@@ -1,6 +1,6 @@
 # Versioning
 
-## Semantic Versioning
+## Semantic versioning
 
 For transparency into our release cycle and in striving to maintain backward compatibility, CAKE is maintained under [the Semantic Versioning guidelines](https://semver.org/).
 
