@@ -19,6 +19,12 @@ if (typeof window.cake !== "object") {
             listenerConfig.element.removeEventListener (listenerConfig.listenerType, listenerConfig.listenerFunction);
         });
     },
+    // Add custom polyfills / utilities
+    _addPolyfills: function () {
+        if (window.NodeList && !NodeList.prototype.forEach) {
+            NodeList.prototype.forEach = Array.prototype.forEach;
+        }
+    },
     //Set cookie settings and hide cookie
     acceptCookies: function (optinPreferences, optinStatistics, optinMarketing) {
         if (window.Cookiebot) {
@@ -31,21 +37,27 @@ if (typeof window.cake !== "object") {
         return window.cake.cookie.showCookieAlert (false);
     },
     showCookieAlert: function (forceFocus) {
+        window.cake.cookie._addPolyfills ();
+
         if (forceFocus === undefined) {
             forceFocus = true;
         }
         window.cake.cookie._forceFocus = forceFocus;
+
+        // Parse cookie-alert element
         var cookieAlert = document.querySelector ("*[data-controller='cookie-alert']");
         //If not cookie-alert is available, just skip
         if (!cookieAlert || cookieAlert.classList.contains ("opened")) {
             return;
         }
+
+        // Parse relevant elements
         var cookieAlertModal = cookieAlert.childNodes [0];
         var acceptAllButton = document.querySelector ("*[data-controller='cookie-alert/button/accept']");
         var acceptConfigButton = document.querySelector ("*[data-controller='cookie-alert/button/configuration']");
         var showDetailsLink = document.querySelector ("*[data-controller='cookie-alert/detail-link']");
         var configurationDiv = document.querySelector ("*[data-controller='cookie-alert/configuration']");
-        var acceptAllButtonTabIndex = acceptAllButton.tabindex;
+        var closeElements = document.querySelectorAll("*[data-controller='cookie-alert/button/close']");
 
         //update overlay/alert size depending on viewport
         setTimeout (function () {
@@ -55,42 +67,51 @@ if (typeof window.cake !== "object") {
         window.cake.cookie._addEventListener (acceptAllButton, "click", function () {
             window.cake.cookie.acceptCookies (true, true, true);
         });
+
         window.cake.cookie._addEventListener (acceptConfigButton, "click", function () {
             var preferenceCookies = document.getElementById ("preferences").checked || false;
             var statisticsCookies = document.getElementById ("statistics").checked || false;
             var marketingCookies = document.getElementById ("marketing").checked || false;
             window.cake.cookie.acceptCookies (preferenceCookies, statisticsCookies, marketingCookies);
         });
+
         window.cake.cookie._addEventListener (showDetailsLink, "click", function () {
             configurationDiv.classList.toggle("expanded");
             showDetailsLink.classList.toggle("expanded");
 
             if (configurationDiv.classList.contains ("expanded")) {
+                // Make acceptAllButton disabled
+                acceptAllButton.disabled = true;
+
                 //Adjust details-text, if texts are available
                 if (window.CookieConsent && window.CookieConsent.dialog) {
-                    showDetailsLink.textContent = window.CookieConsent.dialog.hideDetailsText;
+                    showDetailsLink.innerHTML = window.CookieConsent.dialog.hideDetailsText;
                 }
                 configurationDiv.setAttribute ("aria-expanded", "true");
                 cookieAlertModal.scrollTop = cookieAlertModal.scrollHeight;
-
-                // Make acceptAllButton disabled
-                acceptAllButton.disabled = true;
-                acceptAllButton.tabindex = "-1";
-
             } else {
-                //Adjust details-text, if texts are available
-                if (window.CookieConsent && window.CookieConsent.dialog) {
-                    showDetailsLink.textContent = window.CookieConsent.dialog.showDetailsText;
-                }
-                configurationDiv.setAttribute ("aria-expanded", "false");
-
                 // Make acceptAllButton enabled
                 acceptAllButton.disabled = false;
-                acceptAllButton.tabindex = acceptAllButtonTabIndex;
+
+                //Adjust details-text, if texts are available
+                if (window.CookieConsent && window.CookieConsent.dialog) {
+                    showDetailsLink.innerHTML = window.CookieConsent.dialog.showDetailsText;
+                }
+                configurationDiv.setAttribute ("aria-expanded", "false");
             }
         });
 
+        // Close elements event Listener
+        closeElements.forEach(function (closeElement) {
+            window.cake.cookie._addEventListener (closeElement, 'click', function (e) {
+                e.preventDefault();
+                window.cake.cookie.acceptCookies (false, false, false);
+            });
+        });
+
         //Display cookie alert
+        cookieAlert.showModal = cookieAlert.showModal || function () {};
+        cookieAlert.showModal (); // Native Browser-Method for the dialog-element
         cookieAlert.setAttribute ('open', 'open');
         cookieAlert.classList.add ("opened");
         cookieAlert.style.display = "block";
@@ -100,6 +121,8 @@ if (typeof window.cake !== "object") {
         var cookieAlert = document.querySelector ("*[data-controller='cookie-alert']");
 
         //Hide cookie alert
+        cookieAlert.close = cookieAlert.close || function () {};
+        cookieAlert.close(); // Native Browser-Method for the dialog-element
         cookieAlert.removeAttribute ('open');
         cookieAlert.classList.remove ("opened");
         cookieAlert.style.display = "none";
@@ -113,7 +136,7 @@ if (typeof window.cake !== "object") {
     // bugfix - oldBrowser - Safari iOS viewport is initially bigger than the visible part (https://medium.com/@susiekim9/how-to-compensate-for-the-ios-viewport-unit-bug-46e78d54af0d)
     _tmpStylings: [],
     _updateOverlaySize: function (cookieAlert, acceptAllButton, setEventListener) {
-        if (setEventListener === true) {
+        if (setEventListener === true && window.cake.cookie._tmpStylings.length < 1) {
             window.cake.cookie._tmpStylings.push ({
                 el: document.body,
                 val: document.body.style.overflow,
@@ -134,14 +157,10 @@ if (typeof window.cake !== "object") {
                 val: document.documentElement.style.height,
                 attr: "height"
             });
+
             window.cake.cookie._addEventListener (window, "resize", function () {
                 //On resize or orientation switch, update the size of the alert
-                window.scrollTo (0, 0);
                 window.cake.cookie._updateOverlaySize (cookieAlert);
-            }.bind (cookieAlert));
-            window.cake.cookie._addEventListener (window, "scroll", function () {
-                //Prevent page from scrolling out of the cookie-alert
-                window.scrollTo (0, 0);
             }.bind (cookieAlert));
 
             //Keep focus inside the cookie-alert element, if option is set to true
@@ -149,7 +168,7 @@ if (typeof window.cake !== "object") {
                 cookieAlert.querySelectorAll ("button,a,input").forEach (function (element) {
                     window.cake.cookie._addEventListener (element, "focusout", function () {
                         setTimeout (function () {
-                            //Prevent page from scrolling out of the cookie-alert
+                            //Prevent focus from jumping out of cookie-alert elements
                             if (!cookieAlert.contains(document.activeElement)) {
                                 acceptAllButton.focus ();
                             }

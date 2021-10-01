@@ -57,6 +57,7 @@ To make your `HTML` work with our JavaScript, you have to apply the coorect `dat
 * for the *accept all* button `data-controller="cookie-alert/button/accept"`.
 * the configuration element `.cookie-alert-configuration` needs the `data-controller="cookie-alert/configuration"` attribtue attatched.
 * the *accept configuration* button has the attribute `data-controller="cookie-alert/button/configuration"`.
+* the *close* buttons or links must have the attribute `data-controller="cookie-alert/button/close"`
 
 Our JavaScript parses the elements with the above mentioned `data-attributes` and adds three click event listener to the two buttons (*accept all* and *accept configuration*) and to the *more details* link. These click event listeners implement some functionality like setting up the appropriate accessibility attributes or disabling the primary CTA button when showing more details.
 The JavaScript of this component exposes three methods that can be used:
