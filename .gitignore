@@ -22,7 +22,10 @@ Container/.npm
 .env
 
 # Dist folder
-Container/dist/
+#Container/dist/
+Container/dist/images/badge-white.svg
+Container/dist/images/logo-simple.svg
+Container/dist/images/logo.svg
 Container/docs/About/Change log.md
 Container/docs/**/examples
 Container/docs/_assets
