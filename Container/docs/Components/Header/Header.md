@@ -1,3 +1,7 @@
+<AlertWarning alertHeadline="Deprecated">
+This component is deprecated and will be no longer supported. Main reason is the outdated logo. Please get the up to date designs from the <a href="https://brand.schwarz/">SCHWARZ Brandportal</a>.
+</AlertWarning>
+
 # Header
 
 The header is a component for creating brand awareness and providing important or legally required links.
